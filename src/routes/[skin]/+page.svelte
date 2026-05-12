@@ -2,52 +2,68 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { t } from 'svelte-i18n';
-	import { excelConfig } from '$lib/skins/config';
+	import { isValidSkin, COMPATIBILITY, RECOMMENDED, pageTitle } from '$lib/skins/registry';
 	import ExcelSkin from '$lib/skins/excel/ExcelSkin.svelte';
-	import { panicMode } from '$lib/stores/panic';
+	import FigmaSkin from '$lib/skins/figma/FigmaSkin.svelte';
+	import NotionSkin from '$lib/skins/notion/NotionSkin.svelte';
+	import { setDefaultSkin } from '$lib/stores/progress';
 
 	const skinId = $derived($page.params.skin);
 
-	// Redirect unknown skins to home
 	$effect(() => {
-		if (!['excel', 'figma', 'notion'].includes(skinId)) {
-			goto('/');
-		}
+		if (!isValidSkin(skinId)) goto('/');
+		else setDefaultSkin(skinId);
 	});
 
-	const GAMES = [
-		{ id: 'snake', label: 'Visualizador de flujo de datos', recommended: skinId === 'excel' },
-		{ id: 'tetris', label: 'Optimizador de diseño', recommended: skinId === 'figma' },
-		{ id: 'typing', label: 'Benchmark de entrada', recommended: skinId === 'notion' }
-	];
+	const GAME_META: Record<string, { icon: string }> = {
+		snake:  { icon: '⊞' },
+		tetris: { icon: '◱' },
+		typing: { icon: 'T' }
+	};
 </script>
 
 <svelte:head>
-	<title>{skinId === 'excel' ? 'Q3 Revenue Analysis.xlsx — Excel' : skinId === 'figma' ? 'Design System v2 — Figma' : 'Meeting Notes — Notion'}</title>
+	<title>{isValidSkin(skinId) ? pageTitle(skinId) : 'Dashboard'}</title>
 </svelte:head>
+
+{#snippet gameSelector(accent: string)}
+	<div class="selector-overlay">
+		<div class="selector-panel" style:--accent={accent}>
+			<div class="selector-header">{$t('ui.openTemplate')}</div>
+			<div class="selector-list">
+				{#each COMPATIBILITY[skinId] ?? [] as gameId}
+					<a href="/{skinId}/{gameId}" class="selector-item"
+						class:recommended={RECOMMENDED[skinId] === gameId}>
+						<span class="item-icon">{GAME_META[gameId]?.icon}</span>
+						<span class="item-label">{$t(`games.${gameId}.name`)}</span>
+						{#if RECOMMENDED[skinId] === gameId}
+							<span class="rec-badge">{$t('ui.recommended')}</span>
+						{/if}
+					</a>
+				{/each}
+			</div>
+		</div>
+	</div>
+{/snippet}
 
 {#if skinId === 'excel'}
 	<ExcelSkin>
 		{#snippet children()}
-			<!-- Game selector overlay — looks like "open recent template" -->
-			<div class="selector-overlay">
-				<div class="selector-panel">
-					<div class="selector-header">{$t('ui.openTemplate')}</div>
-					<div class="selector-list">
-						{#each GAMES as game}
-							<a href="/{skinId}/{game.id}" class="selector-item" class:recommended={game.recommended}>
-								<span class="item-icon">⊞</span>
-								<span class="item-label">{game.label}</span>
-								{#if game.recommended}
-									<span class="rec-badge">{$t('ui.recommended')}</span>
-								{/if}
-							</a>
-						{/each}
-					</div>
-				</div>
-			</div>
+			{@render gameSelector('#1f7145')}
 		{/snippet}
 	</ExcelSkin>
+{:else if skinId === 'figma'}
+	<FigmaSkin>
+		{#snippet children()}
+			{@render gameSelector('#18a0fb')}
+		{/snippet}
+	</FigmaSkin>
+{:else if skinId === 'notion'}
+	<NotionSkin>
+		{#snippet children()}
+			{@render gameSelector('#191919')}
+		{/snippet}
+	</NotionSkin>
 {/if}
 
 <style>
@@ -69,7 +85,7 @@
 	}
 
 	.selector-header {
-		background: #1f7145;
+		background: var(--accent, #333);
 		color: white;
 		padding: 8px 14px;
 		font-size: 12px;
@@ -92,24 +108,19 @@
 		color: #333;
 		font-size: 12px;
 		border: 1px solid transparent;
+		font-family: inherit;
 		transition: background 0.1s;
 	}
 
-	.selector-item:hover {
-		background: #e8f5ee;
-		border-color: #b2dfca;
-	}
+	.selector-item:hover { background: #f5f5f5; border-color: #e0e0e0; }
+	.selector-item.recommended { background: #fafafa; }
 
-	.selector-item.recommended {
-		background: #f2faf6;
-	}
-
-	.item-icon { font-size: 14px; color: #1f7145; }
+	.item-icon { font-size: 14px; color: var(--accent, #333); width: 18px; text-align: center; }
 	.item-label { flex: 1; }
 
 	.rec-badge {
 		font-size: 9px;
-		background: #1f7145;
+		background: var(--accent, #333);
 		color: white;
 		padding: 1px 5px;
 		text-transform: uppercase;
