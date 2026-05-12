@@ -1,210 +1,280 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import { setLocale } from '$lib/i18n';
+	import { prefs, streak } from '$lib/stores/progress';
+	import SkinCard from '$lib/components/SkinCard.svelte';
+	import DayBadge from '$lib/components/DayBadge.svelte';
+	import type { SkinId } from '$lib/games/types';
+
+	const SKINS: { id: SkinId; accent: string }[] = [
+		{ id: 'excel',  accent: '#1f7145' },
+		{ id: 'figma',  accent: '#f24e1e' },
+		{ id: 'notion', accent: '#191919' }
+	];
+
+	const daily = { skinId: 'excel' as SkinId }; // just for featured highlight
 	import { getGameOfDay } from '$lib/stores/gameOfDay';
+	const todayCombo = getGameOfDay();
 
-	const daily = getGameOfDay();
-
-	const SKINS = [
-		{ id: 'excel', color: '#1f7145', icon: '⊞' },
-		{ id: 'figma', color: '#f24e1e', icon: '◈' },
-		{ id: 'notion', color: '#191919', icon: '☰' }
-	] as const;
+	const LOCALES = [
+		{ code: 'es', label: 'ES' },
+		{ code: 'en', label: 'EN' }
+	];
 </script>
 
 <svelte:head>
 	<title>Workflow Suite — Dashboard</title>
 </svelte:head>
 
-<main>
-	<header>
-		<h1>{$t('home.title')}</h1>
-		<p>{$t('home.subtitle')}</p>
+<div class="page">
+
+	<!-- Header -->
+	<header class="header">
+		<div class="header-inner">
+			<div class="logo">
+				<span class="logo-mark">⊟</span>
+				<span class="logo-text">{$t('home.title')}</span>
+			</div>
+			<nav class="header-nav">
+				<!-- Language switcher — subtle, looks like a settings control -->
+				<div class="lang-switcher">
+					{#each LOCALES as loc}
+						<button
+							class="lang-btn"
+							class:active={$prefs.locale === loc.code}
+							onclick={() => setLocale(loc.code as 'en' | 'es')}
+						>{loc.label}</button>
+					{/each}
+				</div>
+			</nav>
+		</div>
 	</header>
 
-	<section class="featured">
-		<span class="badge">{$t('home.featured')}</span>
-		<a href="/{daily.skinId}/{daily.gameId}" class="featured-card">
-			<div class="featured-preview" style="--accent: {SKINS.find(s => s.id === daily.skinId)?.color}">
-				<span class="featured-icon">{SKINS.find(s => s.id === daily.skinId)?.icon}</span>
-			</div>
-			<div class="featured-info">
-				<strong>{$t(`skins.${daily.skinId}.name`)}</strong>
-				<span>{$t(`games.${daily.gameId}.name`)}</span>
-			</div>
-		</a>
-	</section>
+	<main class="main">
 
-	<section class="grid">
-		<h2>{$t('home.browse')}</h2>
-		<div class="cards">
-			{#each SKINS as skin}
-				<a href="/{skin.id}" class="card">
-					<div class="card-preview" style="--accent: {skin.color}">
-						<span class="card-icon">{skin.icon}</span>
-					</div>
-					<div class="card-info">
-						<strong>{$t(`skins.${skin.id}.name`)}</strong>
-						<p>{$t(`skins.${skin.id}.description`)}</p>
-					</div>
-				</a>
-			{/each}
-		</div>
-	</section>
-</main>
+		<!-- Hero -->
+		<section class="hero">
+			<h1 class="hero-title">{$t('home.subtitle')}</h1>
+
+			<!-- Streak display (if any) -->
+			{#if $streak.currentStreak > 1}
+				<div class="streak-bar">
+					<span class="streak-dot"></span>
+					{$streak.currentStreak} días consecutivos · Récord: {$streak.longestStreak}
+				</div>
+			{/if}
+		</section>
+
+		<!-- Featured today -->
+		<section class="section">
+			<DayBadge />
+		</section>
+
+		<!-- Skin cards grid -->
+		<section class="section">
+			<h2 class="section-title">{$t('home.browse')}</h2>
+			<div class="cards-grid">
+				{#each SKINS as skin}
+					<SkinCard
+						skinId={skin.id}
+						accent={skin.accent}
+						featured={todayCombo.skinId === skin.id}
+					/>
+				{/each}
+			</div>
+		</section>
+
+		<!-- Info bar -->
+		<section class="info-bar">
+			<div class="info-item">
+				<span class="info-icon">⌨</span>
+				<span>Tecla <kbd>Esc</kbd> para alternar vista</span>
+			</div>
+			<div class="info-item">
+				<span class="info-icon">⊟</span>
+				<span>Pantalla completa disponible en cada entorno</span>
+			</div>
+			<div class="info-item">
+				<span class="info-icon">☁</span>
+				<span>Sin cuenta · Sin datos enviados</span>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="footer">
+		<span>Workflow Suite · Internal productivity tools</span>
+	</footer>
+</div>
 
 <style>
-	main {
+	.page {
 		min-height: 100vh;
-		background: #f5f5f5;
-		padding: 48px 32px;
-		font-family: var(--skin-font-family);
+		background: #f5f5f4;
+		display: flex;
+		flex-direction: column;
+		font-family: ui-sans-serif, 'Inter', 'Segoe UI', system-ui, sans-serif;
 		overflow-y: auto;
 	}
 
-	header {
-		margin-bottom: 40px;
-	}
-
-	header h1 {
-		font-size: 24px;
-		font-weight: 600;
-		color: #111;
-		margin-bottom: 6px;
-	}
-
-	header p {
-		font-size: 13px;
-		color: #666;
-	}
-
-	.featured {
-		margin-bottom: 40px;
-	}
-
-	.badge {
-		display: inline-block;
-		font-size: 11px;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: #666;
-		margin-bottom: 10px;
-	}
-
-	.featured-card {
-		display: flex;
-		align-items: center;
-		gap: 16px;
+	/* Header */
+	.header {
 		background: white;
-		border: 1px solid #e0e0e0;
-		padding: 16px 20px;
-		text-decoration: none;
-		color: inherit;
-		max-width: 400px;
-		transition: border-color 0.15s;
+		border-bottom: 1px solid #e5e5e4;
+		position: sticky;
+		top: 0;
+		z-index: 10;
 	}
 
-	.featured-card:hover {
-		border-color: var(--accent, #1f7145);
-	}
-
-	.featured-preview {
-		width: 48px;
-		height: 48px;
-		background: var(--accent, #1f7145);
+	.header-inner {
+		max-width: 1100px;
+		margin: 0 auto;
+		padding: 0 32px;
+		height: 52px;
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
+		justify-content: space-between;
 	}
 
-	.featured-icon {
-		font-size: 20px;
-		color: white;
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 8px;
 	}
 
-	.featured-info {
+	.logo-mark {
+		font-size: 18px;
+		color: #191919;
+	}
+
+	.logo-text {
+		font-size: 15px;
+		font-weight: 700;
+		color: #191919;
+		letter-spacing: -0.02em;
+	}
+
+	.header-nav { display: flex; align-items: center; gap: 12px; }
+
+	.lang-switcher {
+		display: flex;
+		border: 1px solid #e5e5e4;
+		overflow: hidden;
+	}
+
+	.lang-btn {
+		padding: 4px 10px;
+		font-size: 11px;
+		background: white;
+		border: none;
+		cursor: pointer;
+		color: #888;
+		font-family: inherit;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+	}
+
+	.lang-btn + .lang-btn { border-left: 1px solid #e5e5e4; }
+	.lang-btn.active { background: #191919; color: white; }
+	.lang-btn:hover:not(.active) { background: #f5f5f4; }
+
+	/* Main */
+	.main {
+		flex: 1;
+		max-width: 1100px;
+		margin: 0 auto;
+		width: 100%;
+		padding: 40px 32px 48px;
 		display: flex;
 		flex-direction: column;
-		gap: 3px;
+		gap: 40px;
 	}
 
-	.featured-info strong {
-		font-size: 13px;
+	/* Hero */
+	.hero { display: flex; flex-direction: column; gap: 12px; }
+
+	.hero-title {
+		font-size: 22px;
 		font-weight: 600;
-		color: #111;
+		color: #191919;
+		letter-spacing: -0.02em;
+		margin: 0;
 	}
 
-	.featured-info span {
+	.streak-bar {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
 		font-size: 12px;
 		color: #888;
-	}
-
-	.grid h2 {
-		font-size: 13px;
-		font-weight: 600;
-		color: #555;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		margin-bottom: 14px;
-	}
-
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-		gap: 12px;
-	}
-
-	.card {
-		display: flex;
-		align-items: center;
-		gap: 14px;
 		background: white;
-		border: 1px solid #e0e0e0;
-		padding: 14px 16px;
-		text-decoration: none;
-		color: inherit;
-		transition: border-color 0.15s, box-shadow 0.15s;
+		border: 1px solid #e5e5e4;
+		padding: 5px 12px;
+		width: fit-content;
 	}
 
-	.card:hover {
-		border-color: var(--accent, #333);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	.streak-dot {
+		width: 7px; height: 7px;
+		border-radius: 50%;
+		background: #f24e1e;
 	}
 
-	.card-preview {
-		width: 40px;
-		height: 40px;
-		background: var(--accent, #333);
+	/* Section */
+	.section { display: flex; flex-direction: column; gap: 14px; }
+
+	.section-title {
+		font-size: 11px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+		color: #999;
+		margin: 0;
+	}
+
+	/* Cards grid */
+	.cards-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+	}
+
+	@media (max-width: 800px) {
+		.cards-grid { grid-template-columns: 1fr; }
+	}
+
+	/* Info bar */
+	.info-bar {
+		display: flex;
+		gap: 24px;
+		flex-wrap: wrap;
+	}
+
+	.info-item {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
+		gap: 7px;
+		font-size: 12px;
+		color: #aaa;
 	}
 
-	.card-icon {
-		font-size: 16px;
-		color: white;
+	.info-icon { font-size: 14px; }
+
+	kbd {
+		background: #f0f0ef;
+		border: 1px solid #ddd;
+		padding: 1px 5px;
+		font-size: 10px;
+		font-family: inherit;
+		border-radius: 2px;
 	}
 
-	.card-info {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.card-info strong {
-		display: block;
-		font-size: 13px;
-		font-weight: 600;
-		color: #111;
-		margin-bottom: 2px;
-	}
-
-	.card-info p {
+	/* Footer */
+	.footer {
+		border-top: 1px solid #e5e5e4;
+		padding: 14px 32px;
 		font-size: 11px;
-		color: #888;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		color: #bbb;
+		text-align: center;
+		background: white;
 	}
 </style>
