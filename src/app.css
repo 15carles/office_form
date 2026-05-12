@@ -1,0 +1,35 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	overflow: hidden;
+	font-family: 'Segoe UI', 'Calibri', system-ui, sans-serif;
+	font-size: 12px;
+	background: #d4d4d4;
+}
+
+/* CSS variable contract — each skin overrides these on its root element */
+:root {
+	--skin-bg-primary: #ffffff;
+	--skin-bg-secondary: #f3f3f3;
+	--skin-accent: #1f7145;
+	--skin-text-primary: #222222;
+	--skin-text-muted: #666666;
+	--skin-border: #cccccc;
+	--skin-font-family: 'Segoe UI', 'Calibri', system-ui, sans-serif;
+	--skin-font-size-base: 12px;
+	--skin-border-radius: 0px;
+}
+
+button {
+	font-family: inherit;
+	cursor: pointer;
+}
+
+canvas {
+	display: block;
+}

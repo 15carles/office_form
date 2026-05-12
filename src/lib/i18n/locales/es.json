@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Panel",
+    "settings": "Ajustes"
+  },
+  "home": {
+    "title": "Workflow Suite",
+    "subtitle": "Selecciona tu entorno de trabajo para continuar",
+    "featured": "Flujo de trabajo destacado hoy",
+    "browse": "Todos los entornos"
+  },
+  "skins": {
+    "excel": {
+      "name": "SpreadSheet Pro",
+      "description": "Entorno de análisis de datos e informes",
+      "appName": "Informe de Ventas Q3.xlsx"
+    },
+    "figma": {
+      "name": "DesignBoard",
+      "description": "Espacio de diseño de interfaces y prototipos",
+      "appName": "Sistema de diseño v2"
+    },
+    "notion": {
+      "name": "DocSpace",
+      "description": "Centro de gestión de documentos y colaboración",
+      "appName": "Notas de reunión"
+    }
+  },
+  "games": {
+    "snake": {
+      "name": "Visualizador de flujo de datos",
+      "description": "Rastrea y optimiza el rendimiento del pipeline de datos",
+      "scoreUnit": "registros",
+      "start": "Ejecutar macro",
+      "startBtn": "▶ Iniciar",
+      "retryBtn": "↺ Reintentar",
+      "gameOver": "¡Error de rango!",
+      "score": "Puntuación",
+      "best": "Récord"
+    },
+    "tetris": {
+      "name": "Optimizador de diseño",
+      "description": "Organiza y apila componentes de interfaz eficientemente",
+      "scoreUnit": "unidades",
+      "start": "Inicializar diseño",
+      "startBtn": "▶ Iniciar",
+      "retryBtn": "↺ Reintentar",
+      "gameOver": "Desbordamiento de pila",
+      "score": "Puntuación",
+      "best": "Récord"
+    },
+    "typing": {
+      "name": "Benchmark de entrada",
+      "description": "Mide y mejora la velocidad de escritura",
+      "scoreUnit": "ppm",
+      "start": "Iniciar benchmark",
+      "startBtn": "▶ Iniciar",
+      "retryBtn": "↺ Reintentar",
+      "gameOver": "Benchmark completado",
+      "score": "PPM",
+      "best": "Mejor"
+    }
+  },
+  "ui": {
+    "selectWorkspace": "Seleccionar entorno",
+    "openTemplate": "Abrir plantilla reciente",
+    "recommended": "Recomendado",
+    "fullscreen": "Pantalla completa",
+    "exitFullscreen": "Salir de pantalla completa",
+    "status": {
+      "ready": "Listo",
+      "running": "Procesando...",
+      "error": "Error en fórmula",
+      "calculating": "Calculando..."
+    },
+    "panic": {
+      "hint": "Pulsa Esc para alternar vista"
+    }
+  }
+}

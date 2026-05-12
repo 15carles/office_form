@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Dashboard",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "Workflow Suite",
+    "subtitle": "Select your workspace environment to continue",
+    "featured": "Featured workflow today",
+    "browse": "All environments"
+  },
+  "skins": {
+    "excel": {
+      "name": "SpreadSheet Pro",
+      "description": "Data analysis and reporting environment",
+      "appName": "Q3 Revenue Analysis.xlsx"
+    },
+    "figma": {
+      "name": "DesignBoard",
+      "description": "Interface design and prototyping workspace",
+      "appName": "Design System v2"
+    },
+    "notion": {
+      "name": "DocSpace",
+      "description": "Document management and collaboration hub",
+      "appName": "Meeting Notes"
+    }
+  },
+  "games": {
+    "snake": {
+      "name": "Data Flow Visualizer",
+      "description": "Trace and optimize data pipeline throughput",
+      "scoreUnit": "records",
+      "start": "Run macro",
+      "startBtn": "▶ Start",
+      "retryBtn": "↺ Retry",
+      "gameOver": "Range error!",
+      "score": "Score",
+      "best": "Record"
+    },
+    "tetris": {
+      "name": "Layout Optimizer",
+      "description": "Arrange and stack UI components efficiently",
+      "scoreUnit": "units",
+      "start": "Initialize layout",
+      "startBtn": "▶ Start",
+      "retryBtn": "↺ Retry",
+      "gameOver": "Stack overflow",
+      "score": "Score",
+      "best": "Record"
+    },
+    "typing": {
+      "name": "Input Throughput Benchmark",
+      "description": "Measure and improve keyboard data entry speed",
+      "scoreUnit": "wpm",
+      "start": "Start benchmark",
+      "startBtn": "▶ Start",
+      "retryBtn": "↺ Retry",
+      "gameOver": "Benchmark complete",
+      "score": "WPM",
+      "best": "Best"
+    }
+  },
+  "ui": {
+    "selectWorkspace": "Select workspace",
+    "openTemplate": "Open recent template",
+    "recommended": "Recommended",
+    "fullscreen": "Full screen",
+    "exitFullscreen": "Exit full screen",
+    "status": {
+      "ready": "Ready",
+      "running": "Processing...",
+      "error": "Formula error",
+      "calculating": "Calculating..."
+    },
+    "panic": {
+      "hint": "Press Esc to toggle view"
+    }
+  }
+}
