@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { t } from 'svelte-i18n';
 	import { isValidSkin, COMPATIBILITY, RECOMMENDED, pageTitle } from '$lib/skins/registry';
 	import ExcelSkin from '$lib/skins/excel/ExcelSkin.svelte';
@@ -11,7 +12,7 @@
 	const skinId = $derived($page.params.skin);
 
 	$effect(() => {
-		if (!isValidSkin(skinId)) goto('/');
+		if (!isValidSkin(skinId)) goto(base || '/');
 		else setDefaultSkin(skinId);
 	});
 
@@ -32,7 +33,7 @@
 			<div class="selector-header">{$t('ui.openTemplate')}</div>
 			<div class="selector-list">
 				{#each COMPATIBILITY[skinId] ?? [] as gameId}
-					<a href="/{skinId}/{gameId}" class="selector-item"
+					<a href="{base}/{skinId}/{gameId}" class="selector-item"
 						class:recommended={RECOMMENDED[skinId] === gameId}>
 						<span class="item-icon">{GAME_META[gameId]?.icon}</span>
 						<span class="item-label">{$t(`games.${gameId}.name`)}</span>

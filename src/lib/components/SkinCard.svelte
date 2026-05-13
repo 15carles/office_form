@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import { base } from '$app/paths';
 	import { getBestScore } from '$lib/stores/progress';
 	import SkinPreviewExcel from './SkinPreviewExcel.svelte';
 	import SkinPreviewFigma from './SkinPreviewFigma.svelte';
@@ -23,7 +24,7 @@
 	};
 </script>
 
-<a href="/{skinId}" class="skin-card" class:featured style:--accent={accent}>
+<a href="{base}/{skinId}" class="skin-card" class:featured style:--accent={accent}>
 	<div class="preview-wrap">
 		{#if skinId === 'excel'}
 			<SkinPreviewExcel />

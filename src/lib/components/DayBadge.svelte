@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-i18n';
+	import { base } from '$app/paths';
 	import { getGameOfDay } from '$lib/stores/gameOfDay';
 	import type { SkinId } from '$lib/games/types';
 
@@ -14,7 +15,7 @@
 	const accent = SKIN_ACCENT[daily.skinId];
 </script>
 
-<a href="/{daily.skinId}/{daily.gameId}" class="day-badge" style:--accent={accent}>
+<a href="{base}/{daily.skinId}/{daily.gameId}" class="day-badge" style:--accent={accent}>
 	<div class="badge-left">
 		<span class="badge-label">{$t('home.featured')}</span>
 		<span class="badge-combo">

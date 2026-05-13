@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { panicMode } from '$lib/stores/panic';
 	import { recordScore } from '$lib/stores/progress';
 	import { isValidSkin, isValidGame, pageTitle } from '$lib/skins/registry';
@@ -25,7 +26,7 @@
 	const gameId = $derived($page.params.game);
 
 	$effect(() => {
-		if (!isValidSkin(skinId) || !isValidGame(gameId)) goto('/');
+		if (!isValidSkin(skinId) || !isValidGame(gameId)) goto(base || '/');
 	});
 
 	let score = $state(0);
