@@ -21,8 +21,10 @@
 		observer = new ResizeObserver((entries) => {
 			const r = entries[0]?.contentRect;
 			if (!r) return;
-			width = Math.floor(r.width);
-			height = Math.floor(r.height);
+			// Ignore zero-size events (e.g. display:none during panic mode)
+			// so the game component stays mounted and keeps its state
+			if (r.width > 0) width = Math.floor(r.width);
+			if (r.height > 0) height = Math.floor(r.height);
 		});
 		observer.observe(container);
 	});
