@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount, onDestroy, untrack } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import {
 		initState,
@@ -32,9 +32,9 @@
 		onStateChange
 	}: Props = $props();
 
-	// Cell size — fixed, game area scales to fit
-	const CW = 28;
-	const CH = 20;
+	// Cell size — square, small enough for a fluid game
+	const CW = 14;
+	const CH = 14;
 
 	let cols = $derived(Math.max(4, Math.floor(width / CW)));
 	let rows = $derived(Math.max(4, Math.floor(height / CH)));
@@ -47,11 +47,14 @@
 	let gameState = $state<SnakeState>(initState(10, 14));
 	let intervalId: ReturnType<typeof setInterval> | null = null;
 
-	// Restart state when grid changes significantly
+	// Reset game only when grid dimensions change (not on status changes)
 	$effect(() => {
-		if (gameState.status !== 'running') {
-			gameState = initState(cols, rows);
-		}
+		cols; rows; // reactive dependencies — grid size only
+		untrack(() => {
+			if (gameState.status !== 'running') {
+				gameState = initState(cols, rows);
+			}
+		});
 	});
 
 	$effect(() => {
@@ -121,7 +124,7 @@
 
 	function drawSnake() {
 		const arrows: Record<string, string> = {
-			'1,0': '▶', '-1,0': '◀', '0,-1': '▲', '0,1': '▼'
+			'1,0': '▶', '-1,0': '◄', '0,-1': '▲', '0,1': '▼'
 		};
 		const dir = gameState.dir;
 		const bodyColor = lighten(accentColor, 0.3);
@@ -140,7 +143,7 @@
 
 			if (i === 0) {
 				ctx.fillStyle = 'rgba(255,255,255,0.85)';
-				ctx.font = '9px Calibri, sans-serif';
+				ctx.font = `${Math.max(7, CW - 5)}px Calibri, sans-serif`;
 				ctx.textAlign = 'center';
 				ctx.textBaseline = 'middle';
 				ctx.fillText(arrows[`${dir.x},${dir.y}`] ?? '▶', x + w / 2, y + h / 2);
@@ -161,7 +164,7 @@
 		ctx.lineWidth = 0.8;
 		ctx.strokeRect(px, py, w, h);
 		ctx.fillStyle = '#c0392b';
-		ctx.font = 'bold 11px Calibri, sans-serif';
+		ctx.font = `bold ${Math.max(8, CW - 3)}px Calibri, sans-serif`;
 		ctx.textAlign = 'center';
 		ctx.textBaseline = 'middle';
 		ctx.fillText('$', px + w / 2, py + h / 2);
