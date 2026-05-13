@@ -77,7 +77,7 @@
 			</div>
 			<div class="doc-actions">
 				<button class="doc-btn" onclick={() => toggleFullscreen(skinRoot)}>
-					{$isFullscreen ? '⊡ Salir' : '⊟ Pantalla completa'}
+					{$isFullscreen ? '╡ Salir' : '⊟ Pantalla completa'}
 				</button>
 				<button class="doc-btn">Compartir</button>
 				<div class="avatar-sm">A</div>
@@ -295,7 +295,7 @@
 	.callout-icon { font-size: 14px; }
 	.callout-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
 
-	.game-slot { min-height: 200px; background: white; }
+	.game-slot { height: 420px; background: white; }
 	.panic-slot { min-height: 200px; }
 
 	.block-hint {
