@@ -46,7 +46,7 @@
 		<div class="top-right">
 			<button class="share-btn">Share</button>
 			<button class="present-btn" onclick={() => toggleFullscreen(skinRoot)}>
-				{$isFullscreen ? '⊡' : '▶'} {$isFullscreen ? 'Exit' : 'Present'}
+				{$isFullscreen ? '╡ Exit' : '▶'} {$isFullscreen ? 'Exit' : 'Present'}
 			</button>
 			<div class="avatar">A</div>
 		</div>
@@ -81,7 +81,6 @@
 						<span class="layer-name">{layer.name}</span>
 					</div>
 				{/each}
-				<!-- Game state reflected as a layer -->
 				{#if score > 0}
 					<div class="layer-item selected" style:padding-left="20px">
 						<span class="layer-icon">◈</span>
@@ -94,7 +93,6 @@
 		<!-- Canvas -->
 		<div class="canvas-area">
 			<div class="canvas-bg">
-				<!-- Play / panic regions -->
 				<div class="play-region" style:display={$panicMode ? 'none' : 'flex'}>
 					<div class="canvas-frame">
 						{#if children}
@@ -311,13 +309,9 @@
 		background: white;
 		box-shadow: 0 4px 32px rgba(0,0,0,0.5);
 		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 200px;
-		min-height: 400px;
-		max-width: 90%;
-		max-height: 90%;
+		width: 320px;
+		height: 520px;
+		flex-shrink: 0;
 	}
 
 	.panic-region {
