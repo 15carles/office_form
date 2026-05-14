@@ -68,7 +68,6 @@
 
 	<!-- Main document area -->
 	<div class="doc-area">
-		<!-- Doc top bar -->
 		<div class="doc-topbar">
 			<div class="breadcrumb">
 				<span>Mi Empresa</span>
@@ -84,14 +83,11 @@
 			</div>
 		</div>
 
-		<!-- Document content -->
 		<div class="doc-content">
-			<!-- Page title -->
 			<div class="page-icon">📋</div>
 			<h1 class="page-title">Reunión semanal</h1>
 			<div class="page-meta">{today} · {statusText || 'Editado hace unos segundos'}</div>
 
-			<!-- Properties block -->
 			<div class="properties">
 				<div class="prop-row">
 					<span class="prop-key">Estado</span>
@@ -109,27 +105,37 @@
 
 			<div class="divider"></div>
 
-			<!-- Figma embed block — game lives here -->
-			<div class="embed-block">
+			<!-- Inline database block — game lives here -->
+			<div class="db-block">
 
-				<!-- Embed header -->
-				<div class="embed-header">
-					<span class="embed-figma-icon">◈</span>
-					<div class="embed-meta">
-						<span class="embed-title">Design System v2 · Q4 Metrics</span>
-						<span class="embed-source">figma.com</span>
+				<!-- Database header -->
+				<div class="db-header">
+					<span class="db-icon">📊</span>
+					<span class="db-title">Métricas sesión</span>
+					<div class="db-views">
+						<button class="db-view active" tabindex="-1">Table</button>
+						<button class="db-view" tabindex="-1">Board</button>
+						<button class="db-view" tabindex="-1">Chart</button>
 					</div>
-					<button class="embed-open" tabindex="-1">Abrir ↗</button>
+					<div class="db-actions">
+						<button class="db-btn" tabindex="-1">Filter</button>
+						<button class="db-btn" tabindex="-1">Sort</button>
+						<button class="db-btn" tabindex="-1">···</button>
+					</div>
 				</div>
 
-				<!-- Dark Figma canvas with game inside -->
-				<div class="embed-canvas" style:display={$panicMode ? 'none' : 'block'}>
-					<span class="frame-label">Q4 Dashboard — Frame 1</span>
-					<div class="embed-artboard">
-						{#if children}
-							{@render children()}
-						{/if}
-					</div>
+				<!-- Column headers -->
+				<div class="db-cols">
+					<span class="col-name">Nombre</span>
+					<span class="col-val">Valor</span>
+					<span class="col-tag">Estado</span>
+				</div>
+
+				<!-- Game area (looks like table content) -->
+				<div class="db-content" style:display={$panicMode ? 'none' : 'block'}>
+					{#if children}
+						{@render children()}
+					{/if}
 				</div>
 
 				{#if $panicMode}
@@ -163,79 +169,50 @@
 
 	/* Sidebar */
 	.sidebar {
-		width: 240px;
-		min-width: 240px;
-		background: #f7f6f3;
-		border-right: 1px solid #e9e9e7;
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-		flex-shrink: 0;
+		width: 240px; min-width: 240px;
+		background: #f7f6f3; border-right: 1px solid #e9e9e7;
+		display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
 	}
-
 	.workspace-header {
-		height: 44px;
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 0 12px;
-		border-bottom: 1px solid #e9e9e7;
-		flex-shrink: 0;
+		height: 44px; display: flex; align-items: center; gap: 8px;
+		padding: 0 12px; border-bottom: 1px solid #e9e9e7; flex-shrink: 0;
 	}
 	.workspace-icon {
-		width: 24px; height: 24px;
-		background: #191919;
-		color: white;
-		border-radius: 4px;
-		display: flex; align-items: center; justify-content: center;
+		width: 24px; height: 24px; background: #191919; color: white;
+		border-radius: 4px; display: flex; align-items: center; justify-content: center;
 		font-size: 12px;
 	}
 	.workspace-name { flex: 1; font-size: 13px; font-weight: 600; }
 	.sidebar-action {
-		width: 24px; height: 24px;
-		background: transparent; border: none;
-		color: #9b9a97; font-size: 16px; cursor: pointer;
-		border-radius: 3px; display: flex; align-items: center; justify-content: center;
+		width: 24px; height: 24px; background: transparent; border: none;
+		color: #9b9a97; font-size: 16px; cursor: pointer; border-radius: 3px;
+		display: flex; align-items: center; justify-content: center;
 	}
 	.sidebar-action:hover { background: #ebebea; }
-
 	.sidebar-section { padding: 6px 0; }
 	.sidebar-label {
-		font-size: 10px; color: #9b9a97;
-		text-transform: uppercase; letter-spacing: 0.05em;
-		padding: 4px 12px; margin-bottom: 2px;
+		font-size: 10px; color: #9b9a97; text-transform: uppercase;
+		letter-spacing: 0.05em; padding: 4px 12px; margin-bottom: 2px;
 	}
 	.sidebar-item {
-		display: flex; align-items: center; gap: 7px;
-		padding: 4px 12px;
-		font-size: 13px; color: #37352f;
-		cursor: default; border-radius: 4px; margin: 0 4px;
+		display: flex; align-items: center; gap: 7px; padding: 4px 12px;
+		font-size: 13px; color: #37352f; cursor: default;
+		border-radius: 4px; margin: 0 4px;
 	}
 	.sidebar-item:hover { background: #ebebea; }
 	.sidebar-item.active { background: #ebebea; font-weight: 500; }
 	.sidebar-item.muted { color: #9b9a97; font-size: 12px; }
 	.sidebar-item.small { font-size: 11px; padding: 2px 12px; }
 	.page-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
 	.sidebar-divider { height: 1px; background: #e9e9e7; margin: 4px 0; }
 	.sidebar-footer { margin-top: auto; padding: 8px 0; border-top: 1px solid #e9e9e7; }
 
 	/* Doc area */
-	.doc-area {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-	}
-
+	.doc-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 	.doc-topbar {
-		height: 44px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0 24px;
-		border-bottom: 1px solid #e9e9e7;
-		flex-shrink: 0;
+		height: 44px; display: flex; align-items: center;
+		justify-content: space-between; padding: 0 24px;
+		border-bottom: 1px solid #e9e9e7; flex-shrink: 0;
 	}
 	.breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #9b9a97; }
 	.breadcrumb .sep { color: #ccc; }
@@ -256,12 +233,9 @@
 
 	/* Document content */
 	.doc-content {
-		flex: 1;
-		overflow-y: auto;
-		padding: 48px 96px 48px 96px;
-		max-width: 900px;
+		flex: 1; overflow-y: auto;
+		padding: 48px 96px; max-width: 900px;
 	}
-
 	.page-icon { font-size: 48px; margin-bottom: 8px; }
 	.page-title {
 		font-size: 32px; font-weight: 700; color: #37352f;
@@ -269,122 +243,72 @@
 	}
 	.page-meta { font-size: 12px; color: #9b9a97; margin-bottom: 20px; }
 
-	.properties {
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-		margin-bottom: 16px;
-	}
-	.prop-row {
-		display: flex; align-items: center; gap: 12px;
-		font-size: 13px;
-	}
+	.properties { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+	.prop-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
 	.prop-key { color: #9b9a97; width: 100px; flex-shrink: 0; font-size: 12px; }
 	.prop-val { color: #37352f; }
 	.prop-val.metric { font-weight: 700; color: #191919; }
-
-	.tag {
-		display: inline-block; padding: 1px 8px;
-		border-radius: 3px; font-size: 12px;
-	}
+	.tag { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 12px; }
 	.tag.in-progress { background: #dbeafe; color: #1d4ed8; }
-
 	.divider { height: 1px; background: #e9e9e7; margin: 16px 0; }
 
-	/* ── Figma embed block ──────────────────────────────── */
-	.embed-block {
-		border: 1px solid #e9e9e7;
-		border-radius: 4px;
-		overflow: hidden;
-		background: white;
-	}
-
-	.embed-header {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 8px 12px;
-		background: #fafafa;
-		border-bottom: 1px solid #e9e9e7;
-	}
-	.embed-figma-icon {
-		font-size: 14px;
-		color: #f24e1e;
-		flex-shrink: 0;
-	}
-	.embed-meta {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 1px;
-		overflow: hidden;
-	}
-	.embed-title {
-		font-size: 12px;
-		font-weight: 500;
-		color: #37352f;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	.embed-source {
-		font-size: 10px;
-		color: #9b9a97;
-	}
-	.embed-open {
-		font-size: 11px;
-		color: #9b9a97;
-		background: transparent;
+	/* ── Inline database block ─────────────────────────── */
+	.db-block {
 		border: 1px solid #e9e9e7;
 		border-radius: 3px;
-		padding: 3px 8px;
-		cursor: pointer;
-		font-family: inherit;
-		white-space: nowrap;
-		flex-shrink: 0;
-	}
-	.embed-open:hover { background: #f0f0ef; color: #37352f; }
-
-	/* Dark Figma canvas (embed interior) */
-	.embed-canvas {
-		background: #1a1a1a;
-		background-image: radial-gradient(circle, #2d2d2d 1px, transparent 1px);
-		background-size: 16px 16px;
-		padding: 28px 12px 12px;
-		position: relative;
-		min-height: 280px;
-	}
-
-	.frame-label {
-		position: absolute;
-		top: 8px;
-		left: 50%;
-		transform: translateX(-50%);
-		font-size: 10px;
-		color: #4a4a4a;
-		font-family: 'Inter', sans-serif;
-		white-space: nowrap;
-		pointer-events: none;
-		letter-spacing: 0.02em;
-	}
-
-	/* White artboard — game renders here */
-	.embed-artboard {
+		overflow: hidden;
 		background: white;
-		width: 100%;
-		height: 320px;
+	}
+
+	.db-header {
+		display: flex; align-items: center; gap: 6px;
+		padding: 6px 10px;
+		border-bottom: 1px solid #e9e9e7;
+		background: white;
+	}
+	.db-icon { font-size: 13px; flex-shrink: 0; }
+	.db-title { font-size: 12px; font-weight: 600; color: #37352f; flex: 1; }
+
+	.db-views { display: flex; gap: 1px; }
+	.db-view {
+		padding: 2px 8px; font-size: 11px; border-radius: 3px;
+		border: none; background: transparent; cursor: pointer;
+		color: #9b9a97; font-family: inherit;
+	}
+	.db-view.active { background: #ebebea; color: #37352f; font-weight: 500; }
+	.db-view:hover:not(.active) { background: #f7f6f3; }
+
+	.db-actions { display: flex; gap: 1px; }
+	.db-btn {
+		padding: 2px 7px; font-size: 11px; color: #9b9a97;
+		border: none; background: transparent; cursor: pointer;
+		border-radius: 3px; font-family: inherit;
+	}
+	.db-btn:hover { background: #f7f6f3; color: #37352f; }
+
+	/* Column headers */
+	.db-cols {
+		display: flex; align-items: center;
+		padding: 0 10px; height: 28px;
+		border-bottom: 1px solid #e9e9e7;
+		background: #fafafa;
+	}
+	.col-name { flex: 1; font-size: 11px; color: #9b9a97; font-weight: 500; }
+	.col-val { width: 80px; font-size: 11px; color: #9b9a97; font-weight: 500; }
+	.col-tag { width: 80px; font-size: 11px; color: #9b9a97; font-weight: 500; }
+
+	/* Game content — white background, no contrast issues */
+	.db-content {
+		background: white;
+		height: 380px;
 		position: relative;
 		overflow: hidden;
-		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
 	}
 
 	.panic-slot { min-height: 200px; }
 	/* ─────────────────────────────────────────────────── */
 
 	.block-hint {
-		margin-top: 16px;
-		font-size: 13px;
-		color: #c9c8c5;
-		cursor: text;
+		margin-top: 16px; font-size: 13px; color: #c9c8c5; cursor: text;
 	}
 </style>
