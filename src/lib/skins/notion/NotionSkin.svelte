@@ -58,10 +58,10 @@
 
 		<div class="sidebar-footer">
 			<div class="sidebar-item muted small">
-				<span>{$t('games.typing.score')}: {score}</span>
+				<span>{$t('games.typing.score')}: {score > 0 ? score : '—'}</span>
 			</div>
 			<div class="sidebar-item muted small">
-				<span>{$t('games.typing.best')}: {best}</span>
+				<span>{$t('games.typing.best')}: {best || '—'}</span>
 			</div>
 		</div>
 	</div>
@@ -77,7 +77,7 @@
 			</div>
 			<div class="doc-actions">
 				<button class="doc-btn" onclick={() => toggleFullscreen(skinRoot)}>
-					{$isFullscreen ? '╡ Salir' : '⊟ Pantalla completa'}
+					{$isFullscreen ? '⊡ Salir' : '⊟ Pantalla completa'}
 				</button>
 				<button class="doc-btn">Compartir</button>
 				<div class="avatar-sm">A</div>
@@ -103,28 +103,41 @@
 				</div>
 				<div class="prop-row">
 					<span class="prop-key">Métricas</span>
-					<span class="prop-val metric">{score} {gameId === 'typing' ? 'ppm' : 'pts'}</span>
+					<span class="prop-val metric">{score > 0 ? `${score} ${gameId === 'typing' ? 'ppm' : 'pts'}` : '—'}</span>
 				</div>
 			</div>
 
 			<div class="divider"></div>
 
-			<!-- Callout block: game lives here -->
-			<div class="game-callout">
-				<div class="callout-header">
-					<span class="callout-icon">⚡</span>
-					<span class="callout-label">Análisis en tiempo real</span>
+			<!-- Figma embed block — game lives here -->
+			<div class="embed-block">
+
+				<!-- Embed header -->
+				<div class="embed-header">
+					<span class="embed-figma-icon">◈</span>
+					<div class="embed-meta">
+						<span class="embed-title">Design System v2 · Q4 Metrics</span>
+						<span class="embed-source">figma.com</span>
+					</div>
+					<button class="embed-open" tabindex="-1">Abrir ↗</button>
 				</div>
-				<div class="game-slot" style:display={$panicMode ? 'none' : 'block'}>
-					{#if children}
-						{@render children()}
-					{/if}
+
+				<!-- Dark Figma canvas with game inside -->
+				<div class="embed-canvas" style:display={$panicMode ? 'none' : 'block'}>
+					<span class="frame-label">Q4 Dashboard — Frame 1</span>
+					<div class="embed-artboard">
+						{#if children}
+							{@render children()}
+						{/if}
+					</div>
 				</div>
+
 				{#if $panicMode}
 					<div class="panic-slot">
 						<NotionPanic />
 					</div>
 				{/if}
+
 			</div>
 
 			<div class="block-hint">Escribe debajo para añadir notas...</div>
@@ -278,25 +291,95 @@
 
 	.divider { height: 1px; background: #e9e9e7; margin: 16px 0; }
 
-	/* Game callout block */
-	.game-callout {
-		background: #f7f6f3;
+	/* ── Figma embed block ──────────────────────────────── */
+	.embed-block {
+		border: 1px solid #e9e9e7;
 		border-radius: 4px;
-		border-left: 3px solid #191919;
+		overflow: hidden;
+		background: white;
+	}
+
+	.embed-header {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 12px;
+		background: #fafafa;
+		border-bottom: 1px solid #e9e9e7;
+	}
+	.embed-figma-icon {
+		font-size: 14px;
+		color: #f24e1e;
+		flex-shrink: 0;
+	}
+	.embed-meta {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
 		overflow: hidden;
 	}
-	.callout-header {
-		display: flex; align-items: center; gap: 8px;
-		padding: 8px 14px;
-		font-size: 12px; color: #9b9a97;
-		border-bottom: 1px solid #e9e9e7;
-		background: #f0eeeb;
+	.embed-title {
+		font-size: 12px;
+		font-weight: 500;
+		color: #37352f;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
-	.callout-icon { font-size: 14px; }
-	.callout-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+	.embed-source {
+		font-size: 10px;
+		color: #9b9a97;
+	}
+	.embed-open {
+		font-size: 11px;
+		color: #9b9a97;
+		background: transparent;
+		border: 1px solid #e9e9e7;
+		border-radius: 3px;
+		padding: 3px 8px;
+		cursor: pointer;
+		font-family: inherit;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+	.embed-open:hover { background: #f0f0ef; color: #37352f; }
 
-	.game-slot { height: 420px; background: white; }
+	/* Dark Figma canvas (embed interior) */
+	.embed-canvas {
+		background: #1a1a1a;
+		background-image: radial-gradient(circle, #2d2d2d 1px, transparent 1px);
+		background-size: 16px 16px;
+		padding: 28px 12px 12px;
+		position: relative;
+		min-height: 280px;
+	}
+
+	.frame-label {
+		position: absolute;
+		top: 8px;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 10px;
+		color: #4a4a4a;
+		font-family: 'Inter', sans-serif;
+		white-space: nowrap;
+		pointer-events: none;
+		letter-spacing: 0.02em;
+	}
+
+	/* White artboard — game renders here */
+	.embed-artboard {
+		background: white;
+		width: 100%;
+		height: 320px;
+		position: relative;
+		overflow: hidden;
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
+	}
+
 	.panic-slot { min-height: 200px; }
+	/* ─────────────────────────────────────────────────── */
 
 	.block-hint {
 		margin-top: 16px;
