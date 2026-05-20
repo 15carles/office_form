@@ -30,6 +30,12 @@
 	const ICONS: Record<string, string> = {
 		frame: '⬜', group: '◻', component: '◈', vector: '⬡', rect: '▭', text: 'T', line: '—'
 	};
+
+	const GAME_LABELS: Record<string, string> = {
+		tetris: 'Layout Optimizer',
+		snake: 'Data Pipeline',
+		typing: 'Input Benchmark'
+	};
 </script>
 
 <div bind:this={skinRoot} class="figma-skin">
@@ -90,19 +96,21 @@
 			</div>
 		</div>
 
-		<!-- Canvas: fake artboard frames (no game here) -->
+		<!-- Canvas: game renders here as a Figma "artboard" -->
 		<div class="canvas-area">
 			<div class="canvas-bg">
-				<!-- Decorative artboards so the canvas looks like real work -->
-				<div class="artboard ab1">
-					<span class="ab-label">Homepage · Desktop</span>
-				</div>
-				<div class="artboard ab2">
-					<span class="ab-label">Card / Default</span>
-				</div>
-				<div class="artboard ab3">
-					<span class="ab-label">Button component</span>
-				</div>
+				{#if children && !$panicMode}
+					<div class="canvas-game">
+						<span class="artboard-label">Component · {GAME_LABELS[gameId] ?? gameId}</span>
+						<div class="game-host">
+							{@render children()}
+						</div>
+					</div>
+				{:else if !$panicMode}
+					<div class="artboard ab1"><span class="ab-label">Homepage · Desktop</span></div>
+					<div class="artboard ab2"><span class="ab-label">Card / Default</span></div>
+					<div class="artboard ab3"><span class="ab-label">Button component</span></div>
+				{/if}
 
 				{#if $panicMode}
 					<div class="panic-region">
@@ -112,7 +120,7 @@
 			</div>
 		</div>
 
-		<!-- Right panel: plugin tab with game when playing, design props when panic -->
+		<!-- Right panel: plugin output and design properties -->
 		<div class="right-panel">
 			{#if !$panicMode}
 				<!-- Plugin tabs — Color Matrix is active -->
@@ -145,11 +153,30 @@
 					</div>
 				</div>
 
-				<!-- Game fills the remaining right panel space -->
-				<div class="plugin-game">
-					{#if children}
-						{@render children()}
-					{/if}
+				<!-- Plugin output: game stats as design properties -->
+				<div class="plugin-output">
+					<div class="output-section">
+						<div class="output-label">Output</div>
+						<div class="output-row">
+							<span class="output-key">Units generated</span>
+							<span class="output-val" class:accent={score > 0}>{score > 0 ? score : '—'}</span>
+						</div>
+						<div class="output-row">
+							<span class="output-key">Best run</span>
+							<span class="output-val">{best || '—'}</span>
+						</div>
+					</div>
+					<div class="output-section">
+						<div class="output-label">Color tokens</div>
+						<div class="color-swatches">
+							<span class="swatch" style:background="#18a0fb" title="#18a0fb"></span>
+							<span class="swatch" style:background="#ce93d8" title="#ce93d8"></span>
+							<span class="swatch" style:background="#4fc3f7" title="#4fc3f7"></span>
+							<span class="swatch" style:background="#a5d6a7" title="#a5d6a7"></span>
+							<span class="swatch" style:background="#ef9a9a" title="#ef9a9a"></span>
+							<span class="swatch" style:background="#ffcc80" title="#ffcc80"></span>
+						</div>
+					</div>
 				</div>
 
 				<!-- Apply bar -->
@@ -296,7 +323,7 @@
 	.layer-icon { font-size: 10px; color: #888; width: 14px; text-align: center; flex-shrink: 0; }
 	.layer-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-	/* Canvas */
+	/* Canvas area */
 	.canvas-area { flex: 1; background: #1a1a1a; position: relative; overflow: hidden; }
 	.canvas-bg {
 		width: 100%; height: 100%;
@@ -305,11 +332,53 @@
 		position: relative;
 	}
 
-	/* Fake artboard frames on canvas */
+	/* Game rendered as a Figma "artboard" in the canvas */
+	.canvas-game {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		padding: 28px 20px 16px;
+		box-sizing: border-box;
+
+		--game-bg: transparent;
+		--game-cell-a: #252525;
+		--game-cell-b: #1a1a1a;
+		--game-grid: #2e2e2e;
+		--game-border: #444;
+		--game-border-soft: #323232;
+		--game-text: #d0d0d0;
+		--game-text-muted: #888;
+		--game-accent: #18a0fb;
+		--game-panel-bg: #242424;
+		--game-panel-border: #3a3a3a;
+		--game-overlay-bg: rgba(24, 24, 24, 0.96);
+		--game-overlay-border: #555;
+		--game-btn-bg: #18a0fb;
+		--game-btn-hover: #1090e8;
+	}
+
+	.artboard-label {
+		font-size: 11px;
+		color: #555;
+		font-family: 'Inter', sans-serif;
+		flex-shrink: 0;
+		margin-bottom: 6px;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	.game-host {
+		flex: 1;
+		overflow: hidden;
+		position: relative;
+		min-height: 0;
+	}
+
+	/* Decorative artboard frames (shown when no game is loaded) */
 	.artboard {
 		position: absolute;
 		background: #fff;
-		border: none;
 	}
 	.ab-label {
 		position: absolute;
@@ -330,7 +399,7 @@
 		display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
 	}
 
-	/* Plugin controls (in right panel) */
+	/* Plugin controls */
 	.plugin-opts {
 		padding: 8px 10px;
 		display: flex; flex-direction: column; gap: 6px;
@@ -361,26 +430,30 @@
 	.step-btn:hover { background: #444; }
 	.step-val { flex: 1; text-align: center; font-size: 10px; color: #ccc; min-width: 24px; }
 
-	/* Game area inside right panel */
-	.plugin-game {
-		flex: 1; overflow: hidden; position: relative;
-		background: #1e1e1e;
-
-		--game-bg: #1e1e1e;
-		--game-cell-a: #252525;
-		--game-cell-b: #1a1a1a;
-		--game-grid: #2e2e2e;
-		--game-border: #444;
-		--game-border-soft: #323232;
-		--game-text: #d0d0d0;
-		--game-text-muted: #888;
-		--game-accent: #18a0fb;
-		--game-panel-bg: #242424;
-		--game-panel-border: #3a3a3a;
-		--game-overlay-bg: rgba(24, 24, 24, 0.96);
-		--game-overlay-border: #555;
-		--game-btn-bg: #18a0fb;
-		--game-btn-hover: #1090e8;
+	/* Plugin output (game stats as design output) */
+	.plugin-output {
+		flex: 1;
+		overflow-y: auto;
+	}
+	.output-section {
+		padding: 10px 12px;
+		border-bottom: 1px solid #3a3a3a;
+	}
+	.output-label {
+		font-size: 10px; text-transform: uppercase;
+		letter-spacing: 0.05em; color: #555; margin-bottom: 8px;
+	}
+	.output-row {
+		display: flex; justify-content: space-between; align-items: center;
+		font-size: 11px; margin-bottom: 4px;
+	}
+	.output-key { color: #888; }
+	.output-val { color: #e0e0e0; font-variant-numeric: tabular-nums; }
+	.output-val.accent { color: #18a0fb; font-weight: 600; }
+	.color-swatches { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px; }
+	.swatch {
+		width: 18px; height: 18px; border-radius: 3px;
+		border: 1px solid rgba(255,255,255,0.1);
 	}
 
 	/* Apply bar */
