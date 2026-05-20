@@ -26,7 +26,7 @@
 
 	let canvas: HTMLCanvasElement;
 	let ctx: CanvasRenderingContext2D;
-	let previewCanvas: HTMLCanvasElement;
+	let previewCanvas = $state<HTMLCanvasElement | undefined>(undefined);
 	let previewCtx: CanvasRenderingContext2D;
 
 	let state = $state<TetrisState>(initState());
