@@ -36,7 +36,7 @@
 	let state = $state<TetrisState>(initState());
 	let intervalId: ReturnType<typeof setInterval> | null = null;
 
-	let themeColors = $state({ cellA: '#fafafa', cellB: '#f3f3f3', grid: '#e0e0e0', border: '#bbb', previewBg: '#f9f9f9' });
+	let themeColors = { cellA: '#fafafa', cellB: '#f3f3f3', grid: '#e0e0e0', border: '#bbb', previewBg: '#f9f9f9' };
 
 	$effect(() => {
 		if (canvas) {

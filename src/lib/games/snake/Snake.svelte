@@ -46,7 +46,7 @@
 
 	let gameState = $state<SnakeState>(initState(10, 14));
 	let intervalId: ReturnType<typeof setInterval> | null = null;
-	let snakeTheme = $state({ cellA: '#f5fdf8', cellB: '#eef8f2', gridLine: '#c8e8d4', gridBorder: '#7ec8a0', snakeAccent: '' });
+	let snakeTheme = { cellA: '#f5fdf8', cellB: '#eef8f2', gridLine: '#c8e8d4', gridBorder: '#7ec8a0', snakeAccent: '' };
 
 	// Reset game only when grid dimensions change (not on status changes)
 	$effect(() => {
