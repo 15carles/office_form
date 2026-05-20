@@ -365,6 +365,22 @@
 	.plugin-game {
 		flex: 1; overflow: hidden; position: relative;
 		background: #1e1e1e;
+
+		--game-bg: #1e1e1e;
+		--game-cell-a: #252525;
+		--game-cell-b: #1a1a1a;
+		--game-grid: #2e2e2e;
+		--game-border: #444;
+		--game-border-soft: #323232;
+		--game-text: #d0d0d0;
+		--game-text-muted: #888;
+		--game-accent: #18a0fb;
+		--game-panel-bg: #242424;
+		--game-panel-border: #3a3a3a;
+		--game-overlay-bg: rgba(24, 24, 24, 0.96);
+		--game-overlay-border: #555;
+		--game-btn-bg: #18a0fb;
+		--game-btn-hover: #1090e8;
 	}
 
 	/* Apply bar */

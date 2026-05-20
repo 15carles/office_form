@@ -127,11 +127,12 @@
 		padding: 16px;
 		box-sizing: border-box;
 		font-family: 'Inter', 'Segoe UI', sans-serif;
+		background: var(--game-bg, transparent);
 	}
 
 	.start-panel, .results-panel {
-		background: white;
-		border: 1px solid #e0e0e0;
+		background: var(--game-panel-bg, white);
+		border: 1px solid var(--game-panel-border, #e0e0e0);
 		padding: 24px 28px;
 		text-align: center;
 		max-width: 360px;
@@ -141,19 +142,19 @@
 	.start-panel h3, .results-panel h3 {
 		font-size: 14px;
 		font-weight: 600;
-		color: #333;
+		color: var(--game-text, #333);
 		margin-bottom: 8px;
 	}
 
 	.start-panel p {
 		font-size: 12px;
-		color: #888;
+		color: var(--game-text-muted, #888);
 		margin-bottom: 16px;
 		line-height: 1.5;
 	}
 
 	button {
-		background: #191919;
+		background: var(--game-btn-bg, #191919);
 		color: white;
 		border: none;
 		padding: 7px 20px;
@@ -162,7 +163,7 @@
 		font-family: inherit;
 		margin-top: 12px;
 	}
-	button:hover { background: #333; }
+	button:hover { background: var(--game-btn-hover, #333); }
 
 	.stats-grid {
 		display: flex;
@@ -172,8 +173,8 @@
 	}
 
 	.stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-	.stat-n { font-size: 22px; font-weight: 700; color: #191919; }
-	.stat-l { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+	.stat-n { font-size: 22px; font-weight: 700; color: var(--game-text, #191919); }
+	.stat-l { font-size: 10px; color: var(--game-text-muted, #888); text-transform: uppercase; letter-spacing: 0.05em; }
 
 	.game-area {
 		width: 100%;
@@ -188,20 +189,20 @@
 	}
 
 	.stat-pill {
-		background: #f0f0f0;
-		border: 1px solid #e0e0e0;
+		background: var(--game-panel-bg, #f0f0f0);
+		border: 1px solid var(--game-panel-border, #e0e0e0);
 		padding: 3px 10px;
 		font-size: 13px;
 		font-weight: 600;
-		color: #333;
+		color: var(--game-text, #333);
 		border-radius: 2px;
 	}
 
-	.stat-pill small { font-weight: 400; font-size: 10px; color: #888; margin-left: 3px; }
+	.stat-pill small { font-weight: 400; font-size: 10px; color: var(--game-text-muted, #888); margin-left: 3px; }
 
 	.words-display {
-		background: white;
-		border: 1px solid #e0e0e0;
+		background: var(--game-panel-bg, white);
+		border: 1px solid var(--game-panel-border, #e0e0e0);
 		padding: 16px;
 		margin-bottom: 10px;
 		display: flex;
@@ -213,40 +214,40 @@
 
 	.word {
 		font-size: 15px;
-		color: #aaa;
+		color: var(--game-text-muted, #aaa);
 		line-height: 1.4;
 		font-family: 'Courier New', monospace;
 	}
 
 	.word.done { color: #ccc; text-decoration: line-through; }
-	.word.current { color: #191919; font-weight: 600; }
+	.word.current { color: var(--game-text, #191919); font-weight: 600; }
 	.word.error .typed { color: #c0392b; }
-	.typed { color: #191919; }
-	.remaining { color: #555; }
+	.typed { color: var(--game-text, #191919); }
+	.remaining { color: var(--game-text-muted, #555); }
 
 	.hidden-input {
 		width: 100%;
 		padding: 8px 12px;
 		font-size: 15px;
 		font-family: 'Courier New', monospace;
-		border: 2px solid #191919;
+		border: 2px solid var(--game-overlay-border, #191919);
 		outline: none;
-		color: #191919;
-		background: white;
+		color: var(--game-text, #191919);
+		background: var(--game-panel-bg, white);
 	}
 
-	.hidden-input:focus { border-color: #555; }
+	.hidden-input:focus { border-color: var(--game-accent, #555); }
 
 	.input-hint {
 		margin-top: 6px;
 		font-size: 10px;
-		color: #aaa;
+		color: var(--game-text-muted, #aaa);
 		text-align: center;
 	}
 
 	kbd {
-		background: #f0f0f0;
-		border: 1px solid #ccc;
+		background: var(--game-panel-bg, #f0f0f0);
+		border: 1px solid var(--game-panel-border, #ccc);
 		padding: 1px 4px;
 		font-size: 9px;
 		font-family: inherit;

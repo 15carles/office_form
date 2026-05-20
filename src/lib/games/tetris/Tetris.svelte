@@ -19,7 +19,11 @@
 
 	let { width, height, paused, onScore, onGameOver, onStateChange }: Props = $props();
 
-	const CELL = $derived(Math.floor(Math.min(width / 10, height / 22)));
+	const showSidebar = $derived(width >= 300);
+	const CELL = $derived(Math.max(1, Math.floor(Math.min(
+		(width - 16 - (showSidebar ? 82 : 0)) / 10,
+		(height - 16) / 22
+	))));
 	const gameW = $derived(10 * CELL);
 	const gameH = $derived(20 * CELL);
 	const previewSize = $derived(CELL * 4);
@@ -32,7 +36,22 @@
 	let state = $state<TetrisState>(initState());
 	let intervalId: ReturnType<typeof setInterval> | null = null;
 
-	$effect(() => { if (canvas) { ctx = canvas.getContext('2d')!; draw(); } });
+	let themeColors = $state({ cellA: '#fafafa', cellB: '#f3f3f3', grid: '#e0e0e0', border: '#bbb', previewBg: '#f9f9f9' });
+
+	$effect(() => {
+		if (canvas) {
+			const s = getComputedStyle(canvas);
+			themeColors = {
+				cellA: s.getPropertyValue('--game-cell-a').trim() || '#fafafa',
+				cellB: s.getPropertyValue('--game-cell-b').trim() || '#f3f3f3',
+				grid: s.getPropertyValue('--game-grid').trim() || '#e0e0e0',
+				border: s.getPropertyValue('--game-border').trim() || '#bbb',
+				previewBg: s.getPropertyValue('--game-panel-bg').trim() || '#f9f9f9'
+			};
+			ctx = canvas.getContext('2d')!;
+			draw();
+		}
+	});
 	$effect(() => { if (previewCanvas) { previewCtx = previewCanvas.getContext('2d')!; drawPreview(); } });
 	$effect(() => { onStateChange?.(state); });
 
@@ -72,7 +91,7 @@
 		for (let r = 0; r < state.rows; r++) {
 			for (let c = 0; c < state.cols; c++) {
 				const cell = state.board[r][c];
-				drawCell(ctx, c, r, cell ? COLORS[cell] : (r % 2 === 0 ? '#fafafa' : '#f3f3f3'));
+				drawCell(ctx, c, r, cell ? COLORS[cell] : (r % 2 === 0 ? themeColors.cellA : themeColors.cellB));
 			}
 		}
 	}
@@ -103,7 +122,7 @@
 	}
 
 	function drawGrid() {
-		ctx.strokeStyle = '#e0e0e0';
+		ctx.strokeStyle = themeColors.grid;
 		ctx.lineWidth = 0.5;
 		for (let r = 0; r <= state.rows; r++) {
 			ctx.beginPath(); ctx.moveTo(0, r * CELL); ctx.lineTo(gameW, r * CELL); ctx.stroke();
@@ -111,7 +130,7 @@
 		for (let c = 0; c <= state.cols; c++) {
 			ctx.beginPath(); ctx.moveTo(c * CELL, 0); ctx.lineTo(c * CELL, gameH); ctx.stroke();
 		}
-		ctx.strokeStyle = '#bbb';
+		ctx.strokeStyle = themeColors.border;
 		ctx.lineWidth = 1;
 		ctx.strokeRect(0.5, 0.5, gameW - 1, gameH - 1);
 	}
@@ -129,7 +148,7 @@
 	function drawPreview() {
 		if (!previewCtx || !previewSize) return;
 		previewCtx.clearRect(0, 0, previewSize, previewSize);
-		previewCtx.fillStyle = '#f9f9f9';
+		previewCtx.fillStyle = themeColors.previewBg;
 		previewCtx.fillRect(0, 0, previewSize, previewSize);
 
 		const shape = SHAPES[state.next][0];
@@ -202,7 +221,7 @@
 		{/if}
 	</div>
 
-	{#if state.status !== 'idle'}
+	{#if state.status !== 'idle' && showSidebar}
 		<div class="sidebar">
 			<div class="stat-block">
 				<span class="stat-label">Siguiente</span>
@@ -250,8 +269,8 @@
 	}
 
 	.panel {
-		background: rgba(255,255,255,0.95);
-		border: 2px solid #555;
+		background: var(--game-overlay-bg, rgba(255,255,255,0.95));
+		border: 2px solid var(--game-overlay-border, #555);
 		padding: 14px 20px;
 		text-align: center;
 		box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
@@ -259,13 +278,13 @@
 		font-family: 'Inter', 'Segoe UI', sans-serif;
 	}
 
-	.panel h3 { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px; }
+	.panel h3 { font-size: 13px; font-weight: 600; color: var(--game-text, #333); margin-bottom: 6px; }
 	.panel.error h3 { color: #c0392b; }
-	.panel p { font-size: 10px; color: #666; margin-bottom: 10px; line-height: 1.6; }
-	.score-line { font-size: 12px; font-weight: 700; color: #333; }
+	.panel p { font-size: 10px; color: var(--game-text-muted, #666); margin-bottom: 10px; line-height: 1.6; }
+	.score-line { font-size: 12px; font-weight: 700; color: var(--game-text, #333); }
 
 	button {
-		background: #444;
+		background: var(--game-btn-bg, #444);
 		color: white;
 		border: none;
 		padding: 5px 16px;
@@ -273,7 +292,7 @@
 		cursor: pointer;
 		font-family: inherit;
 	}
-	button:hover { background: #222; }
+	button:hover { background: var(--game-btn-hover, #222); }
 
 	.sidebar {
 		display: flex;
@@ -286,8 +305,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 4px;
-		background: #f5f5f5;
-		border: 1px solid #ddd;
+		background: var(--game-panel-bg, #f5f5f5);
+		border: 1px solid var(--game-panel-border, #ddd);
 		padding: 6px 10px;
 		min-width: 70px;
 	}
@@ -296,14 +315,14 @@
 		font-size: 9px;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: #888;
+		color: var(--game-text-muted, #888);
 		font-family: 'Inter', 'Segoe UI', sans-serif;
 	}
 
 	.stat-value {
 		font-size: 16px;
 		font-weight: 700;
-		color: #333;
+		color: var(--game-text, #333);
 		font-family: 'Inter', 'Segoe UI', sans-serif;
 	}
 </style>

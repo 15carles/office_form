@@ -46,6 +46,7 @@
 
 	let gameState = $state<SnakeState>(initState(10, 14));
 	let intervalId: ReturnType<typeof setInterval> | null = null;
+	let snakeTheme = $state({ cellA: '#f5fdf8', cellB: '#eef8f2', gridLine: '#c8e8d4', gridBorder: '#7ec8a0', snakeAccent: '' });
 
 	// Reset game only when grid dimensions change (not on status changes)
 	$effect(() => {
@@ -59,6 +60,14 @@
 
 	$effect(() => {
 		if (canvas) {
+			const s = getComputedStyle(canvas);
+			snakeTheme = {
+				cellA: s.getPropertyValue('--game-cell-a').trim() || '#f5fdf8',
+				cellB: s.getPropertyValue('--game-cell-b').trim() || '#eef8f2',
+				gridLine: s.getPropertyValue('--game-border-soft').trim() || '#c8e8d4',
+				gridBorder: s.getPropertyValue('--game-border').trim() || '#7ec8a0',
+				snakeAccent: s.getPropertyValue('--game-accent').trim() || ''
+			};
 			ctx = canvas.getContext('2d')!;
 			drawFrame();
 		}
@@ -109,15 +118,15 @@
 	function drawGrid() {
 		for (let r = 0; r < rows; r++) {
 			for (let c = 0; c < cols; c++) {
-				ctx.fillStyle = r % 2 === 0 ? '#f5fdf8' : '#eef8f2';
+				ctx.fillStyle = r % 2 === 0 ? snakeTheme.cellA : snakeTheme.cellB;
 				ctx.fillRect(c * CW, r * CH, CW, CH);
-				ctx.strokeStyle = '#c8e8d4';
+				ctx.strokeStyle = snakeTheme.gridLine;
 				ctx.lineWidth = 0.5;
 				ctx.strokeRect(c * CW, r * CH, CW, CH);
 			}
 		}
 		// Outer border
-		ctx.strokeStyle = '#7ec8a0';
+		ctx.strokeStyle = snakeTheme.gridBorder;
 		ctx.lineWidth = 1.5;
 		ctx.strokeRect(0.75, 0.75, gameW - 1.5, gameH - 1.5);
 	}
@@ -127,7 +136,8 @@
 			'1,0': '▶', '-1,0': '◄', '0,-1': '▲', '0,1': '▼'
 		};
 		const dir = gameState.dir;
-		const bodyColor = lighten(accentColor, 0.3);
+		const baseColor = snakeTheme.snakeAccent || accentColor;
+		const bodyColor = lighten(baseColor, 0.3);
 
 		gameState.snake.forEach((seg, i) => {
 			const x = seg.x * CW + 1;
@@ -135,9 +145,9 @@
 			const w = CW - 2;
 			const h = CH - 2;
 
-			ctx.fillStyle = i === 0 ? accentColor : bodyColor;
+			ctx.fillStyle = i === 0 ? baseColor : bodyColor;
 			ctx.fillRect(x, y, w, h);
-			ctx.strokeStyle = darken(accentColor, 0.2);
+			ctx.strokeStyle = darken(baseColor, 0.2);
 			ctx.lineWidth = 0.8;
 			ctx.strokeRect(x, y, w, h);
 
@@ -250,8 +260,8 @@
 	}
 
 	.panel {
-		background: rgba(255, 255, 255, 0.95);
-		border: 2px solid #1f7145;
+		background: var(--game-overlay-bg, rgba(255, 255, 255, 0.95));
+		border: 2px solid var(--game-overlay-border, #1f7145);
 		padding: 14px 20px;
 		text-align: center;
 		pointer-events: all;
@@ -260,7 +270,7 @@
 	}
 
 	.panel h3 {
-		color: #1f7145;
+		color: var(--game-accent, #1f7145);
 		font-size: 13px;
 		margin-bottom: 6px;
 		font-family: Calibri, sans-serif;
@@ -272,7 +282,7 @@
 
 	.panel p {
 		font-size: 10px;
-		color: #666;
+		color: var(--game-text-muted, #666);
 		margin-bottom: 10px;
 		line-height: 1.6;
 		font-family: Calibri, sans-serif;
@@ -290,7 +300,7 @@
 	}
 
 	button {
-		background: #1f7145;
+		background: var(--game-btn-bg, #1f7145);
 		color: white;
 		border: none;
 		padding: 5px 16px;
@@ -300,6 +310,6 @@
 	}
 
 	button:hover {
-		background: #165a36;
+		background: var(--game-btn-hover, #165a36);
 	}
 </style>
