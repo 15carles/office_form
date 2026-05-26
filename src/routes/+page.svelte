@@ -60,7 +60,7 @@
 			{#if $streak.currentStreak > 1}
 				<div class="streak-bar">
 					<span class="streak-dot"></span>
-					{$streak.currentStreak} días consecutivos · Récord: {$streak.longestStreak}
+					{$t('home.streakDays', { values: { count: $streak.currentStreak, record: $streak.longestStreak } })}
 				</div>
 			{/if}
 		</section>
@@ -88,15 +88,15 @@
 		<section class="info-bar">
 			<div class="info-item">
 				<span class="info-icon">⌨</span>
-				<span>Tecla <kbd>Esc</kbd> para alternar vista</span>
+				<span>{$t('ui.panic.hint')}</span>
 			</div>
 			<div class="info-item">
 				<span class="info-icon">⊟</span>
-				<span>Pantalla completa disponible en cada entorno</span>
+				<span>{$t('home.infoFullscreen')}</span>
 			</div>
 			<div class="info-item">
 				<span class="info-icon">☁</span>
-				<span>Sin cuenta · Sin datos enviados</span>
+				<span>{$t('home.infoNoData')}</span>
 			</div>
 		</section>
 

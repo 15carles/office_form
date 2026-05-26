@@ -67,8 +67,8 @@
 			<h3>{$t('games.typing.gameOver')}</h3>
 			<div class="stats-grid">
 				<div class="stat"><span class="stat-n">{state.wpm}</span><span class="stat-l">{$t('games.typing.score')}</span></div>
-				<div class="stat"><span class="stat-n">{state.accuracy}%</span><span class="stat-l">Precisión</span></div>
-				<div class="stat"><span class="stat-n">{state.errors}</span><span class="stat-l">Errores</span></div>
+				<div class="stat"><span class="stat-n">{state.accuracy}%</span><span class="stat-l">{$t('games.typing.accuracy')}</span></div>
+				<div class="stat"><span class="stat-n">{state.errors}</span><span class="stat-l">{$t('games.typing.errors')}</span></div>
 			</div>
 			<button onclick={startGame}>{$t('games.typing.retryBtn')}</button>
 		</div>
@@ -77,9 +77,9 @@
 		<div class="game-area">
 			<!-- Live stats bar -->
 			<div class="stats-bar">
-				<span class="stat-pill">{state.wpm} <small>wpm</small></span>
-				<span class="stat-pill">{state.accuracy}% <small>precisión</small></span>
-				<span class="stat-pill">{state.currentIndex}/{state.words.length} <small>palabras</small></span>
+				<span class="stat-pill">{state.wpm} <small>{$t('games.typing.scoreUnit')}</small></span>
+				<span class="stat-pill">{state.accuracy}% <small>{$t('games.typing.accuracyShort')}</small></span>
+				<span class="stat-pill">{state.currentIndex}/{state.words.length} <small>{$t('games.typing.wordsShort')}</small></span>
 			</div>
 
 			<!-- Words display -->
@@ -114,7 +114,7 @@
 				disabled={paused}
 			/>
 
-			<div class="input-hint">Escribe la palabra resaltada y pulsa <kbd>Espacio</kbd></div>
+			<div class="input-hint">{$t('games.typing.hint')}</div>
 		</div>
 	{/if}
 </div>

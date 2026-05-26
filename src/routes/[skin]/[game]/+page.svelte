@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
+	import { t } from 'svelte-i18n';
 	import { panicMode } from '$lib/stores/panic';
 	import { recordScore } from '$lib/stores/progress';
 	import { isValidSkin, isValidGame, pageTitle } from '$lib/skins/registry';
@@ -38,8 +39,8 @@
 	const excelCellRef = $derived(snakeState ? cellRef(snakeState.snake[0]) : 'C5');
 	const excelFormula = $derived(snakeState ? formulaText(snakeState) : '=SUMA(C5:C12)');
 	const excelStatus = $derived(
-		snakeState?.status === 'running' ? 'Calculando...' :
-		snakeState?.status === 'over'    ? 'Error en fórmula' : 'Listo'
+		snakeState?.status === 'running' ? $t('ui.status.calculating') :
+		snakeState?.status === 'over'    ? $t('ui.status.error') : $t('ui.status.ready')
 	);
 
 	// Figma right panel — driven by tetris or snake score
@@ -47,8 +48,11 @@
 
 	// Notion properties — driven by typing state
 	const notionStatus = $derived(
-		typingState?.status === 'running' ? `${typingState.wpm} ppm · ${typingState.accuracy}% precisión` :
-		typingState?.status === 'over'    ? `Completado: ${typingState.wpm} ppm` : 'En espera'
+		typingState?.status === 'running'
+			? `${typingState.wpm} ${$t('games.typing.scoreUnit')} · ${typingState.accuracy}% ${$t('games.typing.accuracyShort')}`
+			: typingState?.status === 'over'
+				? `${$t('ui.status.typingDone')}: ${typingState.wpm} ${$t('games.typing.scoreUnit')}`
+				: $t('ui.status.waiting')
 	);
 
 	function handleScore(s: number) { score = s; }

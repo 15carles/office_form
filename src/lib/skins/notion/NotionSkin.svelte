@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 	import { panicMode } from '$lib/stores/panic';
 	import { toggleFullscreen, isFullscreen } from '$lib/stores/fullscreen';
 	import { getBestScore } from '$lib/stores/progress';
@@ -17,7 +17,7 @@
 
 	let skinRoot: HTMLElement;
 	const best = $derived(getBestScore('notion', gameId));
-	const today = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' });
+	const today = $derived(new Date().toLocaleDateString($locale === 'es' ? 'es-ES' : 'en-US', { day: '2-digit', month: 'long', year: 'numeric' }));
 
 	const PAGES = [
 		{ icon: '📋', name: 'Reunión semanal', active: true },
@@ -76,7 +76,7 @@
 			</div>
 			<div class="doc-actions">
 				<button class="doc-btn" onclick={() => toggleFullscreen(skinRoot)}>
-					{$isFullscreen ? '⊡ Salir' : '⊟ Pantalla completa'}
+					{$isFullscreen ? '⊡ ' + $t('ui.exitFullscreen') : '⊟ ' + $t('ui.fullscreen')}
 				</button>
 				<button class="doc-btn">Compartir</button>
 				<div class="avatar-sm">A</div>
@@ -86,7 +86,7 @@
 		<div class="doc-content">
 			<div class="page-icon">📋</div>
 			<h1 class="page-title">Reunión semanal</h1>
-			<div class="page-meta">{today} · {statusText || 'Editado hace unos segundos'}</div>
+			<div class="page-meta">{today} · {statusText || $t('ui.recentEdit')}</div>
 
 			<div class="properties">
 				<div class="prop-row">
@@ -146,7 +146,7 @@
 
 			</div>
 
-			<div class="block-hint">Escribe debajo para añadir notas...</div>
+			<div class="block-hint">{$t('ui.addNotesHint')}</div>
 		</div>
 	</div>
 </div>

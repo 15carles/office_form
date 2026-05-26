@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Snippet } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { panicMode } from '$lib/stores/panic';
 	import { toggleFullscreen, isFullscreen } from '$lib/stores/fullscreen';
 	import { getBestScore } from '$lib/stores/progress';
@@ -220,7 +221,7 @@
 	<div class="title-bar">
 		<span class="file-name">Informe_Ventas_Q4_2025.xlsx — Excel</span>
 		<div class="title-wbtns">
-			<button class="wb" onclick={() => toggleFullscreen(skinRoot)} title={$isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}
+			<button class="wb" onclick={() => toggleFullscreen(skinRoot)} title={$isFullscreen ? $t('ui.exitFullscreen') : $t('ui.fullscreen')}
 				style:background={$isFullscreen ? '#e74c3c' : '#f39c12'}></button>
 		</div>
 	</div>
@@ -309,8 +310,8 @@
 
 	<!-- Status bar -->
 	<div class="status-bar">
-		<span class="status-text">{statusText || 'Listo'}</span>
-		<span class="score-display">Puntuación: {score} &nbsp;|&nbsp; Récord: {best}</span>
+		<span class="status-text">{statusText || $t('ui.status.ready')}</span>
+		<span class="score-display">{$t('ui.score')}: {score} &nbsp;|&nbsp; {$t('ui.record')}: {best}</span>
 		<span>Promedio: 18.432 &nbsp;|&nbsp; Recuento: 48 &nbsp;|&nbsp; Suma: 885.736</span>
 	</div>
 </div>

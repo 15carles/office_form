@@ -7,7 +7,10 @@
     "title": "Workflow Suite",
     "subtitle": "Select your workspace environment to continue",
     "featured": "Featured workflow today",
-    "browse": "All environments"
+    "browse": "All environments",
+    "streakDays": "{count} days in a row · Record: {record}",
+    "infoFullscreen": "Full screen available in each environment",
+    "infoNoData": "No account · No data sent"
   },
   "skins": {
     "excel": {
@@ -47,7 +50,8 @@
       "retryBtn": "↺ Retry",
       "gameOver": "Stack overflow",
       "score": "Score",
-      "best": "Record"
+      "best": "Record",
+      "controls": "← → Move  ·  ↑ Rotate\n↓ Down  ·  Space Drop"
     },
     "typing": {
       "name": "Input Throughput Benchmark",
@@ -58,7 +62,12 @@
       "retryBtn": "↺ Retry",
       "gameOver": "Benchmark complete",
       "score": "WPM",
-      "best": "Best"
+      "best": "Best",
+      "accuracy": "Accuracy",
+      "errors": "Errors",
+      "accuracyShort": "accuracy",
+      "wordsShort": "words",
+      "hint": "Type the highlighted word and press Space"
     }
   },
   "ui": {
@@ -67,11 +76,17 @@
     "recommended": "Recommended",
     "fullscreen": "Full screen",
     "exitFullscreen": "Exit full screen",
+    "score": "Score",
+    "record": "Record",
+    "recentEdit": "Edited just now",
+    "addNotesHint": "Type below to add notes...",
     "status": {
       "ready": "Ready",
       "running": "Processing...",
       "error": "Formula error",
-      "calculating": "Calculating..."
+      "calculating": "Calculating...",
+      "waiting": "Waiting",
+      "typingDone": "Completed"
     },
     "panic": {
       "hint": "Press Esc to toggle view"

@@ -204,7 +204,7 @@
 			<div class="overlay">
 				<div class="panel">
 					<h3>{$t('games.tetris.start')}</h3>
-					<p>← → Mover &nbsp;·&nbsp; ↑ Rotar<br />↓ Bajar &nbsp;·&nbsp; Espacio Caída</p>
+					<p>{$t('games.tetris.controls')}</p>
 					<button onclick={startGame}>{$t('games.tetris.startBtn')}</button>
 				</div>
 			</div>

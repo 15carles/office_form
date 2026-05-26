@@ -7,7 +7,10 @@
     "title": "Workflow Suite",
     "subtitle": "Selecciona tu entorno de trabajo para continuar",
     "featured": "Flujo de trabajo destacado hoy",
-    "browse": "Todos los entornos"
+    "browse": "Todos los entornos",
+    "streakDays": "{count} días consecutivos · Récord: {record}",
+    "infoFullscreen": "Pantalla completa disponible en cada entorno",
+    "infoNoData": "Sin cuenta · Sin datos enviados"
   },
   "skins": {
     "excel": {
@@ -47,7 +50,8 @@
       "retryBtn": "↺ Reintentar",
       "gameOver": "Desbordamiento de pila",
       "score": "Puntuación",
-      "best": "Récord"
+      "best": "Récord",
+      "controls": "← → Mover  ·  ↑ Rotar\n↓ Bajar  ·  Espacio Caída"
     },
     "typing": {
       "name": "Benchmark de entrada",
@@ -58,7 +62,12 @@
       "retryBtn": "↺ Reintentar",
       "gameOver": "Benchmark completado",
       "score": "PPM",
-      "best": "Mejor"
+      "best": "Mejor",
+      "accuracy": "Precisión",
+      "errors": "Errores",
+      "accuracyShort": "precisión",
+      "wordsShort": "palabras",
+      "hint": "Escribe la palabra resaltada y pulsa Espacio"
     }
   },
   "ui": {
@@ -67,11 +76,17 @@
     "recommended": "Recomendado",
     "fullscreen": "Pantalla completa",
     "exitFullscreen": "Salir de pantalla completa",
+    "score": "Puntuación",
+    "record": "Récord",
+    "recentEdit": "Editado hace unos segundos",
+    "addNotesHint": "Escribe debajo para añadir notas...",
     "status": {
       "ready": "Listo",
       "running": "Procesando...",
       "error": "Error en fórmula",
-      "calculating": "Calculando..."
+      "calculating": "Calculando...",
+      "waiting": "En espera",
+      "typingDone": "Completado"
     },
     "panic": {
       "hint": "Pulsa Esc para alternar vista"
