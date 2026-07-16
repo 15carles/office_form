@@ -1,3 +1,5 @@
+@import '@fontsource-variable/inter';
+
 *, *::before, *::after {
 	box-sizing: border-box;
 	margin: 0;
@@ -7,9 +9,24 @@
 html, body {
 	height: 100%;
 	overflow: hidden;
-	font-family: 'Segoe UI', 'Calibri', system-ui, sans-serif;
+	font-family: var(--of-font);
 	font-size: 12px;
 	background: #d4d4d4;
+}
+
+/* OfficeForms brand tokens — used by the dashboard/home chrome.
+   Skins keep their own fonts and colors and are not affected. */
+:root {
+	--of-paper: #fafaf9;
+	--of-surface: #ffffff;
+	--of-ink: #1a1a18;
+	--of-ink-muted: #6b6b66;
+	--of-ink-faint: #a3a39c;
+	--of-line: #e7e6e2;
+	--of-brand: #2456d6;
+	--of-brand-hover: #1c46b4;
+	--of-radius: 6px;
+	--of-font: 'Inter Variable', ui-sans-serif, 'Segoe UI', system-ui, sans-serif;
 }
 
 /* CSS variable contract — each skin overrides these on its root element */

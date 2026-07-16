@@ -4,15 +4,17 @@
     "settings": "Settings"
   },
   "home": {
-    "title": "Workflow Suite",
-    "subtitle": "Select your workspace environment to continue",
+    "title": "OfficeForms",
+    "subtitle": "Ready-to-use workspace environments",
+    "tagline": "Analysis, design and documentation. No account, no setup — everything runs in your browser.",
+    "openFeatured": "Open featured environment",
     "featured": "Featured workflow today",
-    "browse": "All environments",
+    "browse": "Available environments",
     "streak": "{current} consecutive days · Record: {longest}",
     "hintEsc": "Press {key} to toggle view",
     "hintFullscreen": "Full screen available in every environment",
     "hintPrivacy": "No account · No data sent",
-    "footer": "Workflow Suite · Internal productivity tools",
+    "footer": "OfficeForms · Internal productivity environments",
     "open": "Open →",
     "today": "Today",
     "bestTotal": "Best: {total} total"

@@ -26,18 +26,21 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 12px 16px;
-		background: white;
-		border: 1px solid #e0e0e0;
+		padding: 14px 18px;
+		background: var(--of-surface, white);
+		border: 1px solid var(--of-line, #e0e0e0);
 		border-left: 4px solid var(--accent);
+		border-radius: var(--of-radius, 6px);
 		text-decoration: none;
 		color: inherit;
-		transition: box-shadow 0.15s;
+		font-family: var(--of-font, inherit);
+		transition: box-shadow 0.15s, transform 0.15s;
 		max-width: 520px;
 	}
 
 	.day-badge:hover {
-		box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+		box-shadow: 0 4px 16px rgba(26, 26, 24, 0.07);
+		transform: translateY(-1px);
 	}
 
 	.badge-left {
@@ -49,15 +52,16 @@
 	.badge-label {
 		font-size: 10px;
 		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		color: #999;
+		letter-spacing: 0.07em;
+		color: var(--of-ink-faint, #999);
 		font-weight: 600;
 	}
 
 	.badge-combo {
-		font-size: 13px;
-		font-weight: 600;
-		color: #111;
+		font-size: 13.5px;
+		font-weight: 620;
+		letter-spacing: -0.01em;
+		color: var(--of-ink, #111);
 	}
 
 	.badge-action {
@@ -65,7 +69,7 @@
 		align-items: center;
 		gap: 6px;
 		font-size: 12px;
-		color: #888;
+		color: var(--of-ink-muted, #888);
 		white-space: nowrap;
 	}
 

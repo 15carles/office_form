@@ -4,15 +4,17 @@
     "settings": "Ajustes"
   },
   "home": {
-    "title": "Workflow Suite",
-    "subtitle": "Selecciona tu entorno de trabajo para continuar",
+    "title": "OfficeForms",
+    "subtitle": "Entornos de trabajo listos para usar",
+    "tagline": "Análisis, diseño y documentación. Sin cuenta y sin configuración: todo funciona en tu navegador.",
+    "openFeatured": "Abrir entorno destacado",
     "featured": "Flujo de trabajo destacado hoy",
-    "browse": "Todos los entornos",
+    "browse": "Entornos disponibles",
     "streak": "{current} días consecutivos · Récord: {longest}",
     "hintEsc": "Tecla {key} para alternar vista",
     "hintFullscreen": "Pantalla completa disponible en cada entorno",
     "hintPrivacy": "Sin cuenta · Sin datos enviados",
-    "footer": "Workflow Suite · Herramientas internas de productividad",
+    "footer": "OfficeForms · Entornos internos de productividad",
     "open": "Abrir →",
     "today": "Hoy",
     "bestTotal": "Mejor: {total} en total"

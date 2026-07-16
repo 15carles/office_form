@@ -67,23 +67,25 @@
 	.skin-card {
 		display: flex;
 		flex-direction: column;
-		background: white;
-		border: 1px solid #e0e0e0;
+		background: var(--of-surface, white);
+		border: 1px solid var(--of-line, #e0e0e0);
+		border-radius: var(--of-radius, 6px);
 		text-decoration: none;
 		color: inherit;
+		font-family: var(--of-font, inherit);
 		transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 		overflow: hidden;
 	}
 
 	.skin-card:hover {
 		border-color: var(--accent);
-		box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+		box-shadow: 0 6px 24px rgba(26, 26, 24, 0.08);
 		transform: translateY(-2px);
 	}
 
 	.skin-card.featured {
 		border-color: var(--accent);
-		border-width: 2px;
+		box-shadow: 0 0 0 1px var(--accent);
 	}
 
 	.preview-wrap {
@@ -125,10 +127,10 @@
 	.skin-card:hover .open-label { opacity: 1; }
 
 	.card-body {
-		padding: 12px 14px;
+		padding: 14px 16px 16px;
 		display: flex;
 		flex-direction: column;
-		gap: 6px;
+		gap: 7px;
 	}
 
 	.card-title-row {
@@ -138,49 +140,53 @@
 	}
 
 	.card-name {
-		font-size: 13px;
-		font-weight: 600;
-		color: #111;
+		font-size: 13.5px;
+		font-weight: 620;
+		letter-spacing: -0.01em;
+		color: var(--of-ink, #111);
 	}
 
 	.featured-badge {
 		font-size: 9px;
 		background: var(--accent);
 		color: white;
-		padding: 1px 6px;
+		padding: 2px 7px;
+		border-radius: 999px;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 		font-weight: 600;
 	}
 
 	.card-desc {
-		font-size: 11px;
-		color: #888;
-		line-height: 1.4;
+		font-size: 12px;
+		color: var(--of-ink-muted, #888);
+		line-height: 1.45;
 		margin: 0;
 	}
 
 	.card-games {
 		display: flex;
-		gap: 4px;
+		gap: 5px;
 		flex-wrap: wrap;
+		margin-top: 2px;
 	}
 
 	.game-tag {
 		font-size: 10px;
-		background: #f5f5f5;
-		border: 1px solid #e5e5e5;
-		color: #666;
-		padding: 2px 7px;
+		background: var(--of-paper, #f5f5f5);
+		border: 1px solid var(--of-line, #e5e5e5);
+		border-radius: 999px;
+		color: var(--of-ink-muted, #666);
+		padding: 2px 9px;
 	}
 
 	.card-score {
 		display: flex;
 		align-items: center;
-		gap: 5px;
-		font-size: 10px;
-		color: #888;
-		margin-top: 2px;
+		gap: 6px;
+		font-size: 11px;
+		color: var(--of-ink-muted, #888);
+		margin-top: 3px;
 	}
 
 	.score-dot {
