@@ -1,4 +1,16 @@
 <!-- Miniatura SVG del disfraz Figma -->
+<script lang="ts">
+	const LAYERS: { indent: number; icon: string; name: string }[] = [
+		{ indent: 0, icon: '⬜', name: 'Frame 1' },
+		{ indent: 1, icon: '◻', name: 'Group' },
+		{ indent: 2, icon: '◈', name: 'Button/Primary' },
+		{ indent: 2, icon: '⬡', name: 'Icon/chevron' },
+		{ indent: 1, icon: '▭', name: 'Background' },
+		{ indent: 1, icon: 'T', name: 'Header text' },
+		{ indent: 1, icon: '—', name: 'Divider' }
+	];
+</script>
+
 <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, sans-serif">
   <!-- App background -->
   <rect width="320" height="200" fill="#2c2c2c"/>
@@ -30,22 +42,14 @@
   <text x="42" y="64" font-size="6" fill="#666">Assets</text>
   <line x1="10" y1="68" x2="36" y2="68" stroke="#18a0fb" stroke-width="1"/>
 
-  {#each [
-    [0,'⬜','Frame 1'],
-    [1,'◻','Group'],
-    [2,'◈','Button/Primary'],
-    [2,'⬡','Icon/chevron'],
-    [1,'▭','Background'],
-    [1,'T','Header text'],
-    [1,'—','Divider'],
-  ] as [ind, icon, name], i}
+  {#each LAYERS as layer, i (layer.name)}
     <rect x="0" y={70 + i * 16} width="72" height="16"
       fill={i === 2 ? '#18a0fb18' : 'transparent'}/>
-    <text x={4 + ind * 6} y={81 + i * 16} font-size="7"
-      fill={i === 2 ? '#18a0fb' : '#999'}>{icon}</text>
-    <text x={12 + ind * 6} y={81 + i * 16} font-size="6"
+    <text x={4 + layer.indent * 6} y={81 + i * 16} font-size="7"
+      fill={i === 2 ? '#18a0fb' : '#999'}>{layer.icon}</text>
+    <text x={12 + layer.indent * 6} y={81 + i * 16} font-size="6"
       fill={i === 2 ? '#18a0fb' : '#aaa'}
-      font-weight={i === 2 ? '600' : 'normal'}>{name}</text>
+      font-weight={i === 2 ? '600' : 'normal'}>{layer.name}</text>
   {/each}
 
   <!-- Canvas area -->

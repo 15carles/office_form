@@ -1,5 +1,4 @@
-export type SkinId = 'excel' | 'figma' | 'notion';
-export type GameId = 'snake' | 'tetris' | 'typing';
+import type { SkinId, GameId } from '$lib/games/types';
 
 export interface DailyCombo {
 	skinId: SkinId;

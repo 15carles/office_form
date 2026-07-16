@@ -3,68 +3,53 @@
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
 	import { t } from 'svelte-i18n';
-	import { isValidSkin, COMPATIBILITY, RECOMMENDED, pageTitle } from '$lib/skins/registry';
-	import ExcelSkin from '$lib/skins/excel/ExcelSkin.svelte';
-	import FigmaSkin from '$lib/skins/figma/FigmaSkin.svelte';
-	import NotionSkin from '$lib/skins/notion/NotionSkin.svelte';
+	import { isValidSkin, getSkin } from '$lib/skins/registry';
+	import { SKIN_COMPONENTS } from '$lib/skins/components';
 	import { setDefaultSkin } from '$lib/stores/progress';
+	import type { GameId } from '$lib/games/types';
 
 	const skinId = $derived($page.params.skin);
+	const skin = $derived(isValidSkin(skinId) ? getSkin(skinId) : null);
 
 	$effect(() => {
-		if (!isValidSkin(skinId)) goto(base || '/');
-		else setDefaultSkin(skinId);
+		if (!skin) goto(base || '/');
+		else setDefaultSkin(skin.id);
 	});
 
-	const GAME_META: Record<string, { icon: string }> = {
-		snake:  { icon: '⊞' },
-		tetris: { icon: '◱' },
-		typing: { icon: 'T' }
+	const GAME_ICONS: Record<GameId, string> = {
+		snake: '⊞',
+		tetris: '◱',
+		typing: 'T'
 	};
 </script>
 
 <svelte:head>
-	<title>{isValidSkin(skinId) ? pageTitle(skinId) : 'Dashboard'}</title>
+	<title>{skin ? skin.pageTitle : 'Dashboard'}</title>
 </svelte:head>
 
-{#snippet gameSelector(accent: string)}
-	<div class="selector-overlay">
-		<div class="selector-panel" style:--accent={accent}>
-			<div class="selector-header">{$t('ui.openTemplate')}</div>
-			<div class="selector-list">
-				{#each COMPATIBILITY[skinId] ?? [] as gameId}
-					<a href="{base}/{skinId}/{gameId}" class="selector-item"
-						class:recommended={RECOMMENDED[skinId] === gameId}>
-						<span class="item-icon">{GAME_META[gameId]?.icon}</span>
-						<span class="item-label">{$t(`games.${gameId}.name`)}</span>
-						{#if RECOMMENDED[skinId] === gameId}
-							<span class="rec-badge">{$t('ui.recommended')}</span>
-						{/if}
-					</a>
-				{/each}
+{#if skin}
+	{@const Skin = SKIN_COMPONENTS[skin.id]}
+	<Skin>
+		{#snippet children()}
+			<div class="selector-overlay">
+				<div class="selector-panel" style:--accent={skin.uiAccent}>
+					<div class="selector-header">{$t('ui.openTemplate')}</div>
+					<div class="selector-list">
+						{#each skin.compatibleGames as gameId (gameId)}
+							<a href="{base}/{skin.id}/{gameId}" class="selector-item"
+								class:recommended={skin.recommendedGame === gameId}>
+								<span class="item-icon">{GAME_ICONS[gameId]}</span>
+								<span class="item-label">{$t(`games.${gameId}.name`)}</span>
+								{#if skin.recommendedGame === gameId}
+									<span class="rec-badge">{$t('ui.recommended')}</span>
+								{/if}
+							</a>
+						{/each}
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-{/snippet}
-
-{#if skinId === 'excel'}
-	<ExcelSkin>
-		{#snippet children()}
-			{@render gameSelector('#1f7145')}
 		{/snippet}
-	</ExcelSkin>
-{:else if skinId === 'figma'}
-	<FigmaSkin>
-		{#snippet children()}
-			{@render gameSelector('#18a0fb')}
-		{/snippet}
-	</FigmaSkin>
-{:else if skinId === 'notion'}
-	<NotionSkin>
-		{#snippet children()}
-			{@render gameSelector('#191919')}
-		{/snippet}
-	</NotionSkin>
+	</Skin>
 {/if}
 
 <style>

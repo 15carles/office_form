@@ -14,37 +14,37 @@
 
 	let { width, height, paused, onScore, onGameOver, onStateChange }: Props = $props();
 
-	let state = $state<TypingState>(initState(get(locale) ?? 'en'));
-	let inputEl: HTMLInputElement;
+	let game = $state<TypingState>(initState(get(locale) ?? 'en'));
+	let inputEl = $state<HTMLInputElement | undefined>(undefined);
 
-	$effect(() => { onStateChange?.(state); });
+	$effect(() => { onStateChange?.(game); });
 
 	const VISIBLE_BEFORE = 1;
 	const VISIBLE_AFTER = 4;
 
-	const visibleWords = $derived(() => {
-		const start = Math.max(0, state.currentIndex - VISIBLE_BEFORE);
-		const end = Math.min(state.words.length, state.currentIndex + VISIBLE_AFTER + 1);
-		return state.words.slice(start, end).map((w, i) => ({
+	const visibleWords = $derived.by(() => {
+		const start = Math.max(0, game.currentIndex - VISIBLE_BEFORE);
+		const end = Math.min(game.words.length, game.currentIndex + VISIBLE_AFTER + 1);
+		return game.words.slice(start, end).map((w, i) => ({
 			word: w,
 			index: start + i,
-			isCurrent: start + i === state.currentIndex,
-			isDone: start + i < state.currentIndex
+			isCurrent: start + i === game.currentIndex,
+			isDone: start + i < game.currentIndex
 		}));
 	});
 
 	function startGame() {
-		state = { ...initState(get(locale) ?? 'en'), status: 'running' };
+		game = { ...initState(get(locale) ?? 'en'), status: 'running' };
 		setTimeout(() => inputEl?.focus(), 50);
 	}
 
 	function onInput(e: Event) {
-		if (paused || state.status !== 'running') return;
+		if (paused || game.status !== 'running') return;
 		const val = (e.target as HTMLInputElement).value;
-		const prev = state;
-		state = handleInput(state, val);
-		if (state.wpm !== prev.wpm) onScore?.(state.wpm);
-		if (state.status === 'over') onGameOver?.(state.wpm);
+		const prev = game;
+		game = handleInput(game, val);
+		if (game.wpm !== prev.wpm) onScore?.(game.wpm);
+		if (game.status === 'over') onGameOver?.(game.wpm);
 	}
 
 	function onKeydown(e: KeyboardEvent) {
@@ -55,20 +55,20 @@
 
 <div class="typing-wrap" style:width="{width}px" style:max-height="{height}px">
 
-	{#if state.status === 'idle'}
+	{#if game.status === 'idle'}
 		<div class="start-panel">
 			<h3>{$t('games.typing.start')}</h3>
 			<p>{$t('games.typing.description')}</p>
 			<button onclick={startGame}>{$t('games.typing.startBtn')}</button>
 		</div>
 
-	{:else if state.status === 'over'}
+	{:else if game.status === 'over'}
 		<div class="results-panel">
 			<h3>{$t('games.typing.gameOver')}</h3>
 			<div class="stats-grid">
-				<div class="stat"><span class="stat-n">{state.wpm}</span><span class="stat-l">{$t('games.typing.score')}</span></div>
-				<div class="stat"><span class="stat-n">{state.accuracy}%</span><span class="stat-l">Precisión</span></div>
-				<div class="stat"><span class="stat-n">{state.errors}</span><span class="stat-l">Errores</span></div>
+				<div class="stat"><span class="stat-n">{game.wpm}</span><span class="stat-l">{$t('games.typing.score')}</span></div>
+				<div class="stat"><span class="stat-n">{game.accuracy}%</span><span class="stat-l">{$t('games.typing.accuracy')}</span></div>
+				<div class="stat"><span class="stat-n">{game.errors}</span><span class="stat-l">{$t('games.typing.errors')}</span></div>
 			</div>
 			<button onclick={startGame}>{$t('games.typing.retryBtn')}</button>
 		</div>
@@ -77,22 +77,22 @@
 		<div class="game-area">
 			<!-- Live stats bar -->
 			<div class="stats-bar">
-				<span class="stat-pill">{state.wpm} <small>wpm</small></span>
-				<span class="stat-pill">{state.accuracy}% <small>precisión</small></span>
-				<span class="stat-pill">{state.currentIndex}/{state.words.length} <small>palabras</small></span>
+				<span class="stat-pill">{game.wpm} <small>{$t('games.typing.scoreUnit')}</small></span>
+				<span class="stat-pill">{game.accuracy}% <small>{$t('games.typing.accuracy').toLowerCase()}</small></span>
+				<span class="stat-pill">{game.currentIndex}/{game.words.length} <small>{$t('games.typing.words')}</small></span>
 			</div>
 
 			<!-- Words display -->
 			<div class="words-display">
-				{#each visibleWords() as item (item.index)}
+				{#each visibleWords as item (item.index)}
 					<span
 						class="word"
 						class:current={item.isCurrent}
 						class:done={item.isDone}
-						class:error={item.isCurrent && isCurrentWordWrong(state)}
+						class:error={item.isCurrent && isCurrentWordWrong(game)}
 					>
 						{#if item.isCurrent}
-							<span class="typed">{state.typed}</span><span class="remaining">{item.word.slice(state.typed.length)}</span>
+							<span class="typed">{game.typed}</span><span class="remaining">{item.word.slice(game.typed.length)}</span>
 						{:else}
 							{item.word}
 						{/if}
@@ -104,7 +104,7 @@
 			<input
 				bind:this={inputEl}
 				class="hidden-input"
-				value={state.typed}
+				value={game.typed}
 				oninput={onInput}
 				onkeydown={onKeydown}
 				autocomplete="off"
@@ -114,7 +114,7 @@
 				disabled={paused}
 			/>
 
-			<div class="input-hint">Escribe la palabra resaltada y pulsa <kbd>Espacio</kbd></div>
+			<div class="input-hint">{$t('games.typing.inputHint', { values: { key: $t('games.typing.space') } })}</div>
 		</div>
 	{/if}
 </div>
@@ -243,13 +243,5 @@
 		font-size: 10px;
 		color: var(--game-text-muted, #aaa);
 		text-align: center;
-	}
-
-	kbd {
-		background: var(--game-panel-bg, #f0f0f0);
-		border: 1px solid var(--game-panel-border, #ccc);
-		padding: 1px 4px;
-		font-size: 9px;
-		font-family: inherit;
 	}
 </style>

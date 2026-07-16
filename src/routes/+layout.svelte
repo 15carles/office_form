@@ -2,7 +2,6 @@
 	import { setupI18n } from '$lib/i18n';
 	import { isLoading } from 'svelte-i18n';
 	import { togglePanic } from '$lib/stores/panic';
-	import { base } from '$app/paths';
 	import '../app.css';
 
 	let { children } = $props();
@@ -16,10 +15,6 @@
 		}
 	}
 </script>
-
-<svelte:head>
-	<link rel="icon" href="{base}/favicon.ico" />
-</svelte:head>
 
 <svelte:window onkeydown={handleKeydown} />
 

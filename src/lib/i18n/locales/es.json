@@ -7,7 +7,15 @@
     "title": "Workflow Suite",
     "subtitle": "Selecciona tu entorno de trabajo para continuar",
     "featured": "Flujo de trabajo destacado hoy",
-    "browse": "Todos los entornos"
+    "browse": "Todos los entornos",
+    "streak": "{current} días consecutivos · Récord: {longest}",
+    "hintEsc": "Tecla {key} para alternar vista",
+    "hintFullscreen": "Pantalla completa disponible en cada entorno",
+    "hintPrivacy": "Sin cuenta · Sin datos enviados",
+    "footer": "Workflow Suite · Herramientas internas de productividad",
+    "open": "Abrir →",
+    "today": "Hoy",
+    "bestTotal": "Mejor: {total} en total"
   },
   "skins": {
     "excel": {
@@ -36,7 +44,8 @@
       "retryBtn": "↺ Reintentar",
       "gameOver": "¡Error de rango!",
       "score": "Puntuación",
-      "best": "Récord"
+      "best": "Récord",
+      "foodHint": "Come los {food} para puntuar"
     },
     "tetris": {
       "name": "Optimizador de diseño",
@@ -47,7 +56,11 @@
       "retryBtn": "↺ Reintentar",
       "gameOver": "Desbordamiento de pila",
       "score": "Puntuación",
-      "best": "Récord"
+      "best": "Récord",
+      "controls": "← → Mover · ↑ Rotar · ↓ Bajar · Espacio Caída",
+      "next": "Siguiente",
+      "lines": "Líneas",
+      "level": "Nivel"
     },
     "typing": {
       "name": "Benchmark de entrada",
@@ -58,7 +71,14 @@
       "retryBtn": "↺ Reintentar",
       "gameOver": "Benchmark completado",
       "score": "PPM",
-      "best": "Mejor"
+      "best": "Mejor",
+      "accuracy": "Precisión",
+      "errors": "Errores",
+      "words": "palabras",
+      "inputHint": "Escribe la palabra resaltada y pulsa {key}",
+      "space": "Espacio",
+      "liveStatus": "{wpm} ppm · {accuracy}% precisión",
+      "doneStatus": "Completado: {wpm} ppm"
     }
   },
   "ui": {
@@ -71,7 +91,8 @@
       "ready": "Listo",
       "running": "Procesando...",
       "error": "Error en fórmula",
-      "calculating": "Calculando..."
+      "calculating": "Calculando...",
+      "waiting": "En espera"
     },
     "panic": {
       "hint": "Pulsa Esc para alternar vista"

@@ -2,17 +2,10 @@
 	import { t } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { getGameOfDay } from '$lib/stores/gameOfDay';
-	import type { SkinId } from '$lib/games/types';
+	import { getSkin } from '$lib/skins/registry';
 
 	const daily = getGameOfDay();
-
-	const SKIN_ACCENT: Record<SkinId, string> = {
-		excel: '#1f7145',
-		figma: '#f24e1e',
-		notion: '#191919'
-	};
-
-	const accent = SKIN_ACCENT[daily.skinId];
+	const accent = getSkin(daily.skinId).accentColor;
 </script>
 
 <a href="{base}/{daily.skinId}/{daily.gameId}" class="day-badge" style:--accent={accent}>
@@ -24,7 +17,7 @@
 	</div>
 	<div class="badge-action">
 		<span class="badge-dot" style:background={accent}></span>
-		Open →
+		{$t('home.open')}
 	</div>
 </a>
 

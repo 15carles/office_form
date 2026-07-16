@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onDestroy } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import {
 		initState, tick, moveLeft, moveRight, rotate,
 		hardDrop, softDrop, tickIntervalMs, getGhostY,
 		getShape, COLORS, SHAPES,
-		type TetrisState, type TetroType
+		type TetrisState
 	} from './engine';
 
 	interface Props {
@@ -33,10 +33,10 @@
 	let previewCanvas = $state<HTMLCanvasElement | undefined>(undefined);
 	let previewCtx: CanvasRenderingContext2D;
 
-	let state = $state<TetrisState>(initState());
+	let game = $state<TetrisState>(initState());
 	let intervalId: ReturnType<typeof setInterval> | null = null;
 
-	let themeColors = { cellA: '#fafafa', cellB: '#f3f3f3', grid: '#e0e0e0', border: '#bbb', previewBg: '#f9f9f9' };
+	let themeColors = $state({ cellA: '#fafafa', cellB: '#f3f3f3', grid: '#e0e0e0', border: '#bbb', previewBg: '#f9f9f9' });
 
 	$effect(() => {
 		if (canvas) {
@@ -49,38 +49,55 @@
 				previewBg: s.getPropertyValue('--game-panel-bg').trim() || '#f9f9f9'
 			};
 			ctx = canvas.getContext('2d')!;
-			draw();
 		}
 	});
-	$effect(() => { if (previewCanvas) { previewCtx = previewCanvas.getContext('2d')!; drawPreview(); } });
-	$effect(() => { onStateChange?.(state); });
+	$effect(() => {
+		if (previewCanvas) {
+			previewCtx = previewCanvas.getContext('2d')!;
+			drawPreview();
+		}
+	});
+
+	// Redraw whenever the game state, dimensions or theme change.
+	// Resizing the canvas element clears its bitmap, so CELL must be a dependency.
+	$effect(() => {
+		game;
+		CELL;
+		themeColors;
+		if (ctx) draw();
+		if (previewCtx) drawPreview();
+	});
+
+	$effect(() => { onStateChange?.(game); });
+
+	function setSpeed(level: number) {
+		if (intervalId) clearInterval(intervalId);
+		intervalId = setInterval(gameTick, tickIntervalMs(level));
+	}
 
 	function startGame() {
-		state = { ...initState(), status: 'running' };
-		clearInterval(intervalId!);
-		intervalId = setInterval(gameTick, tickIntervalMs(1));
-		draw();
+		game = { ...initState(), status: 'running' };
+		setSpeed(game.level);
 	}
 
 	function gameTick() {
-		if (paused || state.status !== 'running') return;
-		const prev = state;
-		state = tick(state);
-		if (state.score !== prev.score) onScore?.(state.score);
-		if (state.status === 'over') {
+		if (paused || game.status !== 'running') return;
+		const prev = game;
+		game = tick(game);
+		if (game.score !== prev.score) onScore?.(game.score);
+		if (game.level !== prev.level) setSpeed(game.level);
+		if (game.status === 'over') {
 			clearInterval(intervalId!);
 			intervalId = null;
-			onGameOver?.(state.score);
+			onGameOver?.(game.score);
 		}
-		draw();
-		drawPreview();
 	}
 
 	function draw() {
 		if (!ctx || CELL < 1) return;
 		ctx.clearRect(0, 0, gameW, gameH);
 		drawBoard();
-		if (state.status !== 'idle') {
+		if (game.status !== 'idle') {
 			drawGhost();
 			drawCurrent();
 		}
@@ -88,21 +105,21 @@
 	}
 
 	function drawBoard() {
-		for (let r = 0; r < state.rows; r++) {
-			for (let c = 0; c < state.cols; c++) {
-				const cell = state.board[r][c];
+		for (let r = 0; r < game.rows; r++) {
+			for (let c = 0; c < game.cols; c++) {
+				const cell = game.board[r][c];
 				drawCell(ctx, c, r, cell ? COLORS[cell] : (r % 2 === 0 ? themeColors.cellA : themeColors.cellB));
 			}
 		}
 	}
 
 	function drawGhost() {
-		const ghostY = getGhostY(state);
-		const shape = getShape(state.current);
+		const ghostY = getGhostY(game);
+		const shape = getShape(game.current);
 		for (let r = 0; r < shape.length; r++) {
 			for (let c = 0; c < shape[r].length; c++) {
 				if (!shape[r][c]) continue;
-				const x = (state.current.x + c) * CELL;
+				const x = (game.current.x + c) * CELL;
 				const y = (ghostY + r) * CELL;
 				ctx.fillStyle = 'rgba(0,0,0,0.08)';
 				ctx.fillRect(x + 1, y + 1, CELL - 2, CELL - 2);
@@ -111,12 +128,12 @@
 	}
 
 	function drawCurrent() {
-		const shape = getShape(state.current);
-		const color = COLORS[state.current.type];
+		const shape = getShape(game.current);
+		const color = COLORS[game.current.type];
 		for (let r = 0; r < shape.length; r++) {
 			for (let c = 0; c < shape[r].length; c++) {
 				if (!shape[r][c]) continue;
-				drawCell(ctx, state.current.x + c, state.current.y + r, color);
+				drawCell(ctx, game.current.x + c, game.current.y + r, color);
 			}
 		}
 	}
@@ -124,10 +141,10 @@
 	function drawGrid() {
 		ctx.strokeStyle = themeColors.grid;
 		ctx.lineWidth = 0.5;
-		for (let r = 0; r <= state.rows; r++) {
+		for (let r = 0; r <= game.rows; r++) {
 			ctx.beginPath(); ctx.moveTo(0, r * CELL); ctx.lineTo(gameW, r * CELL); ctx.stroke();
 		}
-		for (let c = 0; c <= state.cols; c++) {
+		for (let c = 0; c <= game.cols; c++) {
 			ctx.beginPath(); ctx.moveTo(c * CELL, 0); ctx.lineTo(c * CELL, gameH); ctx.stroke();
 		}
 		ctx.strokeStyle = themeColors.border;
@@ -151,11 +168,11 @@
 		previewCtx.fillStyle = themeColors.previewBg;
 		previewCtx.fillRect(0, 0, previewSize, previewSize);
 
-		const shape = SHAPES[state.next][0];
+		const shape = SHAPES[game.next][0];
 		const pc = CELL * 0.8;
 		const offX = Math.floor((previewSize - shape[0].length * pc) / 2);
 		const offY = Math.floor((previewSize - shape.length * pc) / 2);
-		const color = COLORS[state.next];
+		const color = COLORS[game.next];
 
 		for (let r = 0; r < shape.length; r++) {
 			for (let c = 0; c < shape[r].length; c++) {
@@ -169,25 +186,25 @@
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (paused || state.status !== 'running') return;
+		if (paused || game.status !== 'running') return;
 		let handled = true;
 		switch (e.key) {
-			case 'ArrowLeft':  state = moveLeft(state); break;
-			case 'ArrowRight': state = moveRight(state); break;
-			case 'ArrowDown':  state = softDrop(state); break;
-			case 'ArrowUp': case 'z': case 'Z': state = rotate(state); break;
-			case ' ':          state = hardDrop(state); gameTick(); break;
+			case 'ArrowLeft':  game = moveLeft(game); break;
+			case 'ArrowRight': game = moveRight(game); break;
+			case 'ArrowDown':  game = softDrop(game); break;
+			case 'ArrowUp': case 'z': case 'Z': game = rotate(game); break;
+			case ' ':          game = hardDrop(game); gameTick(); break;
 			default: handled = false;
 		}
-		if (handled) { e.preventDefault(); draw(); drawPreview(); }
+		if (handled) e.preventDefault();
 	}
 
 	$effect(() => {
 		if (paused && intervalId) {
 			clearInterval(intervalId);
 			intervalId = null;
-		} else if (!paused && state.status === 'running' && !intervalId) {
-			intervalId = setInterval(gameTick, tickIntervalMs(state.level));
+		} else if (!paused && game.status === 'running' && !intervalId) {
+			setSpeed(game.level);
 		}
 	});
 
@@ -200,44 +217,44 @@
 	<div class="game-area">
 		<canvas bind:this={canvas} width={gameW} height={gameH}></canvas>
 
-		{#if state.status === 'idle'}
+		{#if game.status === 'idle'}
 			<div class="overlay">
 				<div class="panel">
 					<h3>{$t('games.tetris.start')}</h3>
-					<p>← → Mover &nbsp;·&nbsp; ↑ Rotar<br />↓ Bajar &nbsp;·&nbsp; Espacio Caída</p>
+					<p>{$t('games.tetris.controls')}</p>
 					<button onclick={startGame}>{$t('games.tetris.startBtn')}</button>
 				</div>
 			</div>
 		{/if}
 
-		{#if state.status === 'over'}
+		{#if game.status === 'over'}
 			<div class="overlay">
 				<div class="panel error">
 					<h3>{$t('games.tetris.gameOver')}</h3>
-					<p class="score-line">{$t('games.tetris.score')}: {state.score}</p>
+					<p class="score-line">{$t('games.tetris.score')}: {game.score}</p>
 					<button onclick={startGame}>{$t('games.tetris.retryBtn')}</button>
 				</div>
 			</div>
 		{/if}
 	</div>
 
-	{#if state.status !== 'idle' && showSidebar}
+	{#if game.status !== 'idle' && showSidebar}
 		<div class="sidebar">
 			<div class="stat-block">
-				<span class="stat-label">Siguiente</span>
+				<span class="stat-label">{$t('games.tetris.next')}</span>
 				<canvas bind:this={previewCanvas} width={previewSize} height={previewSize}></canvas>
 			</div>
 			<div class="stat-block">
 				<span class="stat-label">{$t('games.tetris.score')}</span>
-				<span class="stat-value">{state.score}</span>
+				<span class="stat-value">{game.score}</span>
 			</div>
 			<div class="stat-block">
-				<span class="stat-label">Líneas</span>
-				<span class="stat-value">{state.lines}</span>
+				<span class="stat-label">{$t('games.tetris.lines')}</span>
+				<span class="stat-value">{game.lines}</span>
 			</div>
 			<div class="stat-block">
-				<span class="stat-label">Nivel</span>
-				<span class="stat-value">{state.level}</span>
+				<span class="stat-label">{$t('games.tetris.level')}</span>
+				<span class="stat-value">{game.level}</span>
 			</div>
 		</div>
 	{/if}

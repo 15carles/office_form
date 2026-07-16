@@ -82,8 +82,7 @@ export function handleInput(state: TypingState, input: string): TypingState {
 		const newIndex = state.currentIndex + 1;
 		const over = newIndex >= state.words.length;
 		const endTime = over ? now : null;
-		const elapsed = (now - startTime) / 60000;
-		const wpm = elapsed > 0 ? Math.round((state.correctChars + (correct ? currentWord.length : 0)) / 5 / elapsed) : 0;
+		const wpm = calcWpm(state.correctChars + (correct ? currentWord.length : 0), startTime, now);
 
 		return {
 			...state,

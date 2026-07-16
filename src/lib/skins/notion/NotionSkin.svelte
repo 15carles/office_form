@@ -76,7 +76,7 @@
 			</div>
 			<div class="doc-actions">
 				<button class="doc-btn" onclick={() => toggleFullscreen(skinRoot)}>
-					{$isFullscreen ? '⊡ Salir' : '⊟ Pantalla completa'}
+					{$isFullscreen ? `⊡ ${$t('ui.exitFullscreen')}` : `⊟ ${$t('ui.fullscreen')}`}
 				</button>
 				<button class="doc-btn">Compartir</button>
 				<div class="avatar-sm">A</div>

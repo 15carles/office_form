@@ -5,7 +5,8 @@ export interface SnakeState {
 	snake: Point[];
 	dir: Direction;
 	nextDir: Direction;
-	food: Point;
+	/** null when there are no free cells left (board filled — game won). */
+	food: Point | null;
 	score: number;
 	status: 'idle' | 'running' | 'over';
 	cols: number;
@@ -44,12 +45,16 @@ export function initState(cols: number, rows: number): SnakeState {
 	};
 }
 
-function spawnFood(snake: Point[], cols: number, rows: number): Point {
-	let p: Point;
-	do {
-		p = { x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) };
-	} while (snake.some((s) => s.x === p.x && s.y === p.y));
-	return p;
+function spawnFood(snake: Point[], cols: number, rows: number): Point | null {
+	const occupied = new Set(snake.map((s) => `${s.x},${s.y}`));
+	const free: Point[] = [];
+	for (let y = 0; y < rows; y++) {
+		for (let x = 0; x < cols; x++) {
+			if (!occupied.has(`${x},${y}`)) free.push({ x, y });
+		}
+	}
+	if (free.length === 0) return null;
+	return free[Math.floor(Math.random() * free.length)];
 }
 
 export function setDirection(state: SnakeState, dir: Direction): SnakeState {
@@ -72,7 +77,7 @@ export function tick(state: SnakeState): { state: SnakeState; ate: boolean } {
 		return { state: { ...state, status: 'over' }, ate: false };
 	}
 
-	const ate = head.x === state.food.x && head.y === state.food.y;
+	const ate = state.food !== null && head.x === state.food.x && head.y === state.food.y;
 	const newSnake = [head, ...state.snake];
 	if (!ate) newSnake.pop();
 
@@ -86,7 +91,8 @@ export function tick(state: SnakeState): { state: SnakeState; ate: boolean } {
 			dir,
 			food: newFood,
 			score: newScore,
-			status: 'running'
+			// No free cells left means the board is full — end the game
+			status: ate && newFood === null ? 'over' : 'running'
 		},
 		ate
 	};

@@ -2,6 +2,7 @@
 	import { t } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { getBestScore } from '$lib/stores/progress';
+	import { VALID_GAMES } from '$lib/skins/registry';
 	import SkinPreviewExcel from './SkinPreviewExcel.svelte';
 	import SkinPreviewFigma from './SkinPreviewFigma.svelte';
 	import SkinPreviewNotion from './SkinPreviewNotion.svelte';
@@ -16,7 +17,7 @@
 	let { skinId, accent, featured = false }: Props = $props();
 
 	const totalBest = $derived(
-		['snake', 'tetris', 'typing'].reduce((sum, g) => sum + getBestScore(skinId, g), 0)
+		VALID_GAMES.reduce((sum, g) => sum + getBestScore(skinId, g), 0)
 	);
 
 	const GAME_LABELS: Record<string, string> = {
@@ -34,7 +35,7 @@
 			<SkinPreviewNotion />
 		{/if}
 		<div class="preview-overlay">
-			<span class="open-label">Open →</span>
+			<span class="open-label">{$t('home.open')}</span>
 		</div>
 	</div>
 
@@ -42,13 +43,13 @@
 		<div class="card-title-row">
 			<strong class="card-name">{$t(`skins.${skinId}.name`)}</strong>
 			{#if featured}
-				<span class="featured-badge">Today</span>
+				<span class="featured-badge">{$t('home.today')}</span>
 			{/if}
 		</div>
 		<p class="card-desc">{$t(`skins.${skinId}.description`)}</p>
 
 		<div class="card-games">
-			{#each Object.entries(GAME_LABELS) as [g, label]}
+			{#each Object.values(GAME_LABELS) as label (label)}
 				<span class="game-tag">{label}</span>
 			{/each}
 		</div>
@@ -56,7 +57,7 @@
 		{#if totalBest > 0}
 			<div class="card-score">
 				<span class="score-dot" style:background={accent}></span>
-				Best: {totalBest} total
+				{$t('home.bestTotal', { values: { total: totalBest } })}
 			</div>
 		{/if}
 	</div>

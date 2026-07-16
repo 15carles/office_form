@@ -1,16 +1,7 @@
 <script lang="ts">
-	import { onMount, onDestroy, untrack } from 'svelte';
+	import { onDestroy, untrack } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import {
-		initState,
-		tick,
-		setDirection,
-		tickIntervalMs,
-		cellRef,
-		formulaText,
-		KEY_MAP,
-		type SnakeState
-	} from './engine';
+	import { initState, tick, setDirection, tickIntervalMs, KEY_MAP, type SnakeState } from './engine';
 
 	interface Props {
 		width: number;
@@ -46,7 +37,7 @@
 
 	let gameState = $state<SnakeState>(initState(10, 14));
 	let intervalId: ReturnType<typeof setInterval> | null = null;
-	let snakeTheme = { cellA: '#f5fdf8', cellB: '#eef8f2', gridLine: '#c8e8d4', gridBorder: '#7ec8a0', snakeAccent: '' };
+	let snakeTheme = $state({ cellA: '#f5fdf8', cellB: '#eef8f2', gridLine: '#c8e8d4', gridBorder: '#7ec8a0', snakeAccent: '' });
 
 	// Reset game only when grid dimensions change (not on status changes)
 	$effect(() => {
@@ -69,8 +60,17 @@
 				snakeAccent: s.getPropertyValue('--game-accent').trim() || ''
 			};
 			ctx = canvas.getContext('2d')!;
-			drawFrame();
 		}
+	});
+
+	// Redraw whenever the game state, dimensions or theme change.
+	// Resizing the canvas element clears its bitmap, so gameW/gameH must be dependencies.
+	$effect(() => {
+		gameState;
+		gameW;
+		gameH;
+		snakeTheme;
+		if (ctx) drawFrame();
 	});
 
 	$effect(() => {
@@ -81,7 +81,6 @@
 		gameState = { ...initState(cols, rows), status: 'running' };
 		clearInterval(intervalId!);
 		intervalId = setInterval(gameTick, tickIntervalMs(0));
-		drawFrame();
 	}
 
 	function gameTick() {
@@ -101,8 +100,6 @@
 			intervalId = null;
 			onGameOver?.(gameState.score);
 		}
-
-		drawFrame();
 	}
 
 	function drawFrame() {
@@ -162,6 +159,7 @@
 	}
 
 	function drawFood() {
+		if (!gameState.food) return;
 		const { x, y } = gameState.food;
 		const px = x * CW + 1;
 		const py = y * CH + 1;
@@ -220,7 +218,7 @@
 				<h3>{$t('games.snake.start')}</h3>
 				<p>
 					{$t('games.snake.description')}<br />
-					Come los <span class="food-hint">$</span> para puntuar
+					<span class="food-hint">{$t('games.snake.foodHint', { values: { food: '$' } })}</span>
 				</p>
 				<button onclick={startGame}>{$t('games.snake.startBtn')}</button>
 			</div>

@@ -7,7 +7,15 @@
     "title": "Workflow Suite",
     "subtitle": "Select your workspace environment to continue",
     "featured": "Featured workflow today",
-    "browse": "All environments"
+    "browse": "All environments",
+    "streak": "{current} consecutive days · Record: {longest}",
+    "hintEsc": "Press {key} to toggle view",
+    "hintFullscreen": "Full screen available in every environment",
+    "hintPrivacy": "No account · No data sent",
+    "footer": "Workflow Suite · Internal productivity tools",
+    "open": "Open →",
+    "today": "Today",
+    "bestTotal": "Best: {total} total"
   },
   "skins": {
     "excel": {
@@ -36,7 +44,8 @@
       "retryBtn": "↺ Retry",
       "gameOver": "Range error!",
       "score": "Score",
-      "best": "Record"
+      "best": "Record",
+      "foodHint": "Eat the {food} to score"
     },
     "tetris": {
       "name": "Layout Optimizer",
@@ -47,7 +56,11 @@
       "retryBtn": "↺ Retry",
       "gameOver": "Stack overflow",
       "score": "Score",
-      "best": "Record"
+      "best": "Record",
+      "controls": "← → Move · ↑ Rotate · ↓ Down · Space Drop",
+      "next": "Next",
+      "lines": "Lines",
+      "level": "Level"
     },
     "typing": {
       "name": "Input Throughput Benchmark",
@@ -58,7 +71,14 @@
       "retryBtn": "↺ Retry",
       "gameOver": "Benchmark complete",
       "score": "WPM",
-      "best": "Best"
+      "best": "Best",
+      "accuracy": "Accuracy",
+      "errors": "Errors",
+      "words": "words",
+      "inputHint": "Type the highlighted word and press {key}",
+      "space": "Space",
+      "liveStatus": "{wpm} wpm · {accuracy}% accuracy",
+      "doneStatus": "Completed: {wpm} wpm"
     }
   },
   "ui": {
@@ -71,7 +91,8 @@
       "ready": "Ready",
       "running": "Processing...",
       "error": "Formula error",
-      "calculating": "Calculating..."
+      "calculating": "Calculating...",
+      "waiting": "Idle"
     },
     "panic": {
       "hint": "Press Esc to toggle view"
