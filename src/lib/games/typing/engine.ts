@@ -32,6 +32,44 @@ const WORD_POOL_ES = [
 	'impacto', 'equipo', 'resultado', 'criterio', 'versión', 'datos'
 ];
 
+const WORD_POOL_DE = [
+	'bericht', 'budget', 'quartal', 'umsatz', 'analyse', 'prognose',
+	'projekt', 'termin', 'zeitplan', 'frist', 'angebot', 'strategie',
+	'kunde', 'rechnung', 'vertrag', 'prüfung', 'ziel', 'wachstum',
+	'update', 'pipeline', 'priorität', 'ablauf', 'dashboard', 'kennzahl',
+	'markt', 'produkt', 'service', 'lieferung', 'support', 'freigabe',
+	'ticket', 'status', 'modul', 'funktion', 'version', 'system',
+	'prozess', 'ressource', 'ergebnis', 'datensatz'
+];
+
+const WORD_POOL_IT = [
+	'rapporto', 'budget', 'trimestre', 'ricavi', 'analisi', 'previsione',
+	'progetto', 'riunione', 'calendario', 'scadenza', 'proposta', 'strategia',
+	'cliente', 'fattura', 'contratto', 'revisione', 'obiettivo', 'crescita',
+	'pipeline', 'priorità', 'cruscotto', 'metrica', 'mercato', 'prodotto',
+	'servizio', 'consegna', 'supporto', 'rilascio', 'ticket', 'stato',
+	'modulo', 'funzione', 'versione', 'sistema', 'processo', 'risorsa',
+	'risultato', 'impatto', 'sintesi', 'lancio'
+];
+
+const WORD_POOL_FR = [
+	'rapport', 'budget', 'trimestre', 'revenu', 'analyse', 'prévision',
+	'projet', 'réunion', 'agenda', 'échéance', 'proposition', 'stratégie',
+	'client', 'facture', 'contrat', 'revue', 'objectif', 'croissance',
+	'pipeline', 'priorité', 'flux', 'tableau', 'métrique', 'marché',
+	'produit', 'service', 'livraison', 'support', 'version', 'ticket',
+	'statut', 'module', 'fonction', 'système', 'processus', 'ressource',
+	'résultat', 'impact', 'synthèse', 'lancement'
+];
+
+const WORD_POOLS: Record<string, string[]> = {
+	en: WORD_POOL_EN,
+	es: WORD_POOL_ES,
+	de: WORD_POOL_DE,
+	it: WORD_POOL_IT,
+	fr: WORD_POOL_FR
+};
+
 const TOTAL_WORDS = 30;
 
 function shuffle<T>(arr: T[]): T[] {
@@ -44,7 +82,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function generateWords(locale = 'en'): string[] {
-	const pool = locale === 'es' ? WORD_POOL_ES : WORD_POOL_EN;
+	const pool = WORD_POOLS[locale] ?? WORD_POOL_EN;
 	const shuffled = shuffle(pool);
 	const result: string[] = [];
 	while (result.length < TOTAL_WORDS) {

@@ -1,0 +1,334 @@
+{
+  "nav": {
+    "home": "Dashboard",
+    "settings": "Einstellungen"
+  },
+  "home": {
+    "title": "OfficeForms",
+    "subtitle": "Sofort einsatzbereite Arbeitsumgebungen",
+    "tagline": "Analyse, Design und Dokumentation. Kein Konto, keine Einrichtung – alles läuft in deinem Browser.",
+    "openFeatured": "Empfohlene Umgebung öffnen",
+    "featured": "Heute empfohlener Workflow",
+    "browse": "Verfügbare Umgebungen",
+    "streak": "{current} Tage in Folge · Rekord: {longest}",
+    "hintEsc": "Drücke {key}, um die Ansicht zu wechseln",
+    "hintFullscreen": "Vollbild in jeder Umgebung verfügbar",
+    "hintPrivacy": "Kein Konto · Keine Daten gesendet",
+    "footer": "OfficeForms · Interne Produktivitätsumgebungen",
+    "open": "Öffnen →",
+    "today": "Heute",
+    "bestTotal": "Bestwert: {total} insgesamt"
+  },
+  "skins": {
+    "excel": {
+      "name": "SpreadSheet Pro",
+      "description": "Umgebung für Datenanalyse und Berichte",
+      "appName": "Q3 Revenue Analysis.xlsx",
+      "pageTitle": "Q3 Revenue Analysis.xlsx — Excel"
+    },
+    "figma": {
+      "name": "DesignBoard",
+      "description": "Arbeitsbereich für Interface-Design und Prototyping",
+      "appName": "Design System v2",
+      "pageTitle": "Design System v2 — Figma"
+    },
+    "notion": {
+      "name": "DocSpace",
+      "description": "Zentrale für Dokumentenverwaltung und Zusammenarbeit",
+      "appName": "Meeting Notes",
+      "pageTitle": "Meeting Notes — Notion"
+    },
+    "outlook": {
+      "name": "MailDesk",
+      "description": "Geschäftliche E-Mail und Terminplanung",
+      "appName": "Posteingang",
+      "pageTitle": "Posteingang — Outlook"
+    },
+    "teams": {
+      "name": "TeamHub",
+      "description": "Team-Chat und Besprechungen",
+      "appName": "Chat",
+      "pageTitle": "Chat | Microsoft Teams"
+    },
+    "slack": {
+      "name": "ChatDeck",
+      "description": "Team-Kanäle und Messaging",
+      "appName": "projekt-q3",
+      "pageTitle": "#projekt-q3 (Kanal) — OfficeCorp — Slack"
+    },
+    "salesforce": {
+      "name": "Salesforce",
+      "description": "Vertriebs-CRM und Pipeline",
+      "appName": "Global Media - 250 Widgets",
+      "pageTitle": "Global Media - 250 Widgets | Salesforce"
+    }
+  },
+  "outlookContent": {
+    "searchPlaceholder": "Suchen",
+    "newMail": "Neue E-Mail",
+    "commands": {
+      "delete": "Löschen",
+      "archive": "Archivieren",
+      "reply": "Antworten",
+      "replyAll": "Allen antworten",
+      "forward": "Weiterleiten"
+    },
+    "nav": {
+      "mail": "E-Mail",
+      "calendar": "Kalender",
+      "people": "Personen",
+      "tasks": "Aufgaben"
+    },
+    "folders": {
+      "favorites": "Favoriten",
+      "inbox": "Posteingang",
+      "drafts": "Entwürfe",
+      "sent": "Gesendete Elemente",
+      "archive": "Archiv",
+      "deleted": "Gelöschte Elemente"
+    },
+    "toYou": "An: dich",
+    "replyTo": "Antwort an {name}",
+    "send": "Senden",
+    "discard": "Verwerfen",
+    "emails": {
+      "m1": { "from": "Elena Vidal", "subject": "AW: Prüfung Q3-Zahlen — Rückmeldung nötig", "snippet": "Könntest du mir deine Anmerkungen bis Donnerstag schicken? Die neueste Version des Pakets ist angehängt…" },
+      "m2": { "from": "A. Fernández", "subject": "Protokoll des Lenkungsausschusses", "snippet": "Anbei das Protokoll vom Montag mit den vereinbarten Maßnahmen und Verantwortlichen…" },
+      "m3": { "from": "Personalabteilung", "subject": "Erinnerung: Leistungsbeurteilungen", "snippet": "Das Fenster für die Selbsteinschätzung schließt diesen Freitag um 18 Uhr…" },
+      "m4": { "from": "M. López", "subject": "Aktualisierte API-Dokumentation", "snippet": "Die Dokumentation des Integrationsmoduls ist jetzt im internen Portal veröffentlicht…" },
+      "m5": { "from": "IT-Helpdesk", "subject": "Geplante Wartung — Samstag", "snippet": "Die Kernsysteme sind von 22:00 bis 02:00 Uhr nicht verfügbar…" },
+      "m6": { "from": "Laura Ortiz", "subject": "Angebotsentwurf v2", "snippet": "Ich habe das Feedback der Rechtsabteilung eingearbeitet, wartet auf deine finale Prüfung…" },
+      "m7": { "from": "Gebäudemanagement", "subject": "Bürozugang während der Feiertage", "snippet": "Der Ausweiszugang ist auf die Etagen 2 und 3 beschränkt…" },
+      "m8": { "from": "D. Romero", "subject": "WG: Vergleich der Lieferantenangebote", "snippet": "Ich leite die besprochene Vergleichstabelle weiter — Option B sieht am besten aus…" }
+    },
+    "panic": {
+      "greeting": "Hallo,",
+      "body1": "Danke für die schnelle Bearbeitung der Q3-Zahlen. Ich habe die Zusammenfassung geprüft und insgesamt wirkt sie solide — die Abweichungsanalyse der LATAM-Konten ist besonders klar.",
+      "body2": "Zwei Kleinigkeiten, bevor wir es nach oben schicken: Könntest du die Wechselkursannahmen auf Folie 7 noch einmal prüfen und die Personaltabelle an die Zahlen der Finanzabteilung von letzter Woche angleichen? Sobald das erledigt ist, leite ich das Paket an das Gremium weiter.",
+      "closing": "Beste Grüße,",
+      "signerRole": "Leiterin Business Operations",
+      "attachment": "Q3_Figures_v3.xlsx",
+      "attachmentSize": "248 KB",
+      "quotedHeader": "Am Dienstag schriebst du:",
+      "quotedBody": "Ich sende die konsolidierten Q3-Zahlen zur Prüfung. Hinweis: Die Dienstleistungszeile enthält noch die September-Anpassung — bei Bedarf gehe ich das gerne mit dir durch."
+    }
+  },
+  "teamsContent": {
+    "searchPlaceholder": "Suchen",
+    "messagePlaceholder": "Nachricht eingeben",
+    "send": "Senden",
+    "nav": {
+      "activity": "Aktivität",
+      "chat": "Chat",
+      "teams": "Teams",
+      "calendar": "Kalender",
+      "calls": "Anrufe"
+    },
+    "chatHeader": "Chat",
+    "tabs": {
+      "chat": "Chat",
+      "files": "Dateien"
+    },
+    "you": "Du",
+    "replyTo": "Antwort an {name}",
+    "chats": {
+      "c1": { "name": "Elena Vidal", "snippet": "Perfekt, ich schaue gleich rein", "time": "9:44", "unread": false },
+      "c2": { "name": "Projekt Q3", "snippet": "A. Fernández: Ich habe das Deck aktualisiert", "time": "9:20", "unread": true },
+      "c3": { "name": "M. López", "snippet": "Die API-Doku ist online 👍", "time": "8:30", "unread": true },
+      "c4": { "name": "Laura Ortiz", "snippet": "Du: klingt gut, danke", "time": "Gestern", "unread": false },
+      "c5": { "name": "IT-Helpdesk", "snippet": "Dein Ticket wurde gelöst", "time": "Gestern", "unread": false },
+      "c6": { "name": "D. Romero", "snippet": "Lass uns morgen früh abstimmen", "time": "Mo", "unread": false },
+      "c7": { "name": "Personalabteilung", "snippet": "Erinnerung: Beurteilungen enden Freitag", "time": "Mo", "unread": false }
+    },
+    "panic": {
+      "msg1": "Hi! Konntest du schon einen Blick auf die Q3-Zahlen werfen?",
+      "msg2": "Habe sie gerade durchgesehen — wirkt insgesamt solide 👍",
+      "msg3": "Super. Kannst du die Wechselkursannahmen auf Folie 7 prüfen?",
+      "msgMine": "Mach ich. Ich melde mich, sobald die Personaltabelle mit der Finanzabteilung abgestimmt ist.",
+      "msg4": "Perfekt, danke. Danach leite ich das Paket an das Gremium weiter.",
+      "meetingTitle": "Q3-Review — Nachfassung",
+      "meetingTime": "Heute · 16:00 – 16:30",
+      "meetingJoin": "Beitreten"
+    }
+  },
+  "slackContent": {
+    "workspace": "OfficeCorp",
+    "searchPlaceholder": "OfficeCorp durchsuchen",
+    "messagePlaceholder": "Nachricht an #{channel}",
+    "sectionChannels": "Kanäle",
+    "sectionDirect": "Direktnachrichten",
+    "threads": "Threads",
+    "channelName": "projekt-q3",
+    "channelTopic": "Q3-Abschluss · Zahlenprüfung & Gremiumspaket",
+    "you": "du",
+    "channels": {
+      "general": { "name": "allgemein", "unread": false },
+      "projectq3": { "name": "projekt-q3", "unread": false },
+      "announcements": { "name": "ankündigungen", "unread": true },
+      "random": { "name": "zufällig", "unread": false },
+      "itsupport": { "name": "it-support", "unread": false }
+    },
+    "dms": {
+      "d1": { "name": "Elena Vidal", "online": true },
+      "d2": { "name": "A. Fernández", "online": true },
+      "d3": { "name": "M. López", "online": false },
+      "d4": { "name": "Laura Ortiz", "online": false }
+    },
+    "panic": {
+      "msg1": "morgen zusammen — habe das aktualisierte Q3-Deck ins Drive geladen 📊",
+      "msg2": "danke! schaue es gerade an. der LATAM-Abweichungsteil ist viel klarer",
+      "msg3": "eine sache: kann jemand die wechselkursannahmen auf folie 7 bestätigen?",
+      "msgMine": "mach ich — ich stimme die personaltabelle mit der finanzabteilung ab und melde mich",
+      "msg4": "super, sobald das steht, leite ich das paket ans gremium weiter 🙌",
+      "reactions": "👍 4",
+      "threadReplies": "3 Antworten",
+      "threadLast": "Letzte Antwort vor 12 Min."
+    }
+  },
+  "salesforceContent": {
+    "appName": "Vertrieb",
+    "searchPlaceholder": "Salesforce durchsuchen",
+    "nav": {
+      "home": "Startseite",
+      "opportunities": "Opportunities",
+      "leads": "Leads",
+      "accounts": "Accounts",
+      "contacts": "Kontakte",
+      "reports": "Berichte",
+      "dashboards": "Dashboards"
+    },
+    "recordType": "Opportunity",
+    "recordName": "Global Media - 250 Widgets",
+    "highlights": {
+      "account": "Accountname",
+      "accountValue": "Global Media",
+      "closeDate": "Abschlussdatum",
+      "closeDateValue": "31.12.2025",
+      "amount": "Betrag",
+      "owner": "Opportunity-Inhaber",
+      "ownerValue": "J. García"
+    },
+    "buttons": {
+      "edit": "Bearbeiten",
+      "follow": "Folgen",
+      "markComplete": "Phase als abgeschlossen markieren",
+      "share": "Teilen"
+    },
+    "stages": {
+      "prospecting": "Akquise",
+      "qualification": "Qualifizierung",
+      "needsAnalysis": "Bedarfsanalyse",
+      "proposal": "Angebot",
+      "negotiation": "Verhandlung",
+      "closedWon": "Gewonnen"
+    },
+    "tabs": {
+      "related": "Verknüpft",
+      "details": "Details"
+    },
+    "gameCard": {
+      "files": "Dateien",
+      "products": "Produkte"
+    },
+    "chatterPlaceholder": "Teile ein Update...",
+    "relatedLists": {
+      "contactRoles": "Kontaktrollen",
+      "products": "Produkte",
+      "notes": "Notizen & Anhänge"
+    },
+    "contactRoleRows": {
+      "cr1": { "name": "Elena Vidal", "role": "Entscheidungsträger", "email": "e.vidal@globalmedia.com" },
+      "cr2": { "name": "A. Fernández", "role": "Wirtschaftlicher Käufer", "email": "a.fernandez@globalmedia.com" },
+      "cr3": { "name": "M. López", "role": "Technischer Käufer", "email": "m.lopez@globalmedia.com" }
+    },
+    "productRows": {
+      "p1": { "name": "Widget Pro Lizenz", "qty": "150", "price": "45.000 €" },
+      "p2": { "name": "Onboarding-Paket", "qty": "1", "price": "8.500 €" },
+      "p3": { "name": "Premium-Support (1 J.)", "qty": "1", "price": "12.000 €" }
+    },
+    "activity": {
+      "title": "Aktivität",
+      "logCall": "Anruf protokollieren",
+      "newTask": "Neue Aufgabe",
+      "email": "E-Mail",
+      "a1": { "type": "E-Mail", "subject": "Prüfung Q3-Zahlen — Rückmeldung nötig", "date": "16.07 · 9:42" },
+      "a2": { "type": "Anruf", "subject": "Nachfassanruf mit Elena Vidal", "date": "15.07 · 16:10" },
+      "a3": { "type": "Aufgabe", "subject": "Aktualisiertes Angebots-Deck senden", "date": "Fällig 18.07" }
+    },
+    "panic": {
+      "detailsTitle": "Opportunity-Informationen",
+      "f1": { "label": "Opportunity-Name", "value": "Global Media - 250 Widgets" },
+      "f2": { "label": "Accountname", "value": "Global Media" },
+      "f3": { "label": "Typ", "value": "Bestandskunde - Upgrade" },
+      "f4": { "label": "Lead-Quelle", "value": "Partnerempfehlung" },
+      "f5": { "label": "Betrag", "value": "65.500 €" },
+      "f6": { "label": "Wahrscheinlichkeit", "value": "75 %" },
+      "f7": { "label": "Abschlussdatum", "value": "31.12.2025" },
+      "f8": { "label": "Nächster Schritt", "value": "Personaltabelle mit Finanzabteilung abstimmen" }
+    }
+  },
+  "games": {
+    "snake": {
+      "name": "Datenfluss-Visualizer",
+      "description": "Datenpipeline-Durchsatz nachverfolgen und optimieren",
+      "scoreUnit": "Datensätze",
+      "start": "Makro ausführen",
+      "startBtn": "▶ Start",
+      "retryBtn": "↺ Wiederholen",
+      "gameOver": "Bereichsfehler!",
+      "score": "Punkte",
+      "best": "Rekord",
+      "foodHint": "Iss die {food}, um zu punkten"
+    },
+    "tetris": {
+      "name": "Layout-Optimierer",
+      "description": "UI-Komponenten effizient anordnen und stapeln",
+      "scoreUnit": "Einheiten",
+      "start": "Layout initialisieren",
+      "startBtn": "▶ Start",
+      "retryBtn": "↺ Wiederholen",
+      "gameOver": "Stack Overflow",
+      "score": "Punkte",
+      "best": "Rekord",
+      "controls": "← → Bewegen · ↑ Drehen · ↓ Runter · Leertaste Fallen",
+      "next": "Nächstes",
+      "lines": "Reihen",
+      "level": "Level"
+    },
+    "typing": {
+      "name": "Eingabe-Benchmark",
+      "description": "Tastatureingabe-Geschwindigkeit messen und verbessern",
+      "scoreUnit": "WPM",
+      "start": "Benchmark starten",
+      "startBtn": "▶ Start",
+      "retryBtn": "↺ Wiederholen",
+      "gameOver": "Benchmark abgeschlossen",
+      "score": "WPM",
+      "best": "Beste",
+      "accuracy": "Genauigkeit",
+      "errors": "Fehler",
+      "words": "Wörter",
+      "inputHint": "Tippe das markierte Wort und drücke {key}",
+      "space": "Leertaste",
+      "liveStatus": "{wpm} WPM · {accuracy} % Genauigkeit",
+      "doneStatus": "Abgeschlossen: {wpm} WPM"
+    }
+  },
+  "ui": {
+    "selectWorkspace": "Arbeitsbereich auswählen",
+    "openTemplate": "Zuletzt verwendete Vorlage öffnen",
+    "recommended": "Empfohlen",
+    "fullscreen": "Vollbild",
+    "exitFullscreen": "Vollbild beenden",
+    "status": {
+      "ready": "Bereit",
+      "running": "Wird verarbeitet...",
+      "error": "Formelfehler",
+      "calculating": "Berechnung...",
+      "waiting": "Inaktiv"
+    },
+    "panic": {
+      "hint": "Esc drücken, um die Ansicht zu wechseln"
+    }
+  }
+}

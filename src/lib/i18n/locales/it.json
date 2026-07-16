@@ -1,0 +1,334 @@
+{
+  "nav": {
+    "home": "Dashboard",
+    "settings": "Impostazioni"
+  },
+  "home": {
+    "title": "OfficeForms",
+    "subtitle": "Ambienti di lavoro pronti all'uso",
+    "tagline": "Analisi, design e documentazione. Nessun account, nessuna configurazione: tutto funziona nel tuo browser.",
+    "openFeatured": "Apri l'ambiente in evidenza",
+    "featured": "Flusso di lavoro in evidenza oggi",
+    "browse": "Ambienti disponibili",
+    "streak": "{current} giorni consecutivi · Record: {longest}",
+    "hintEsc": "Premi {key} per cambiare vista",
+    "hintFullscreen": "Schermo intero disponibile in ogni ambiente",
+    "hintPrivacy": "Nessun account · Nessun dato inviato",
+    "footer": "OfficeForms · Ambienti interni di produttività",
+    "open": "Apri →",
+    "today": "Oggi",
+    "bestTotal": "Migliore: {total} in totale"
+  },
+  "skins": {
+    "excel": {
+      "name": "SpreadSheet Pro",
+      "description": "Ambiente di analisi dati e reportistica",
+      "appName": "Q3 Revenue Analysis.xlsx",
+      "pageTitle": "Q3 Revenue Analysis.xlsx — Excel"
+    },
+    "figma": {
+      "name": "DesignBoard",
+      "description": "Spazio per il design di interfacce e la prototipazione",
+      "appName": "Design System v2",
+      "pageTitle": "Design System v2 — Figma"
+    },
+    "notion": {
+      "name": "DocSpace",
+      "description": "Hub per la gestione documentale e la collaborazione",
+      "appName": "Meeting Notes",
+      "pageTitle": "Meeting Notes — Notion"
+    },
+    "outlook": {
+      "name": "MailDesk",
+      "description": "Posta aziendale e pianificazione",
+      "appName": "Posta in arrivo",
+      "pageTitle": "Posta in arrivo — Outlook"
+    },
+    "teams": {
+      "name": "TeamHub",
+      "description": "Chat di team e riunioni",
+      "appName": "Chat",
+      "pageTitle": "Chat | Microsoft Teams"
+    },
+    "slack": {
+      "name": "ChatDeck",
+      "description": "Canali di team e messaggistica",
+      "appName": "progetto-q3",
+      "pageTitle": "#progetto-q3 (Canale) — OfficeCorp — Slack"
+    },
+    "salesforce": {
+      "name": "Salesforce",
+      "description": "CRM di vendita e pipeline",
+      "appName": "Global Media - 250 Widgets",
+      "pageTitle": "Global Media - 250 Widgets | Salesforce"
+    }
+  },
+  "outlookContent": {
+    "searchPlaceholder": "Cerca",
+    "newMail": "Nuovo messaggio",
+    "commands": {
+      "delete": "Elimina",
+      "archive": "Archivia",
+      "reply": "Rispondi",
+      "replyAll": "Rispondi a tutti",
+      "forward": "Inoltra"
+    },
+    "nav": {
+      "mail": "Posta",
+      "calendar": "Calendario",
+      "people": "Contatti",
+      "tasks": "Da fare"
+    },
+    "folders": {
+      "favorites": "Preferiti",
+      "inbox": "Posta in arrivo",
+      "drafts": "Bozze",
+      "sent": "Posta inviata",
+      "archive": "Archivio",
+      "deleted": "Posta eliminata"
+    },
+    "toYou": "A: te",
+    "replyTo": "Rispondi a {name}",
+    "send": "Invia",
+    "discard": "Ignora",
+    "emails": {
+      "m1": { "from": "Elena Vidal", "subject": "R: Revisione dati Q3 — serve il tuo contributo", "snippet": "Potresti inviarmi i tuoi commenti entro giovedì? Allego l'ultima versione del pacchetto…" },
+      "m2": { "from": "A. Fernández", "subject": "Verbale del comitato direttivo", "snippet": "In allegato il verbale di lunedì con le azioni concordate e i responsabili…" },
+      "m3": { "from": "Risorse Umane", "subject": "Promemoria: valutazioni delle prestazioni", "snippet": "La finestra per l'autovalutazione chiude questo venerdì alle 18…" },
+      "m4": { "from": "M. López", "subject": "Documentazione API aggiornata", "snippet": "La documentazione del modulo di integrazione è ora pubblicata sul portale interno…" },
+      "m5": { "from": "Help Desk IT", "subject": "Manutenzione programmata — sabato", "snippet": "I sistemi principali non saranno disponibili dalle 22:00 alle 02:00…" },
+      "m6": { "from": "Laura Ortiz", "subject": "Bozza di proposta v2", "snippet": "Ho integrato il feedback dell'ufficio legale, in attesa della tua revisione finale…" },
+      "m7": { "from": "Servizi Generali", "subject": "Accesso all'ufficio durante le festività", "snippet": "L'accesso con badge sarà limitato ai piani 2 e 3…" },
+      "m8": { "from": "D. Romero", "subject": "I: Confronto preventivi fornitori", "snippet": "Inoltro la tabella comparativa di cui abbiamo parlato — l'opzione B sembra la migliore…" }
+    },
+    "panic": {
+      "greeting": "Ciao,",
+      "body1": "Grazie per la rapidità con i dati del Q3. Ho rivisto il riepilogo e nel complesso è solido — l'analisi degli scostamenti dei conti LATAM è particolarmente chiara.",
+      "body2": "Due piccole cose prima di inoltrarlo alla direzione: potresti ricontrollare le ipotesi sui cambi alla slide 7 e allineare la tabella dell'organico con quanto riportato da Finanza la scorsa settimana? Appena fatto, inoltro il pacchetto al comitato.",
+      "closing": "Cordiali saluti,",
+      "signerRole": "Responsabile Business Operations",
+      "attachment": "Q3_Figures_v3.xlsx",
+      "attachmentSize": "248 KB",
+      "quotedHeader": "Martedì hai scritto:",
+      "quotedBody": "Invio i dati consolidati del Q3 per revisione. Segnalo che la voce servizi include ancora la rettifica di settembre — se utile, la vediamo insieme."
+    }
+  },
+  "teamsContent": {
+    "searchPlaceholder": "Cerca",
+    "messagePlaceholder": "Scrivi un messaggio",
+    "send": "Invia",
+    "nav": {
+      "activity": "Attività",
+      "chat": "Chat",
+      "teams": "Team",
+      "calendar": "Calendario",
+      "calls": "Chiamate"
+    },
+    "chatHeader": "Chat",
+    "tabs": {
+      "chat": "Chat",
+      "files": "File"
+    },
+    "you": "Tu",
+    "replyTo": "Rispondi a {name}",
+    "chats": {
+      "c1": { "name": "Elena Vidal", "snippet": "Perfetto, do un'occhiata ora", "time": "9:44", "unread": false },
+      "c2": { "name": "Progetto Q3", "snippet": "A. Fernández: Ho aggiornato il deck", "time": "9:20", "unread": true },
+      "c3": { "name": "M. López", "snippet": "La doc delle API è online 👍", "time": "8:30", "unread": true },
+      "c4": { "name": "Laura Ortiz", "snippet": "Tu: ottimo, grazie", "time": "Ieri", "unread": false },
+      "c5": { "name": "Help Desk IT", "snippet": "Il tuo ticket è stato risolto", "time": "Ieri", "unread": false },
+      "c6": { "name": "D. Romero", "snippet": "Sincronizziamoci domani mattina", "time": "Lun", "unread": false },
+      "c7": { "name": "Risorse Umane", "snippet": "Promemoria: le valutazioni chiudono venerdì", "time": "Lun", "unread": false }
+    },
+    "panic": {
+      "msg1": "Ciao! Sei riuscito a dare un'occhiata ai dati del Q3?",
+      "msg2": "Appena visti — nel complesso sembra solido 👍",
+      "msg3": "Ottimo. Puoi ricontrollare le ipotesi sui cambi alla slide 7?",
+      "msgMine": "Ci penso io. Ti scrivo appena la tabella dell'organico è allineata con Finanza.",
+      "msg4": "Perfetto, grazie. Dopo inoltro il pacchetto al comitato.",
+      "meetingTitle": "Revisione Q3 — follow-up",
+      "meetingTime": "Oggi · 16:00 – 16:30",
+      "meetingJoin": "Partecipa"
+    }
+  },
+  "slackContent": {
+    "workspace": "OfficeCorp",
+    "searchPlaceholder": "Cerca in OfficeCorp",
+    "messagePlaceholder": "Messaggio a #{channel}",
+    "sectionChannels": "Canali",
+    "sectionDirect": "Messaggi diretti",
+    "threads": "Thread",
+    "channelName": "progetto-q3",
+    "channelTopic": "Chiusura Q3 · revisione dati e pacchetto per il comitato",
+    "you": "tu",
+    "channels": {
+      "general": { "name": "generale", "unread": false },
+      "projectq3": { "name": "progetto-q3", "unread": false },
+      "announcements": { "name": "annunci", "unread": true },
+      "random": { "name": "random", "unread": false },
+      "itsupport": { "name": "supporto-it", "unread": false }
+    },
+    "dms": {
+      "d1": { "name": "Elena Vidal", "online": true },
+      "d2": { "name": "A. Fernández", "online": true },
+      "d3": { "name": "M. López", "online": false },
+      "d4": { "name": "Laura Ortiz", "online": false }
+    },
+    "panic": {
+      "msg1": "buongiorno a tutti — ho caricato il deck Q3 aggiornato sul drive 📊",
+      "msg2": "grazie! sto revisionando ora. la sezione scostamenti LATAM è molto più chiara",
+      "msg3": "una cosa: qualcuno può confermare le ipotesi sui cambi alla slide 7?",
+      "msgMine": "ci penso io — allineo la tabella dell'organico con Finanza e vi aggiorno",
+      "msg4": "ottimo, appena pronto inoltro il pacchetto al comitato 🙌",
+      "reactions": "👍 4",
+      "threadReplies": "3 risposte",
+      "threadLast": "Ultima risposta 12 min fa"
+    }
+  },
+  "salesforceContent": {
+    "appName": "Vendite",
+    "searchPlaceholder": "Cerca in Salesforce",
+    "nav": {
+      "home": "Home",
+      "opportunities": "Opportunità",
+      "leads": "Lead",
+      "accounts": "Account",
+      "contacts": "Contatti",
+      "reports": "Report",
+      "dashboards": "Dashboard"
+    },
+    "recordType": "Opportunità",
+    "recordName": "Global Media - 250 Widgets",
+    "highlights": {
+      "account": "Nome account",
+      "accountValue": "Global Media",
+      "closeDate": "Data di chiusura",
+      "closeDateValue": "31/12/2025",
+      "amount": "Importo",
+      "owner": "Titolare opportunità",
+      "ownerValue": "J. García"
+    },
+    "buttons": {
+      "edit": "Modifica",
+      "follow": "Segui",
+      "markComplete": "Segna fase come completata",
+      "share": "Condividi"
+    },
+    "stages": {
+      "prospecting": "Prospezione",
+      "qualification": "Qualificazione",
+      "needsAnalysis": "Analisi delle esigenze",
+      "proposal": "Proposta",
+      "negotiation": "Negoziazione",
+      "closedWon": "Chiusa vinta"
+    },
+    "tabs": {
+      "related": "Correlato",
+      "details": "Dettagli"
+    },
+    "gameCard": {
+      "files": "File",
+      "products": "Prodotti"
+    },
+    "chatterPlaceholder": "Condividi un aggiornamento...",
+    "relatedLists": {
+      "contactRoles": "Ruoli contatto",
+      "products": "Prodotti",
+      "notes": "Note e allegati"
+    },
+    "contactRoleRows": {
+      "cr1": { "name": "Elena Vidal", "role": "Decisore", "email": "e.vidal@globalmedia.com" },
+      "cr2": { "name": "A. Fernández", "role": "Acquirente economico", "email": "a.fernandez@globalmedia.com" },
+      "cr3": { "name": "M. López", "role": "Acquirente tecnico", "email": "m.lopez@globalmedia.com" }
+    },
+    "productRows": {
+      "p1": { "name": "Licenza Widget Pro", "qty": "150", "price": "45.000 €" },
+      "p2": { "name": "Pacchetto onboarding", "qty": "1", "price": "8.500 €" },
+      "p3": { "name": "Supporto Premium (1 anno)", "qty": "1", "price": "12.000 €" }
+    },
+    "activity": {
+      "title": "Attività",
+      "logCall": "Registra chiamata",
+      "newTask": "Nuova attività",
+      "email": "Email",
+      "a1": { "type": "Email", "subject": "Revisione dati Q3 — serve il tuo contributo", "date": "16/07 · 9:42" },
+      "a2": { "type": "Chiamata", "subject": "Chiamata di follow-up con Elena Vidal", "date": "15/07 · 16:10" },
+      "a3": { "type": "Attività", "subject": "Inviare il deck di proposta aggiornato", "date": "Scad. 18/07" }
+    },
+    "panic": {
+      "detailsTitle": "Informazioni sull'opportunità",
+      "f1": { "label": "Nome opportunità", "value": "Global Media - 250 Widgets" },
+      "f2": { "label": "Nome account", "value": "Global Media" },
+      "f3": { "label": "Tipo", "value": "Cliente esistente - Upgrade" },
+      "f4": { "label": "Origine lead", "value": "Referral partner" },
+      "f5": { "label": "Importo", "value": "65.500 €" },
+      "f6": { "label": "Probabilità", "value": "75%" },
+      "f7": { "label": "Data di chiusura", "value": "31/12/2025" },
+      "f8": { "label": "Prossimo passo", "value": "Allineare la tabella dell'organico con Finanza" }
+    }
+  },
+  "games": {
+    "snake": {
+      "name": "Visualizzatore di flusso dati",
+      "description": "Traccia e ottimizza il throughput della pipeline dati",
+      "scoreUnit": "record",
+      "start": "Esegui macro",
+      "startBtn": "▶ Avvia",
+      "retryBtn": "↺ Riprova",
+      "gameOver": "Errore di intervallo!",
+      "score": "Punteggio",
+      "best": "Record",
+      "foodHint": "Mangia i {food} per fare punti"
+    },
+    "tetris": {
+      "name": "Ottimizzatore di layout",
+      "description": "Disponi e impila i componenti UI in modo efficiente",
+      "scoreUnit": "unità",
+      "start": "Inizializza layout",
+      "startBtn": "▶ Avvia",
+      "retryBtn": "↺ Riprova",
+      "gameOver": "Stack overflow",
+      "score": "Punteggio",
+      "best": "Record",
+      "controls": "← → Muovi · ↑ Ruota · ↓ Giù · Spazio Caduta",
+      "next": "Successivo",
+      "lines": "Righe",
+      "level": "Livello"
+    },
+    "typing": {
+      "name": "Benchmark di digitazione",
+      "description": "Misura e migliora la velocità di digitazione",
+      "scoreUnit": "PPM",
+      "start": "Avvia benchmark",
+      "startBtn": "▶ Avvia",
+      "retryBtn": "↺ Riprova",
+      "gameOver": "Benchmark completato",
+      "score": "PPM",
+      "best": "Migliore",
+      "accuracy": "Precisione",
+      "errors": "Errori",
+      "words": "parole",
+      "inputHint": "Digita la parola evidenziata e premi {key}",
+      "space": "Spazio",
+      "liveStatus": "{wpm} PPM · {accuracy}% precisione",
+      "doneStatus": "Completato: {wpm} PPM"
+    }
+  },
+  "ui": {
+    "selectWorkspace": "Seleziona ambiente",
+    "openTemplate": "Apri modello recente",
+    "recommended": "Consigliato",
+    "fullscreen": "Schermo intero",
+    "exitFullscreen": "Esci da schermo intero",
+    "status": {
+      "ready": "Pronto",
+      "running": "Elaborazione...",
+      "error": "Errore di formula",
+      "calculating": "Calcolo...",
+      "waiting": "Inattivo"
+    },
+    "panic": {
+      "hint": "Premi Esc per cambiare vista"
+    }
+  }
+}

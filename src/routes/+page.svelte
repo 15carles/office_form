@@ -13,7 +13,10 @@
 
 	const LOCALES: { code: SupportedLocale; label: string }[] = [
 		{ code: 'es', label: 'ES' },
-		{ code: 'en', label: 'EN' }
+		{ code: 'en', label: 'EN' },
+		{ code: 'de', label: 'DE' },
+		{ code: 'it', label: 'IT' },
+		{ code: 'fr', label: 'FR' }
 	];
 </script>
 

@@ -3,11 +3,14 @@ import { init, register, locale } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { prefs } from '$lib/stores/progress';
 
-const SUPPORTED_LOCALES = ['en', 'es'] as const;
+const SUPPORTED_LOCALES = ['en', 'es', 'de', 'it', 'fr'] as const;
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 
 register('en', () => import('./locales/en.json'));
 register('es', () => import('./locales/es.json'));
+register('de', () => import('./locales/de.json'));
+register('it', () => import('./locales/it.json'));
+register('fr', () => import('./locales/fr.json'));
 
 function detectLocale(): string {
 	if (!browser) return 'en';

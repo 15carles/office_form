@@ -1,0 +1,334 @@
+{
+  "nav": {
+    "home": "Tableau de bord",
+    "settings": "Paramètres"
+  },
+  "home": {
+    "title": "OfficeForms",
+    "subtitle": "Environnements de travail prêts à l'emploi",
+    "tagline": "Analyse, design et documentation. Sans compte, sans configuration — tout fonctionne dans votre navigateur.",
+    "openFeatured": "Ouvrir l'environnement en vedette",
+    "featured": "Flux de travail en vedette aujourd'hui",
+    "browse": "Environnements disponibles",
+    "streak": "{current} jours consécutifs · Record : {longest}",
+    "hintEsc": "Appuyez sur {key} pour changer de vue",
+    "hintFullscreen": "Plein écran disponible dans chaque environnement",
+    "hintPrivacy": "Sans compte · Aucune donnée envoyée",
+    "footer": "OfficeForms · Environnements internes de productivité",
+    "open": "Ouvrir →",
+    "today": "Aujourd'hui",
+    "bestTotal": "Meilleur : {total} au total"
+  },
+  "skins": {
+    "excel": {
+      "name": "SpreadSheet Pro",
+      "description": "Environnement d'analyse de données et de reporting",
+      "appName": "Q3 Revenue Analysis.xlsx",
+      "pageTitle": "Q3 Revenue Analysis.xlsx — Excel"
+    },
+    "figma": {
+      "name": "DesignBoard",
+      "description": "Espace de conception d'interfaces et de prototypage",
+      "appName": "Design System v2",
+      "pageTitle": "Design System v2 — Figma"
+    },
+    "notion": {
+      "name": "DocSpace",
+      "description": "Hub de gestion documentaire et de collaboration",
+      "appName": "Meeting Notes",
+      "pageTitle": "Meeting Notes — Notion"
+    },
+    "outlook": {
+      "name": "MailDesk",
+      "description": "Messagerie professionnelle et planification",
+      "appName": "Boîte de réception",
+      "pageTitle": "Boîte de réception — Outlook"
+    },
+    "teams": {
+      "name": "TeamHub",
+      "description": "Chat d'équipe et réunions",
+      "appName": "Conversation",
+      "pageTitle": "Conversation | Microsoft Teams"
+    },
+    "slack": {
+      "name": "ChatDeck",
+      "description": "Canaux d'équipe et messagerie",
+      "appName": "projet-q3",
+      "pageTitle": "#projet-q3 (Canal) — OfficeCorp — Slack"
+    },
+    "salesforce": {
+      "name": "Salesforce",
+      "description": "CRM commercial et pipeline",
+      "appName": "Global Media - 250 Widgets",
+      "pageTitle": "Global Media - 250 Widgets | Salesforce"
+    }
+  },
+  "outlookContent": {
+    "searchPlaceholder": "Rechercher",
+    "newMail": "Nouveau message",
+    "commands": {
+      "delete": "Supprimer",
+      "archive": "Archiver",
+      "reply": "Répondre",
+      "replyAll": "Répondre à tous",
+      "forward": "Transférer"
+    },
+    "nav": {
+      "mail": "Courrier",
+      "calendar": "Calendrier",
+      "people": "Contacts",
+      "tasks": "Tâches"
+    },
+    "folders": {
+      "favorites": "Favoris",
+      "inbox": "Boîte de réception",
+      "drafts": "Brouillons",
+      "sent": "Éléments envoyés",
+      "archive": "Archive",
+      "deleted": "Éléments supprimés"
+    },
+    "toYou": "À : vous",
+    "replyTo": "Répondre à {name}",
+    "send": "Envoyer",
+    "discard": "Ignorer",
+    "emails": {
+      "m1": { "from": "Elena Vidal", "subject": "RE : Revue des chiffres du T3 — votre avis requis", "snippet": "Pourrais-tu m'envoyer tes commentaires avant jeudi ? Je joins la dernière version du dossier…" },
+      "m2": { "from": "A. Fernández", "subject": "Compte rendu du comité de pilotage", "snippet": "Ci-joint le compte rendu de lundi avec les actions convenues et les responsables…" },
+      "m3": { "from": "Ressources Humaines", "subject": "Rappel : entretiens d'évaluation", "snippet": "La période d'auto-évaluation se termine ce vendredi à 18 h…" },
+      "m4": { "from": "M. López", "subject": "Documentation API mise à jour", "snippet": "La documentation du module d'intégration est désormais publiée sur le portail interne…" },
+      "m5": { "from": "Support informatique", "subject": "Maintenance planifiée — samedi", "snippet": "Les systèmes principaux seront indisponibles de 22h00 à 02h00…" },
+      "m6": { "from": "Laura Ortiz", "subject": "Brouillon de proposition v2", "snippet": "J'ai intégré les retours du service juridique, en attente de ta relecture finale…" },
+      "m7": { "from": "Services Généraux", "subject": "Accès aux bureaux pendant les fêtes", "snippet": "L'accès par badge sera limité aux étages 2 et 3…" },
+      "m8": { "from": "D. Romero", "subject": "TR : Comparatif des devis fournisseurs", "snippet": "Je transfère le tableau comparatif dont nous avons parlé — l'option B semble la meilleure…" }
+    },
+    "panic": {
+      "greeting": "Bonjour,",
+      "body1": "Merci pour la réactivité sur les chiffres du T3. J'ai relu la synthèse et dans l'ensemble elle est solide — l'analyse des écarts sur les comptes LATAM est particulièrement claire.",
+      "body2": "Deux petites choses avant de la transmettre à la direction : pourrais-tu revérifier les hypothèses de change sur la diapositive 7 et aligner le tableau des effectifs sur ce que la Finance a communiqué la semaine dernière ? Dès que c'est fait, je transmets le dossier au comité.",
+      "closing": "Cordialement,",
+      "signerRole": "Directrice des opérations",
+      "attachment": "Q3_Figures_v3.xlsx",
+      "attachmentSize": "248 Ko",
+      "quotedHeader": "Mardi, vous avez écrit :",
+      "quotedBody": "Je transmets les chiffres consolidés du T3 pour relecture. À noter : la ligne services comporte encore l'ajustement de septembre — je peux le détailler si besoin."
+    }
+  },
+  "teamsContent": {
+    "searchPlaceholder": "Rechercher",
+    "messagePlaceholder": "Saisir un message",
+    "send": "Envoyer",
+    "nav": {
+      "activity": "Activité",
+      "chat": "Conversation",
+      "teams": "Équipes",
+      "calendar": "Calendrier",
+      "calls": "Appels"
+    },
+    "chatHeader": "Conversation",
+    "tabs": {
+      "chat": "Conversation",
+      "files": "Fichiers"
+    },
+    "you": "Vous",
+    "replyTo": "Répondre à {name}",
+    "chats": {
+      "c1": { "name": "Elena Vidal", "snippet": "Parfait, je regarde ça tout de suite", "time": "9:44", "unread": false },
+      "c2": { "name": "Projet T3", "snippet": "A. Fernández : J'ai mis à jour le deck", "time": "9:20", "unread": true },
+      "c3": { "name": "M. López", "snippet": "La doc de l'API est en ligne 👍", "time": "8:30", "unread": true },
+      "c4": { "name": "Laura Ortiz", "snippet": "Vous : très bien, merci", "time": "Hier", "unread": false },
+      "c5": { "name": "Support informatique", "snippet": "Votre ticket a été résolu", "time": "Hier", "unread": false },
+      "c6": { "name": "D. Romero", "snippet": "On fait le point demain matin", "time": "Lun", "unread": false },
+      "c7": { "name": "Ressources Humaines", "snippet": "Rappel : les évaluations ferment vendredi", "time": "Lun", "unread": false }
+    },
+    "panic": {
+      "msg1": "Salut ! Tu as pu jeter un œil aux chiffres du T3 ?",
+      "msg2": "Je viens de les parcourir — dans l'ensemble ça semble solide 👍",
+      "msg3": "Super. Peux-tu revérifier les hypothèses de change sur la diapo 7 ?",
+      "msgMine": "Je m'en occupe. Je te fais signe dès que le tableau des effectifs est aligné avec la Finance.",
+      "msg4": "Parfait, merci. Ensuite je transmets le dossier au comité.",
+      "meetingTitle": "Revue T3 — suivi",
+      "meetingTime": "Aujourd'hui · 16:00 – 16:30",
+      "meetingJoin": "Rejoindre"
+    }
+  },
+  "slackContent": {
+    "workspace": "OfficeCorp",
+    "searchPlaceholder": "Rechercher dans OfficeCorp",
+    "messagePlaceholder": "Message à #{channel}",
+    "sectionChannels": "Canaux",
+    "sectionDirect": "Messages directs",
+    "threads": "Fils de discussion",
+    "channelName": "projet-q3",
+    "channelTopic": "Clôture T3 · revue des chiffres et dossier comité",
+    "you": "vous",
+    "channels": {
+      "general": { "name": "général", "unread": false },
+      "projectq3": { "name": "projet-q3", "unread": false },
+      "announcements": { "name": "annonces", "unread": true },
+      "random": { "name": "random", "unread": false },
+      "itsupport": { "name": "support-it", "unread": false }
+    },
+    "dms": {
+      "d1": { "name": "Elena Vidal", "online": true },
+      "d2": { "name": "A. Fernández", "online": true },
+      "d3": { "name": "M. López", "online": false },
+      "d4": { "name": "Laura Ortiz", "online": false }
+    },
+    "panic": {
+      "msg1": "bonjour à tous — j'ai déposé le deck T3 mis à jour sur le drive 📊",
+      "msg2": "merci ! je relis maintenant. la section des écarts LATAM est beaucoup plus claire",
+      "msg3": "une chose : quelqu'un peut confirmer les hypothèses de change sur la diapo 7 ?",
+      "msgMine": "je m'en occupe — j'aligne le tableau des effectifs avec la Finance et je reviens vers vous",
+      "msg4": "super, dès que c'est prêt je transmets le dossier au comité 🙌",
+      "reactions": "👍 4",
+      "threadReplies": "3 réponses",
+      "threadLast": "Dernière réponse il y a 12 min"
+    }
+  },
+  "salesforceContent": {
+    "appName": "Ventes",
+    "searchPlaceholder": "Rechercher dans Salesforce",
+    "nav": {
+      "home": "Accueil",
+      "opportunities": "Opportunités",
+      "leads": "Pistes",
+      "accounts": "Comptes",
+      "contacts": "Contacts",
+      "reports": "Rapports",
+      "dashboards": "Tableaux de bord"
+    },
+    "recordType": "Opportunité",
+    "recordName": "Global Media - 250 Widgets",
+    "highlights": {
+      "account": "Nom du compte",
+      "accountValue": "Global Media",
+      "closeDate": "Date de clôture",
+      "closeDateValue": "31/12/2025",
+      "amount": "Montant",
+      "owner": "Propriétaire de l'opportunité",
+      "ownerValue": "J. García"
+    },
+    "buttons": {
+      "edit": "Modifier",
+      "follow": "Suivre",
+      "markComplete": "Marquer l'étape comme terminée",
+      "share": "Partager"
+    },
+    "stages": {
+      "prospecting": "Prospection",
+      "qualification": "Qualification",
+      "needsAnalysis": "Analyse des besoins",
+      "proposal": "Proposition",
+      "negotiation": "Négociation",
+      "closedWon": "Gagnée"
+    },
+    "tabs": {
+      "related": "Associé",
+      "details": "Détails"
+    },
+    "gameCard": {
+      "files": "Fichiers",
+      "products": "Produits"
+    },
+    "chatterPlaceholder": "Partager une actualité...",
+    "relatedLists": {
+      "contactRoles": "Rôles de contact",
+      "products": "Produits",
+      "notes": "Notes et pièces jointes"
+    },
+    "contactRoleRows": {
+      "cr1": { "name": "Elena Vidal", "role": "Décideur", "email": "e.vidal@globalmedia.com" },
+      "cr2": { "name": "A. Fernández", "role": "Acheteur économique", "email": "a.fernandez@globalmedia.com" },
+      "cr3": { "name": "M. López", "role": "Acheteur technique", "email": "m.lopez@globalmedia.com" }
+    },
+    "productRows": {
+      "p1": { "name": "Licence Widget Pro", "qty": "150", "price": "45 000 €" },
+      "p2": { "name": "Pack d'intégration", "qty": "1", "price": "8 500 €" },
+      "p3": { "name": "Support Premium (1 an)", "qty": "1", "price": "12 000 €" }
+    },
+    "activity": {
+      "title": "Activité",
+      "logCall": "Consigner un appel",
+      "newTask": "Nouvelle tâche",
+      "email": "E-mail",
+      "a1": { "type": "E-mail", "subject": "Revue des chiffres du T3 — votre avis requis", "date": "16/07 · 9:42" },
+      "a2": { "type": "Appel", "subject": "Appel de suivi avec Elena Vidal", "date": "15/07 · 16:10" },
+      "a3": { "type": "Tâche", "subject": "Envoyer le deck de proposition mis à jour", "date": "Échéance 18/07" }
+    },
+    "panic": {
+      "detailsTitle": "Informations sur l'opportunité",
+      "f1": { "label": "Nom de l'opportunité", "value": "Global Media - 250 Widgets" },
+      "f2": { "label": "Nom du compte", "value": "Global Media" },
+      "f3": { "label": "Type", "value": "Client existant - Mise à niveau" },
+      "f4": { "label": "Source de la piste", "value": "Recommandation partenaire" },
+      "f5": { "label": "Montant", "value": "65 500 €" },
+      "f6": { "label": "Probabilité", "value": "75 %" },
+      "f7": { "label": "Date de clôture", "value": "31/12/2025" },
+      "f8": { "label": "Étape suivante", "value": "Aligner le tableau des effectifs avec la Finance" }
+    }
+  },
+  "games": {
+    "snake": {
+      "name": "Visualiseur de flux de données",
+      "description": "Tracez et optimisez le débit du pipeline de données",
+      "scoreUnit": "enregistrements",
+      "start": "Exécuter la macro",
+      "startBtn": "▶ Démarrer",
+      "retryBtn": "↺ Réessayer",
+      "gameOver": "Erreur de plage !",
+      "score": "Score",
+      "best": "Record",
+      "foodHint": "Mangez les {food} pour marquer"
+    },
+    "tetris": {
+      "name": "Optimiseur de mise en page",
+      "description": "Disposez et empilez les composants d'interface efficacement",
+      "scoreUnit": "unités",
+      "start": "Initialiser la mise en page",
+      "startBtn": "▶ Démarrer",
+      "retryBtn": "↺ Réessayer",
+      "gameOver": "Débordement de pile",
+      "score": "Score",
+      "best": "Record",
+      "controls": "← → Déplacer · ↑ Pivoter · ↓ Descendre · Espace Chute",
+      "next": "Suivant",
+      "lines": "Lignes",
+      "level": "Niveau"
+    },
+    "typing": {
+      "name": "Test de saisie au clavier",
+      "description": "Mesurez et améliorez votre vitesse de frappe",
+      "scoreUnit": "MPM",
+      "start": "Lancer le test",
+      "startBtn": "▶ Démarrer",
+      "retryBtn": "↺ Réessayer",
+      "gameOver": "Test terminé",
+      "score": "MPM",
+      "best": "Meilleur",
+      "accuracy": "Précision",
+      "errors": "Erreurs",
+      "words": "mots",
+      "inputHint": "Tapez le mot en surbrillance et appuyez sur {key}",
+      "space": "Espace",
+      "liveStatus": "{wpm} MPM · {accuracy} % de précision",
+      "doneStatus": "Terminé : {wpm} MPM"
+    }
+  },
+  "ui": {
+    "selectWorkspace": "Sélectionner l'environnement",
+    "openTemplate": "Ouvrir un modèle récent",
+    "recommended": "Recommandé",
+    "fullscreen": "Plein écran",
+    "exitFullscreen": "Quitter le plein écran",
+    "status": {
+      "ready": "Prêt",
+      "running": "Traitement...",
+      "error": "Erreur de formule",
+      "calculating": "Calcul...",
+      "waiting": "Inactif"
+    },
+    "panic": {
+      "hint": "Appuyez sur Échap pour changer de vue"
+    }
+  }
+}
