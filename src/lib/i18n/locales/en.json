@@ -49,6 +49,12 @@
       "description": "Team chat and meetings",
       "appName": "Chat",
       "pageTitle": "Chat | Microsoft Teams"
+    },
+    "slack": {
+      "name": "ChatDeck",
+      "description": "Team channels and messaging",
+      "appName": "proyecto-q3",
+      "pageTitle": "#proyecto-q3 (Channel) — OfficeCorp — Slack"
     }
   },
   "outlookContent": {
@@ -137,6 +143,40 @@
       "meetingTitle": "Q3 Review — follow-up",
       "meetingTime": "Today · 4:00 PM – 4:30 PM",
       "meetingJoin": "Join"
+    }
+  },
+  "slackContent": {
+    "workspace": "OfficeCorp",
+    "searchPlaceholder": "Search OfficeCorp",
+    "messagePlaceholder": "Message #{channel}",
+    "sectionChannels": "Channels",
+    "sectionDirect": "Direct messages",
+    "threads": "Threads",
+    "channelName": "proyecto-q3",
+    "channelTopic": "Q3 close · figures review & committee pack",
+    "you": "you",
+    "channels": {
+      "general": { "name": "general", "unread": false },
+      "projectq3": { "name": "proyecto-q3", "unread": false },
+      "announcements": { "name": "anuncios", "unread": true },
+      "random": { "name": "random", "unread": false },
+      "itsupport": { "name": "soporte-it", "unread": false }
+    },
+    "dms": {
+      "d1": { "name": "Elena Vidal", "online": true },
+      "d2": { "name": "A. Fernández", "online": true },
+      "d3": { "name": "M. López", "online": false },
+      "d4": { "name": "Laura Ortiz", "online": false }
+    },
+    "panic": {
+      "msg1": "morning all — pushed the updated Q3 deck to the drive 📊",
+      "msg2": "thanks! reviewing now. the LATAM variance section looks much clearer",
+      "msg3": "one thing: can someone confirm the FX assumptions on slide 7?",
+      "msgMine": "on it — I'll align the headcount table with Finance and report back",
+      "msg4": "great, once that's in I'll forward the pack to the committee 🙌",
+      "reactions": "👍 4",
+      "threadReplies": "3 replies",
+      "threadLast": "Last reply 12m ago"
     }
   },
   "games": {

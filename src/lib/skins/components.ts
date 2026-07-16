@@ -6,11 +6,13 @@ import FigmaSkin from './figma/FigmaSkin.svelte';
 import NotionSkin from './notion/NotionSkin.svelte';
 import OutlookSkin from './outlook/OutlookSkin.svelte';
 import TeamsSkin from './teams/TeamsSkin.svelte';
+import SlackSkin from './slack/SlackSkin.svelte';
 import SkinPreviewExcel from '$lib/components/SkinPreviewExcel.svelte';
 import SkinPreviewFigma from '$lib/components/SkinPreviewFigma.svelte';
 import SkinPreviewNotion from '$lib/components/SkinPreviewNotion.svelte';
 import SkinPreviewOutlook from '$lib/components/SkinPreviewOutlook.svelte';
 import SkinPreviewTeams from '$lib/components/SkinPreviewTeams.svelte';
+import SkinPreviewSlack from '$lib/components/SkinPreviewSlack.svelte';
 
 /** Props every skin component accepts. Skins may ignore the ones they don't use. */
 export interface SkinComponentProps {
@@ -27,7 +29,8 @@ export const SKIN_COMPONENTS: Record<SkinId, Component<SkinComponentProps>> = {
 	figma: FigmaSkin,
 	notion: NotionSkin,
 	outlook: OutlookSkin,
-	teams: TeamsSkin
+	teams: TeamsSkin,
+	slack: SlackSkin
 };
 
 /** Prop-less SVG thumbnails shown on the dashboard cards. */
@@ -36,5 +39,6 @@ export const SKIN_PREVIEWS: Record<SkinId, Component> = {
 	figma: SkinPreviewFigma,
 	notion: SkinPreviewNotion,
 	outlook: SkinPreviewOutlook,
-	teams: SkinPreviewTeams
+	teams: SkinPreviewTeams,
+	slack: SkinPreviewSlack
 };

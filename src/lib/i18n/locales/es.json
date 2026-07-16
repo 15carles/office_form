@@ -49,6 +49,12 @@
       "description": "Chat y reuniones de equipo",
       "appName": "Chat",
       "pageTitle": "Chat | Microsoft Teams"
+    },
+    "slack": {
+      "name": "ChatDeck",
+      "description": "Canales y mensajería de equipo",
+      "appName": "proyecto-q3",
+      "pageTitle": "#proyecto-q3 (Canal) — OfficeCorp — Slack"
     }
   },
   "outlookContent": {
@@ -137,6 +143,40 @@
       "meetingTitle": "Revisión Q3 — seguimiento",
       "meetingTime": "Hoy · 16:00 – 16:30",
       "meetingJoin": "Unirse"
+    }
+  },
+  "slackContent": {
+    "workspace": "OfficeCorp",
+    "searchPlaceholder": "Buscar en OfficeCorp",
+    "messagePlaceholder": "Mensaje a #{channel}",
+    "sectionChannels": "Canales",
+    "sectionDirect": "Mensajes directos",
+    "threads": "Hilos",
+    "channelName": "proyecto-q3",
+    "channelTopic": "Cierre Q3 · revisión de cifras y pack para el comité",
+    "you": "tú",
+    "channels": {
+      "general": { "name": "general", "unread": false },
+      "projectq3": { "name": "proyecto-q3", "unread": false },
+      "announcements": { "name": "anuncios", "unread": true },
+      "random": { "name": "random", "unread": false },
+      "itsupport": { "name": "soporte-it", "unread": false }
+    },
+    "dms": {
+      "d1": { "name": "Elena Vidal", "online": true },
+      "d2": { "name": "A. Fernández", "online": true },
+      "d3": { "name": "M. López", "online": false },
+      "d4": { "name": "Laura Ortiz", "online": false }
+    },
+    "panic": {
+      "msg1": "buenas a todos — he subido el deck del Q3 actualizado al drive 📊",
+      "msg2": "¡gracias! revisando ahora. la sección de desviaciones LATAM queda mucho más clara",
+      "msg3": "una cosa: ¿alguien puede confirmar las hipótesis de tipo de cambio de la diapositiva 7?",
+      "msgMine": "voy con ello — cuadro la tabla de plantilla con Finanzas y os digo",
+      "msg4": "genial, en cuanto esté reenvío el pack al comité 🙌",
+      "reactions": "👍 4",
+      "threadReplies": "3 respuestas",
+      "threadLast": "Última respuesta hace 12 min"
     }
   },
   "games": {

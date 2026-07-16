@@ -11,9 +11,11 @@ const DAILY_COMBOS: DailyCombo[] = [
 	{ skinId: 'figma', gameId: 'tetris' },
 	{ skinId: 'teams', gameId: 'typing' },
 	{ skinId: 'notion', gameId: 'typing' },
+	{ skinId: 'slack', gameId: 'typing' },
 	{ skinId: 'figma', gameId: 'snake' },
 	{ skinId: 'outlook', gameId: 'snake' },
 	{ skinId: 'teams', gameId: 'tetris' },
+	{ skinId: 'slack', gameId: 'snake' },
 	{ skinId: 'excel', gameId: 'tetris' },
 	{ skinId: 'notion', gameId: 'snake' }
 ];

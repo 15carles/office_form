@@ -31,6 +31,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://officeforms.pro/slack</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://officeforms.pro/excel/snake</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -102,6 +107,21 @@
   </url>
   <url>
     <loc>https://officeforms.pro/teams/tetris</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://officeforms.pro/slack/typing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://officeforms.pro/slack/snake</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://officeforms.pro/slack/tetris</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
