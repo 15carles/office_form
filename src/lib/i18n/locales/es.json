@@ -55,6 +55,12 @@
       "description": "Canales y mensajería de equipo",
       "appName": "proyecto-q3",
       "pageTitle": "#proyecto-q3 (Canal) — OfficeCorp — Slack"
+    },
+    "salesforce": {
+      "name": "Salesforce",
+      "description": "CRM de ventas y pipeline",
+      "appName": "Global Media - 250 Widgets",
+      "pageTitle": "Global Media - 250 Widgets | Salesforce"
     }
   },
   "outlookContent": {
@@ -177,6 +183,88 @@
       "reactions": "👍 4",
       "threadReplies": "3 respuestas",
       "threadLast": "Última respuesta hace 12 min"
+    }
+  },
+  "salesforceContent": {
+    "appName": "Ventas",
+    "searchPlaceholder": "Buscar en Salesforce",
+    "nav": {
+      "home": "Inicio",
+      "opportunities": "Oportunidades",
+      "leads": "Leads",
+      "accounts": "Cuentas",
+      "contacts": "Contactos",
+      "reports": "Informes",
+      "dashboards": "Paneles"
+    },
+    "recordType": "Oportunidad",
+    "recordName": "Global Media - 250 Widgets",
+    "highlights": {
+      "account": "Nombre de la cuenta",
+      "accountValue": "Global Media",
+      "closeDate": "Fecha de cierre",
+      "closeDateValue": "31/12/2025",
+      "amount": "Importe",
+      "owner": "Propietario",
+      "ownerValue": "J. García"
+    },
+    "buttons": {
+      "edit": "Modificar",
+      "follow": "Seguir",
+      "markComplete": "Marcar etapa como completada",
+      "share": "Compartir"
+    },
+    "stages": {
+      "prospecting": "Prospección",
+      "qualification": "Cualificación",
+      "needsAnalysis": "Análisis de necesidades",
+      "proposal": "Propuesta",
+      "negotiation": "Negociación",
+      "closedWon": "Cerrada ganada"
+    },
+    "tabs": {
+      "related": "Relacionado",
+      "details": "Detalles"
+    },
+    "gameCard": {
+      "files": "Archivos",
+      "products": "Productos"
+    },
+    "chatterPlaceholder": "Comparte una actualización...",
+    "relatedLists": {
+      "contactRoles": "Roles de contacto",
+      "products": "Productos",
+      "notes": "Notas y archivos adjuntos"
+    },
+    "contactRoleRows": {
+      "cr1": { "name": "Elena Vidal", "role": "Responsable de decisión", "email": "e.vidal@globalmedia.com" },
+      "cr2": { "name": "A. Fernández", "role": "Comprador económico", "email": "a.fernandez@globalmedia.com" },
+      "cr3": { "name": "M. López", "role": "Comprador técnico", "email": "m.lopez@globalmedia.com" }
+    },
+    "productRows": {
+      "p1": { "name": "Licencia Widget Pro", "qty": "150", "price": "45.000 €" },
+      "p2": { "name": "Paquete de onboarding", "qty": "1", "price": "8.500 €" },
+      "p3": { "name": "Soporte Premium (1 año)", "qty": "1", "price": "12.000 €" }
+    },
+    "activity": {
+      "title": "Actividad",
+      "logCall": "Registrar llamada",
+      "newTask": "Nueva tarea",
+      "email": "Correo",
+      "a1": { "type": "Correo", "subject": "Revisión cifras Q3 — necesito tu input", "date": "16/07 · 9:42" },
+      "a2": { "type": "Llamada", "subject": "Llamada de seguimiento con Elena Vidal", "date": "15/07 · 16:10" },
+      "a3": { "type": "Tarea", "subject": "Enviar deck de propuesta actualizado", "date": "Vence 18/07" }
+    },
+    "panic": {
+      "detailsTitle": "Información de la oportunidad",
+      "f1": { "label": "Nombre de la oportunidad", "value": "Global Media - 250 Widgets" },
+      "f2": { "label": "Nombre de la cuenta", "value": "Global Media" },
+      "f3": { "label": "Tipo", "value": "Cliente existente - Ampliación" },
+      "f4": { "label": "Origen del cliente potencial", "value": "Referencia de partner" },
+      "f5": { "label": "Importe", "value": "65.500 €" },
+      "f6": { "label": "Probabilidad", "value": "75%" },
+      "f7": { "label": "Fecha de cierre", "value": "31/12/2025" },
+      "f8": { "label": "Siguiente paso", "value": "Cuadrar tabla de plantilla con Finanzas" }
     }
   },
   "games": {

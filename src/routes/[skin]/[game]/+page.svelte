@@ -56,7 +56,7 @@
 			if (snakeState?.status === 'over') return $t('ui.status.error');
 			return $t('ui.status.ready');
 		}
-		if (skin.id === 'notion' || skin.id === 'outlook' || skin.id === 'teams' || skin.id === 'slack') {
+		if (skin.id === 'notion' || skin.id === 'outlook' || skin.id === 'teams' || skin.id === 'slack' || skin.id === 'salesforce') {
 			if (typingState?.status === 'running')
 				return $t('games.typing.liveStatus', {
 					values: { wpm: typingState.wpm, accuracy: typingState.accuracy }

@@ -1,4 +1,4 @@
-export type SkinId = 'excel' | 'figma' | 'notion' | 'outlook' | 'teams' | 'slack';
+export type SkinId = 'excel' | 'figma' | 'notion' | 'outlook' | 'teams' | 'slack' | 'salesforce';
 export type GameId = 'snake' | 'tetris' | 'typing';
 
 export interface GameComponentProps<TState = unknown> {
