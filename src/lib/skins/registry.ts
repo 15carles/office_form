@@ -11,18 +11,17 @@ export interface SkinDef {
 	accentColor: string;
 	/** Accent used for UI rendered inside the skin (game selector, etc.). */
 	uiAccent: string;
-	/** Fake document title shown in the browser tab. */
-	pageTitle: string;
 	compatibleGames: GameId[];
 	recommendedGame: GameId;
 }
 
+// The fake browser-tab title lives in i18n as `skins.<id>.pageTitle`
+// so it follows the active locale.
 export const SKINS: SkinDef[] = [
 	{
 		id: 'excel',
 		accentColor: '#1f7145',
 		uiAccent: '#1f7145',
-		pageTitle: 'Q3 Revenue Analysis.xlsx — Excel',
 		compatibleGames: ['snake', 'tetris', 'typing'],
 		recommendedGame: 'snake'
 	},
@@ -30,7 +29,6 @@ export const SKINS: SkinDef[] = [
 		id: 'figma',
 		accentColor: '#f24e1e',
 		uiAccent: '#18a0fb',
-		pageTitle: 'Design System v2 — Figma',
 		compatibleGames: ['snake', 'tetris', 'typing'],
 		recommendedGame: 'tetris'
 	},
@@ -38,8 +36,14 @@ export const SKINS: SkinDef[] = [
 		id: 'notion',
 		accentColor: '#191919',
 		uiAccent: '#191919',
-		pageTitle: 'Meeting Notes — Notion',
 		compatibleGames: ['snake', 'tetris', 'typing'],
+		recommendedGame: 'typing'
+	},
+	{
+		id: 'outlook',
+		accentColor: '#0f6cbd',
+		uiAccent: '#0f6cbd',
+		compatibleGames: ['typing', 'snake', 'tetris'],
 		recommendedGame: 'typing'
 	}
 ];

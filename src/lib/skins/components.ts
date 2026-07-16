@@ -4,6 +4,11 @@ import type { SkinId } from '$lib/games/types';
 import ExcelSkin from './excel/ExcelSkin.svelte';
 import FigmaSkin from './figma/FigmaSkin.svelte';
 import NotionSkin from './notion/NotionSkin.svelte';
+import OutlookSkin from './outlook/OutlookSkin.svelte';
+import SkinPreviewExcel from '$lib/components/SkinPreviewExcel.svelte';
+import SkinPreviewFigma from '$lib/components/SkinPreviewFigma.svelte';
+import SkinPreviewNotion from '$lib/components/SkinPreviewNotion.svelte';
+import SkinPreviewOutlook from '$lib/components/SkinPreviewOutlook.svelte';
 
 /** Props every skin component accepts. Skins may ignore the ones they don't use. */
 export interface SkinComponentProps {
@@ -18,5 +23,14 @@ export interface SkinComponentProps {
 export const SKIN_COMPONENTS: Record<SkinId, Component<SkinComponentProps>> = {
 	excel: ExcelSkin,
 	figma: FigmaSkin,
-	notion: NotionSkin
+	notion: NotionSkin,
+	outlook: OutlookSkin
+};
+
+/** Prop-less SVG thumbnails shown on the dashboard cards. */
+export const SKIN_PREVIEWS: Record<SkinId, Component> = {
+	excel: SkinPreviewExcel,
+	figma: SkinPreviewFigma,
+	notion: SkinPreviewNotion,
+	outlook: SkinPreviewOutlook
 };

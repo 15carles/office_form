@@ -7,9 +7,11 @@ export interface DailyCombo {
 
 const DAILY_COMBOS: DailyCombo[] = [
 	{ skinId: 'excel', gameId: 'snake' },
+	{ skinId: 'outlook', gameId: 'typing' },
 	{ skinId: 'figma', gameId: 'tetris' },
 	{ skinId: 'notion', gameId: 'typing' },
 	{ skinId: 'figma', gameId: 'snake' },
+	{ skinId: 'outlook', gameId: 'snake' },
 	{ skinId: 'excel', gameId: 'tetris' },
 	{ skinId: 'notion', gameId: 'snake' }
 ];

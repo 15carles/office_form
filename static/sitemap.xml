@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://officeforms.pro/outlook</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://officeforms.pro/excel/snake</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -62,6 +67,21 @@
   </url>
   <url>
     <loc>https://officeforms.pro/notion/typing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://officeforms.pro/outlook/typing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://officeforms.pro/outlook/snake</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://officeforms.pro/outlook/tetris</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

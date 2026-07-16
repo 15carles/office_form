@@ -23,17 +23,76 @@
     "excel": {
       "name": "SpreadSheet Pro",
       "description": "Entorno de análisis de datos e informes",
-      "appName": "Informe de Ventas Q3.xlsx"
+      "appName": "Informe de Ventas Q3.xlsx",
+      "pageTitle": "Informe de Ventas Q3.xlsx — Excel"
     },
     "figma": {
       "name": "DesignBoard",
       "description": "Espacio de diseño de interfaces y prototipos",
-      "appName": "Sistema de diseño v2"
+      "appName": "Sistema de diseño v2",
+      "pageTitle": "Sistema de diseño v2 — Figma"
     },
     "notion": {
       "name": "DocSpace",
       "description": "Centro de gestión de documentos y colaboración",
-      "appName": "Notas de reunión"
+      "appName": "Notas de reunión",
+      "pageTitle": "Notas de reunión — Notion"
+    },
+    "outlook": {
+      "name": "MailDesk",
+      "description": "Correo corporativo y agenda",
+      "appName": "Bandeja de entrada",
+      "pageTitle": "Bandeja de entrada — Outlook"
+    }
+  },
+  "outlookContent": {
+    "searchPlaceholder": "Buscar",
+    "newMail": "Correo nuevo",
+    "commands": {
+      "delete": "Eliminar",
+      "archive": "Archivar",
+      "reply": "Responder",
+      "replyAll": "Responder a todos",
+      "forward": "Reenviar"
+    },
+    "nav": {
+      "mail": "Correo",
+      "calendar": "Calendario",
+      "people": "Contactos",
+      "tasks": "Tareas"
+    },
+    "folders": {
+      "favorites": "Favoritos",
+      "inbox": "Bandeja de entrada",
+      "drafts": "Borradores",
+      "sent": "Elementos enviados",
+      "archive": "Archivo",
+      "deleted": "Elementos eliminados"
+    },
+    "toYou": "Para: ti",
+    "replyTo": "Responder a {name}",
+    "send": "Enviar",
+    "discard": "Descartar",
+    "emails": {
+      "m1": { "from": "Elena Vidal", "subject": "RE: Revisión cifras Q3 — necesito tu input", "snippet": "¿Me puedes pasar tus comentarios antes del jueves? Adjunto la última versión del pack…" },
+      "m2": { "from": "A. Fernández", "subject": "Acta del comité de dirección", "snippet": "Adjunto el acta del lunes con las acciones acordadas y responsables…" },
+      "m3": { "from": "Recursos Humanos", "subject": "Recordatorio: evaluaciones de desempeño", "snippet": "El plazo de autoevaluación termina este viernes a las 18:00…" },
+      "m4": { "from": "M. López", "subject": "Documentación de API actualizada", "snippet": "La documentación del módulo de integración ya está publicada en el portal interno…" },
+      "m5": { "from": "Soporte IT", "subject": "Mantenimiento programado — sábado", "snippet": "Los sistemas centrales no estarán disponibles de 22:00 a 02:00…" },
+      "m6": { "from": "Laura Ortiz", "subject": "Borrador de propuesta v2", "snippet": "He incorporado los cambios de legal, pendiente de tu revisión final…" },
+      "m7": { "from": "Servicios Generales", "subject": "Acceso a la oficina en festivos", "snippet": "El acceso con tarjeta quedará restringido a las plantas 2 y 3…" },
+      "m8": { "from": "D. Romero", "subject": "RV: Comparativa de presupuestos", "snippet": "Te reenvío la tabla comparativa que comentamos — la opción B pinta mejor…" }
+    },
+    "panic": {
+      "greeting": "Hola,",
+      "body1": "Gracias por la rapidez con las cifras del Q3. He revisado el resumen y en general está sólido — el análisis de desviaciones de las cuentas LATAM queda especialmente claro.",
+      "body2": "Dos detalles antes de subirlo a dirección: ¿puedes revisar las hipótesis de tipo de cambio de la diapositiva 7 y cuadrar la tabla de plantilla con lo que reportó Finanzas la semana pasada? En cuanto esté, reenvío el pack al comité.",
+      "closing": "Un saludo,",
+      "signerRole": "Directora de Operaciones",
+      "attachment": "Cifras_Q3_v3.xlsx",
+      "attachmentSize": "248 KB",
+      "quotedHeader": "El martes escribiste:",
+      "quotedBody": "Te paso las cifras consolidadas del Q3 para revisión. Ojo: la línea de servicios aún arrastra el ajuste de septiembre — si te viene bien lo repasamos juntos."
     }
   },
   "games": {

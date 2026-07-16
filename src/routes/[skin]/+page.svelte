@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-	<title>{skin ? skin.pageTitle : 'Dashboard'}</title>
+	<title>{skin ? $t(`skins.${skin.id}.pageTitle`) : 'Dashboard'}</title>
 </svelte:head>
 
 {#if skin}

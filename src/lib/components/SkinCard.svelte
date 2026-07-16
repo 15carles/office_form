@@ -3,9 +3,7 @@
 	import { base } from '$app/paths';
 	import { getBestScore } from '$lib/stores/progress';
 	import { VALID_GAMES } from '$lib/skins/registry';
-	import SkinPreviewExcel from './SkinPreviewExcel.svelte';
-	import SkinPreviewFigma from './SkinPreviewFigma.svelte';
-	import SkinPreviewNotion from './SkinPreviewNotion.svelte';
+	import { SKIN_PREVIEWS } from '$lib/skins/components';
 	import type { SkinId } from '$lib/games/types';
 
 	interface Props {
@@ -15,6 +13,8 @@
 	}
 
 	let { skinId, accent, featured = false }: Props = $props();
+
+	const Preview = $derived(SKIN_PREVIEWS[skinId]);
 
 	const totalBest = $derived(
 		VALID_GAMES.reduce((sum, g) => sum + getBestScore(skinId, g), 0)
@@ -27,13 +27,7 @@
 
 <a href="{base}/{skinId}" class="skin-card" class:featured style:--accent={accent}>
 	<div class="preview-wrap">
-		{#if skinId === 'excel'}
-			<SkinPreviewExcel />
-		{:else if skinId === 'figma'}
-			<SkinPreviewFigma />
-		{:else}
-			<SkinPreviewNotion />
-		{/if}
+		<Preview />
 		<div class="preview-overlay">
 			<span class="open-label">{$t('home.open')}</span>
 		</div>

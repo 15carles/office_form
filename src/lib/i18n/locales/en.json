@@ -23,17 +23,76 @@
     "excel": {
       "name": "SpreadSheet Pro",
       "description": "Data analysis and reporting environment",
-      "appName": "Q3 Revenue Analysis.xlsx"
+      "appName": "Q3 Revenue Analysis.xlsx",
+      "pageTitle": "Q3 Revenue Analysis.xlsx — Excel"
     },
     "figma": {
       "name": "DesignBoard",
       "description": "Interface design and prototyping workspace",
-      "appName": "Design System v2"
+      "appName": "Design System v2",
+      "pageTitle": "Design System v2 — Figma"
     },
     "notion": {
       "name": "DocSpace",
       "description": "Document management and collaboration hub",
-      "appName": "Meeting Notes"
+      "appName": "Meeting Notes",
+      "pageTitle": "Meeting Notes — Notion"
+    },
+    "outlook": {
+      "name": "MailDesk",
+      "description": "Corporate mail and scheduling",
+      "appName": "Inbox",
+      "pageTitle": "Inbox — Outlook"
+    }
+  },
+  "outlookContent": {
+    "searchPlaceholder": "Search",
+    "newMail": "New mail",
+    "commands": {
+      "delete": "Delete",
+      "archive": "Archive",
+      "reply": "Reply",
+      "replyAll": "Reply all",
+      "forward": "Forward"
+    },
+    "nav": {
+      "mail": "Mail",
+      "calendar": "Calendar",
+      "people": "People",
+      "tasks": "To Do"
+    },
+    "folders": {
+      "favorites": "Favorites",
+      "inbox": "Inbox",
+      "drafts": "Drafts",
+      "sent": "Sent Items",
+      "archive": "Archive",
+      "deleted": "Deleted Items"
+    },
+    "toYou": "To: you",
+    "replyTo": "Reply to {name}",
+    "send": "Send",
+    "discard": "Discard",
+    "emails": {
+      "m1": { "from": "Elena Vidal", "subject": "RE: Q3 figures review — input needed", "snippet": "Could you send me your comments before Thursday? Attaching the latest version of the pack…" },
+      "m2": { "from": "A. Fernández", "subject": "Steering committee minutes", "snippet": "Attached are Monday's minutes with the agreed action items and owners…" },
+      "m3": { "from": "People Team", "subject": "Reminder: performance reviews", "snippet": "The self-assessment window closes this Friday at 6 pm…" },
+      "m4": { "from": "M. López", "subject": "Updated API documentation", "snippet": "The integration module docs are now published on the internal portal…" },
+      "m5": { "from": "IT Service Desk", "subject": "Scheduled maintenance — Saturday", "snippet": "Core systems will be unavailable from 22:00 to 02:00…" },
+      "m6": { "from": "Laura Ortiz", "subject": "Proposal draft v2", "snippet": "I've incorporated legal's feedback, pending your final review…" },
+      "m7": { "from": "Facilities", "subject": "Office access during the holidays", "snippet": "Badge access will be restricted to floors 2 and 3…" },
+      "m8": { "from": "D. Romero", "subject": "FW: Vendor quote comparison", "snippet": "Forwarding the comparison table we discussed — option B looks best…" }
+    },
+    "panic": {
+      "greeting": "Hi,",
+      "body1": "Thanks for the quick turnaround on the Q3 figures. I've reviewed the summary and overall it looks solid — the variance analysis on the LATAM accounts is especially clear.",
+      "body2": "Two small things before we send it upstairs: could you double-check the FX assumptions on slide 7, and align the headcount table with what Finance reported last week? Once that's in, I'll forward the pack to the committee.",
+      "closing": "Best,",
+      "signerRole": "Head of Business Operations",
+      "attachment": "Q3_Figures_v3.xlsx",
+      "attachmentSize": "248 KB",
+      "quotedHeader": "On Tuesday you wrote:",
+      "quotedBody": "Sending over the consolidated Q3 figures for review. Flagging that the services line still carries the September adjustment — happy to walk through it if useful."
     }
   },
   "games": {

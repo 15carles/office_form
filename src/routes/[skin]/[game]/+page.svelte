@@ -56,7 +56,7 @@
 			if (snakeState?.status === 'over') return $t('ui.status.error');
 			return $t('ui.status.ready');
 		}
-		if (skin.id === 'notion') {
+		if (skin.id === 'notion' || skin.id === 'outlook') {
 			if (typingState?.status === 'running')
 				return $t('games.typing.liveStatus', {
 					values: { wpm: typingState.wpm, accuracy: typingState.accuracy }
@@ -74,7 +74,7 @@
 </script>
 
 <svelte:head>
-	<title>{skin ? skin.pageTitle : 'Dashboard'}</title>
+	<title>{skin ? $t(`skins.${skin.id}.pageTitle`) : 'Dashboard'}</title>
 </svelte:head>
 
 {#if skin && gameId}
