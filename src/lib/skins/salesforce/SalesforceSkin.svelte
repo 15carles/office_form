@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 	import { panicMode } from '$lib/stores/panic';
 	import { toggleFullscreen, isFullscreen } from '$lib/stores/fullscreen';
 	import { getBestScore } from '$lib/stores/progress';
@@ -20,6 +20,15 @@
 
 	// The game-hosting related list's record counter reflects the live score
 	const gameCount = $derived(score > 0 ? score : 3);
+
+	// Highlights amount, formatted for the active locale
+	const amount = $derived(
+		new Intl.NumberFormat($locale ?? 'en', {
+			style: 'currency',
+			currency: 'EUR',
+			maximumFractionDigits: 0
+		}).format(65500 + score * 500)
+	);
 
 	const NAV_IDS = ['home', 'opportunities', 'leads', 'accounts', 'contacts', 'reports', 'dashboards'];
 	const STAGE_IDS = ['prospecting', 'qualification', 'needsAnalysis', 'proposal', 'negotiation', 'closedWon'];
@@ -77,7 +86,7 @@
 				<div class="hl-fields">
 					<div class="hlf"><span class="hlf-l">{$t('salesforceContent.highlights.account')}</span><span class="hlf-v link">{$t('salesforceContent.highlights.accountValue')}</span></div>
 					<div class="hlf"><span class="hlf-l">{$t('salesforceContent.highlights.closeDate')}</span><span class="hlf-v">{$t('salesforceContent.highlights.closeDateValue')}</span></div>
-					<div class="hlf"><span class="hlf-l">{$t('salesforceContent.highlights.amount')}</span><span class="hlf-v">€ {(65500 + score * 500).toLocaleString('es-ES')}</span></div>
+					<div class="hlf"><span class="hlf-l">{$t('salesforceContent.highlights.amount')}</span><span class="hlf-v">{amount}</span></div>
 					<div class="hlf"><span class="hlf-l">{$t('salesforceContent.highlights.owner')}</span><span class="hlf-v link">{$t('salesforceContent.highlights.ownerValue')}</span></div>
 				</div>
 				<div class="hl-btns">
