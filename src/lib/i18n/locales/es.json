@@ -43,6 +43,12 @@
       "description": "Correo corporativo y agenda",
       "appName": "Bandeja de entrada",
       "pageTitle": "Bandeja de entrada — Outlook"
+    },
+    "teams": {
+      "name": "TeamHub",
+      "description": "Chat y reuniones de equipo",
+      "appName": "Chat",
+      "pageTitle": "Chat | Microsoft Teams"
     }
   },
   "outlookContent": {
@@ -93,6 +99,44 @@
       "attachmentSize": "248 KB",
       "quotedHeader": "El martes escribiste:",
       "quotedBody": "Te paso las cifras consolidadas del Q3 para revisión. Ojo: la línea de servicios aún arrastra el ajuste de septiembre — si te viene bien lo repasamos juntos."
+    }
+  },
+  "teamsContent": {
+    "searchPlaceholder": "Buscar",
+    "messagePlaceholder": "Escribe un mensaje",
+    "send": "Enviar",
+    "nav": {
+      "activity": "Actividad",
+      "chat": "Chat",
+      "teams": "Equipos",
+      "calendar": "Calendario",
+      "calls": "Llamadas"
+    },
+    "chatHeader": "Chat",
+    "tabs": {
+      "chat": "Chat",
+      "files": "Archivos"
+    },
+    "you": "Tú",
+    "replyTo": "Responder a {name}",
+    "chats": {
+      "c1": { "name": "Elena Vidal", "snippet": "Perfecto, le echo un vistazo ahora", "time": "9:44", "unread": false },
+      "c2": { "name": "Proyecto Q3", "snippet": "A. Fernández: He actualizado el deck", "time": "9:20", "unread": true },
+      "c3": { "name": "M. López", "snippet": "La documentación de API ya está 👍", "time": "8:30", "unread": true },
+      "c4": { "name": "Laura Ortiz", "snippet": "Tú: perfecto, gracias", "time": "Ayer", "unread": false },
+      "c5": { "name": "Soporte IT", "snippet": "Tu incidencia se ha resuelto", "time": "Ayer", "unread": false },
+      "c6": { "name": "D. Romero", "snippet": "Nos sincronizamos mañana a primera hora", "time": "Lun", "unread": false },
+      "c7": { "name": "Recursos Humanos", "snippet": "Recordatorio: evaluaciones cierran el viernes", "time": "Lun", "unread": false }
+    },
+    "panic": {
+      "msg1": "¡Hola! ¿Has podido mirar las cifras del Q3?",
+      "msg2": "Acabo de repasarlas — en general está sólido 👍",
+      "msg3": "Genial. ¿Puedes revisar las hipótesis de tipo de cambio de la diapositiva 7?",
+      "msgMine": "Voy con ello. Te aviso en cuanto cuadre la tabla de plantilla con Finanzas.",
+      "msg4": "Perfecto, gracias. Después reenvío el pack al comité.",
+      "meetingTitle": "Revisión Q3 — seguimiento",
+      "meetingTime": "Hoy · 16:00 – 16:30",
+      "meetingJoin": "Unirse"
     }
   },
   "games": {

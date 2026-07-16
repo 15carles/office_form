@@ -43,6 +43,12 @@
       "description": "Corporate mail and scheduling",
       "appName": "Inbox",
       "pageTitle": "Inbox — Outlook"
+    },
+    "teams": {
+      "name": "TeamHub",
+      "description": "Team chat and meetings",
+      "appName": "Chat",
+      "pageTitle": "Chat | Microsoft Teams"
     }
   },
   "outlookContent": {
@@ -93,6 +99,44 @@
       "attachmentSize": "248 KB",
       "quotedHeader": "On Tuesday you wrote:",
       "quotedBody": "Sending over the consolidated Q3 figures for review. Flagging that the services line still carries the September adjustment — happy to walk through it if useful."
+    }
+  },
+  "teamsContent": {
+    "searchPlaceholder": "Search",
+    "messagePlaceholder": "Type a message",
+    "send": "Send",
+    "nav": {
+      "activity": "Activity",
+      "chat": "Chat",
+      "teams": "Teams",
+      "calendar": "Calendar",
+      "calls": "Calls"
+    },
+    "chatHeader": "Chat",
+    "tabs": {
+      "chat": "Chat",
+      "files": "Files"
+    },
+    "you": "You",
+    "replyTo": "Reply to {name}",
+    "chats": {
+      "c1": { "name": "Elena Vidal", "snippet": "Perfect, I'll take a look now", "time": "9:44", "unread": false },
+      "c2": { "name": "Project Q3", "snippet": "A. Fernández: I've updated the deck", "time": "9:20", "unread": true },
+      "c3": { "name": "M. López", "snippet": "The API docs are live 👍", "time": "8:30", "unread": true },
+      "c4": { "name": "Laura Ortiz", "snippet": "You: sounds good, thanks", "time": "Yesterday", "unread": false },
+      "c5": { "name": "IT Service Desk", "snippet": "Your ticket has been resolved", "time": "Yesterday", "unread": false },
+      "c6": { "name": "D. Romero", "snippet": "Let's sync tomorrow morning", "time": "Mon", "unread": false },
+      "c7": { "name": "People Team", "snippet": "Reminder: reviews close Friday", "time": "Mon", "unread": false }
+    },
+    "panic": {
+      "msg1": "Hi! Did you get a chance to look at the Q3 figures?",
+      "msg2": "Just went through them — overall looks solid 👍",
+      "msg3": "Great. Can you double-check the FX assumptions on slide 7?",
+      "msgMine": "On it. I'll ping you once the headcount table is aligned with Finance.",
+      "msg4": "Perfect, thanks. I'll forward the pack to the committee after that.",
+      "meetingTitle": "Q3 Review — follow-up",
+      "meetingTime": "Today · 4:00 PM – 4:30 PM",
+      "meetingJoin": "Join"
     }
   },
   "games": {

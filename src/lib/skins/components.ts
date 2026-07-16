@@ -5,10 +5,12 @@ import ExcelSkin from './excel/ExcelSkin.svelte';
 import FigmaSkin from './figma/FigmaSkin.svelte';
 import NotionSkin from './notion/NotionSkin.svelte';
 import OutlookSkin from './outlook/OutlookSkin.svelte';
+import TeamsSkin from './teams/TeamsSkin.svelte';
 import SkinPreviewExcel from '$lib/components/SkinPreviewExcel.svelte';
 import SkinPreviewFigma from '$lib/components/SkinPreviewFigma.svelte';
 import SkinPreviewNotion from '$lib/components/SkinPreviewNotion.svelte';
 import SkinPreviewOutlook from '$lib/components/SkinPreviewOutlook.svelte';
+import SkinPreviewTeams from '$lib/components/SkinPreviewTeams.svelte';
 
 /** Props every skin component accepts. Skins may ignore the ones they don't use. */
 export interface SkinComponentProps {
@@ -24,7 +26,8 @@ export const SKIN_COMPONENTS: Record<SkinId, Component<SkinComponentProps>> = {
 	excel: ExcelSkin,
 	figma: FigmaSkin,
 	notion: NotionSkin,
-	outlook: OutlookSkin
+	outlook: OutlookSkin,
+	teams: TeamsSkin
 };
 
 /** Prop-less SVG thumbnails shown on the dashboard cards. */
@@ -32,5 +35,6 @@ export const SKIN_PREVIEWS: Record<SkinId, Component> = {
 	excel: SkinPreviewExcel,
 	figma: SkinPreviewFigma,
 	notion: SkinPreviewNotion,
-	outlook: SkinPreviewOutlook
+	outlook: SkinPreviewOutlook,
+	teams: SkinPreviewTeams
 };

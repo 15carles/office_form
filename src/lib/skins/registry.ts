@@ -45,6 +45,13 @@ export const SKINS: SkinDef[] = [
 		uiAccent: '#0f6cbd',
 		compatibleGames: ['typing', 'snake', 'tetris'],
 		recommendedGame: 'typing'
+	},
+	{
+		id: 'teams',
+		accentColor: '#5b5fc7',
+		uiAccent: '#5b5fc7',
+		compatibleGames: ['typing', 'snake', 'tetris'],
+		recommendedGame: 'typing'
 	}
 ];
 
