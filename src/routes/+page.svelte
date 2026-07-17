@@ -22,7 +22,6 @@
 
 <svelte:head>
 	<title>OfficeForms — Dashboard</title>
-	<meta name="description" content="OfficeForms — ready-to-use workspace environments for analysis, design and documentation." />
 </svelte:head>
 
 <div class="page">
