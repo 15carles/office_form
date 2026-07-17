@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 	import { base } from '$app/paths';
 	import { setLocale, type SupportedLocale } from '$lib/i18n';
 	import { prefs, streak } from '$lib/stores/progress';
@@ -10,6 +10,11 @@
 	import DayBadge from '$lib/components/DayBadge.svelte';
 
 	const todayCombo = getGameOfDay();
+
+	// FAQ lives at /faq (English) and /faq/<lang> for the rest
+	const faqHref = $derived(
+		($locale ?? 'en') === 'en' ? `${base}/faq` : `${base}/faq/${$locale}`
+	);
 
 	const LOCALES: { code: SupportedLocale; label: string }[] = [
 		{ code: 'es', label: 'ES' },
@@ -108,6 +113,7 @@
 	</main>
 
 	<footer class="footer">
+		<a class="footer-link" href={faqHref}>{$t('home.faq')}</a>
 		<span class="footer-brand">{$t('home.footer')}</span>
 		<span class="footer-domain">officeforms.pro</span>
 	</footer>
@@ -315,6 +321,13 @@
 		gap: 8px;
 	}
 
+	.footer-link {
+		color: var(--of-ink-muted);
+		text-decoration: none;
+	}
+	.footer-link:hover { color: var(--of-ink); text-decoration: underline; }
+
+	.footer-brand::before,
 	.footer-domain::before {
 		content: '·';
 		margin-right: 8px;

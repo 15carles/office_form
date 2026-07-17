@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { setupI18n, locale } from '$lib/i18n';
-	import { isLoading } from 'svelte-i18n';
 	import { browser } from '$app/environment';
 	import { togglePanic } from '$lib/stores/panic';
 	import '../app.css';
@@ -26,6 +25,4 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-{#if !$isLoading}
-	{@render children()}
-{/if}
+{@render children()}

@@ -17,7 +17,8 @@
     "footer": "OfficeForms · Interne Produktivitätsumgebungen",
     "open": "Öffnen →",
     "today": "Heute",
-    "bestTotal": "Bestwert: {total} insgesamt"
+    "bestTotal": "Bestwert: {total} insgesamt",
+    "faq": "Häufige Fragen"
   },
   "skins": {
     "excel": {

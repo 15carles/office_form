@@ -17,7 +17,8 @@
     "footer": "OfficeForms · Environnements internes de productivité",
     "open": "Ouvrir →",
     "today": "Aujourd'hui",
-    "bestTotal": "Meilleur : {total} au total"
+    "bestTotal": "Meilleur : {total} au total",
+    "faq": "Questions fréquentes"
   },
   "skins": {
     "excel": {
