@@ -115,7 +115,11 @@
 
 <style>
 	.page {
-		min-height: 100vh;
+		/* Fixed viewport height so this element scrolls internally — the
+		   global `overflow: hidden` on body (needed by the fullscreen skins)
+		   would otherwise clip the dashboard with no way to scroll. */
+		height: 100vh;
+		height: 100dvh;
 		background: var(--of-paper);
 		display: flex;
 		flex-direction: column;
